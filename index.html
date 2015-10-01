@@ -126,6 +126,19 @@ for the JavaScript code in this tag.
 <li><a href="#sec-1">1 Mencegah SSH Timeout</a></li>
 <li><a href="#sec-2">2 Membuat / Menambah swap di Ubuntu</a></li>
 <li><a href="#sec-3">3 Set Locale di Ubuntu Server</a></li>
+<li><a href="#sec-4">4 Deploy Flask + Nginx + Supervisor di Ubuntu</a>
+<ul>
+<li><a href="#sec-4-1">4.1 Add user di Ubuntu</a></li>
+<li><a href="#sec-4-2">4.2 Install needed package</a></li>
+<li><a href="#sec-4-3">4.3 Install virtualenv &amp; supervisor</a></li>
+<li><a href="#sec-4-4">4.4 git clone</a></li>
+<li><a href="#sec-4-5">4.5 Setting virtualenv</a></li>
+<li><a href="#sec-4-6">4.6 Setting supervisor</a></li>
+<li><a href="#sec-4-7">4.7 Sunting berkas run.py</a></li>
+<li><a href="#sec-4-8">4.8 Setting nginx</a></li>
+<li><a href="#sec-4-9">4.9 Jalankan supervisor</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -203,6 +216,215 @@ LANGUAGE="en_US.UTF-8"
 <p>
 Selanjutnya silakan re-login atau reboot, agar setting berlaku.
 </p></div>
+
+</div>
+
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Deploy Flask + Nginx + Supervisor di Ubuntu</h2>
+<div class="outline-text-2" id="text-4">
+
+
+</div>
+
+<div id="outline-container-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Add user di Ubuntu</h3>
+<div class="outline-text-3" id="text-4-1">
+
+
+
+
+<pre class="example">adduser sopier
+adduser sopier sudo
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Install needed package</h3>
+<div class="outline-text-3" id="text-4-2">
+
+
+
+
+<pre class="example">sudo apt-get install build-essential python-dev python-pip nginx
+emacs24-nox git
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Install virtualenv &amp; supervisor</h3>
+<div class="outline-text-3" id="text-4-3">
+
+
+
+
+<pre class="example">sudo pip install virtualenv supervisor
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> git clone</h3>
+<div class="outline-text-3" id="text-4-4">
+
+
+
+
+<pre class="example">git clone https://github.com/sopier/example.com
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> Setting virtualenv</h3>
+<div class="outline-text-3" id="text-4-5">
+
+
+
+
+<pre class="example">cd example.com
+virtualenv .
+. bin/activate
+pip install -r requirements.txt
+pip install uwsgi
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> Setting supervisor</h3>
+<div class="outline-text-3" id="text-4-6">
+
+<p>Buat berkas baru, misal di <code>~/supervisord.conf</code>, dan isikan baris
+konfigurasi berikut:
+</p>
+
+
+<pre class="example">[unix_http_server]
+file=/tmp/uwsgi.sock   ; (the path to the socket file)
+
+[supervisord]
+logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
+logfile_maxbytes=50MB       ; (max main logfile bytes b4 rotation;default 50MB)
+logfile_backups=10          ; (num of main logfile rotation backups;default 10)
+loglevel=info               ; (log level;default info; others: debug,warn,trace)
+pidfile=/tmp/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+nodaemon=false              ; (start in foreground if true;default false)
+minfds=1024                 ; (min. avail startup file descriptors;default 1024)
+minprocs=200
+
+[rpcinterface:supervisor]
+supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+
+[supervisorctl]
+logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
+serverurl=unix:///tmp/uwsgi.sock ; use a unix:// URL
+
+[program:example.com]
+command=/home/sopier/example.com/bin/uwsgi --socket /tmp/uwsgi.sock --module run --callable app -H /home/sopier/example.com/ --chdir /home/sopier/example.com/ --chmod-socket=666 --processes=5
+directory=/home/sopier/example.com/
+autostart=true
+autorestart=true
+stdout_logfile=/tmp/example.log
+redirect_stderr=true
+stopsignal=QUIT
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-7" class="outline-3">
+<h3 id="sec-4-7"><span class="section-number-3">4.7</span> Sunting berkas run.py</h3>
+<div class="outline-text-3" id="text-4-7">
+
+<p>Berikut ini setting untuk run.py (sesuaikan seperlunya):
+</p>
+
+
+<pre class="example">#!/usr/bin/env python
+from app import app
+
+if __name__ == "__main__":
+    app.run(debug=False)
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-8" class="outline-3">
+<h3 id="sec-4-8"><span class="section-number-3">4.8</span> Setting nginx</h3>
+<div class="outline-text-3" id="text-4-8">
+
+<p>Berikut ini adalah konfigurasi nginx sederhana tapi works:
+</p>
+
+
+<pre class="example">server {
+    listen        80;
+    server_name   www.example.com;
+    location / { try_files $uri @app; }
+    location @app {
+        include uwsgi_params;
+        uwsgi_pass unix:/tmp/uwsgi.sock;
+    }
+}
+</pre>
+
+<p>
+Atau jika Anda ingin multiple site, berikut ini contoh konfigurasinya:
+</p>
+
+
+<pre class="example">server {
+    listen        80;
+    server_name   www.example1.com;
+    location / { try_files $uri @app; }
+    location @app {
+        include uwsgi_params;
+        uwsgi_pass unix:/tmp/uwsgi1.sock;
+    }
+}
+server {
+    listen        80;
+    server_name   www.example2.com;
+    location / { try_files $uri @app; }
+    location @app {
+        include uwsgi_params;
+        uwsgi_pass unix:/tmp/uwsgi2.sock;
+    }
+}
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-4-9" class="outline-3">
+<h3 id="sec-4-9"><span class="section-number-3">4.9</span> Jalankan supervisor</h3>
+<div class="outline-text-3" id="text-4-9">
+
+<p>Terakhir, jalankan <code>supervisor</code> dengan menjalankan perintah berikut:
+</p>
+
+
+<pre class="example">sudo supervisord -c ~/supervisord.conf
+</pre>
+
+</div>
+</div>
 </div>
 </div>
 
