@@ -1,0 +1,7 @@
+#+TITLE: Personal Blog
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-01 Thu>
+#+STYLE: <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
+#+STARTUP: indent
+
+* Hello World
