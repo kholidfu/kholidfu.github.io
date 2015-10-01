@@ -581,17 +581,7 @@ sebagai berikut:
 
 
 <p>
-Maka untuk menjalankan gunicorn:
-</p>
-
-
-
-<pre class="example">gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
-</pre>
-
-
-<p>
-Dan berikut setting untuk nginx:
+Dan berikut ini setting untuk nginx:
 </p>
 
 
@@ -625,6 +615,16 @@ server {
        alias /home/sopier/mslib/mslib/collections/;
    }
 }
+</pre>
+
+
+<p>
+Maka untuk menjalankan gunicorn:
+</p>
+
+
+
+<pre class="example">gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
 </pre>
 
 </div>

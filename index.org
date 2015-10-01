@@ -255,13 +255,7 @@ Dengan asumsi struktur direktori sebagai berikut:
       └── app
 #+END_SRC
 
-Maka untuk menjalankan gunicorn:
-
-#+BEGIN_SRC sh
-  gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
-#+END_SRC
-
-Dan berikut setting untuk nginx:
+Dan berikut ini setting untuk nginx:
 
 #+BEGIN_SRC text
   upstream app_server {
@@ -293,4 +287,10 @@ Dan berikut setting untuk nginx:
          alias /home/sopier/mslib/mslib/collections/;
      }
   }
+#+END_SRC
+
+Maka untuk menjalankan gunicorn:
+
+#+BEGIN_SRC sh
+  gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
 #+END_SRC
