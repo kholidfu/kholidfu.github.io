@@ -226,3 +226,29 @@ sebagai berikut:
       ...
   }
 #+END_SRC
+* Setting gunicorn + django
+#+BEGIN_SRC text
+  mslib/
+  ├── app
+  │   ├── admin.py
+  │   ├── __init__.py
+  │   ├── migrations
+  │   ├── models.py
+  │   ├── tests.py
+  │   ├── urls.py
+  │   ├── views.py
+  ├── manage.py
+  ├── mslib
+  │   ├── __init__.py
+  │   ├── settings.py
+  │   ├── urls.py
+  │   ├── wsgi.py
+  ├── static
+  │   ├── admin
+  │   ├── app
+  │   └── js
+  └── templates
+      ├── 404.html
+      ├── admin
+      └── app
+#+END_SRC

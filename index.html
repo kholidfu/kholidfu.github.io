@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Me and labs127.io</title>
-<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 <meta name="title" content="Me and labs127.io"/>
 <meta name="generator" content="Org-mode"/>
 <meta name="generated" content="2015-10-01"/>
@@ -143,6 +143,7 @@ for the JavaScript code in this tag.
 <li><a href="#sec-6">6 Catch search engine terms with python, flask and mongo</a></li>
 <li><a href="#sec-7">7 Mencegah Cascade di django models</a></li>
 <li><a href="#sec-8">8 CSS, JS dan IMG tidak mau load di django-admin</a></li>
+<li><a href="#sec-9">9 Setting gunicorn + django</a></li>
 </ul>
 </div>
 </div>
@@ -538,6 +539,42 @@ sebagai berikut:
 
     ...
 }
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> Setting gunicorn + django</h2>
+<div class="outline-text-2" id="text-9">
+
+
+
+
+<pre class="example">mslib/
+├── app
+│   ├── admin.py
+│   ├── __init__.py
+│   ├── migrations
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   ├── views.py
+├── manage.py
+├── mslib
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── wsgi.py
+├── static
+│   ├── admin
+│   ├── app
+│   └── js
+└── templates
+    ├── 404.html
+    ├── admin
+    └── app
 </pre>
 
 </div>
