@@ -141,6 +141,8 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#sec-5">5 Install library lxml di dalam virtualenv</a></li>
 <li><a href="#sec-6">6 Catch search engine terms with python, flask and mongo</a></li>
+<li><a href="#sec-7">7 Mencegah Cascade di django models</a></li>
+<li><a href="#sec-8">8 CSS, JS dan IMG tidak mau load di django-admin</a></li>
 </ul>
 </div>
 </div>
@@ -488,6 +490,54 @@ except:
 
 # sorting term
 sorted(db.term.find_one({"q": t})['refer'].items(), key=lambda x: x[1], reverse=True)
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Mencegah Cascade di django models</h2>
+<div class="outline-text-2" id="text-7">
+
+<p>django, by default menggunakan cascade untuk model ForeignKey, ini artinya
+jika data child dihapus maka data parent juga ikut terhapus. Untuk mencegah
+hal ini, kita dapat menambahkan argument berikut:
+</p>
+
+
+
+<pre class="example">nama = models.ForeignKey(Guru, on_delete=models.SET_NULL)
+</pre>
+
+
+<p>
+Jika setting sudah benar, tandanya ada tanda silang di sebelah field
+ForeignKey.
+</p></div>
+
+</div>
+
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> CSS, JS dan IMG tidak mau load di django-admin</h2>
+<div class="outline-text-2" id="text-8">
+
+<p>Jika hal ini terjadi, berarti setting nginx Anda perlu dibenahi, yakni
+dengan menambahkan location <i>static</i> di konfig nginx Anda, misal
+sebagai berikut:
+</p>
+
+
+
+<pre class="example">server {
+    ...
+
+    location /static/ {
+        alias /home/sopier/mslib/mslib/static/;
+    }
+
+    ...
+}
 </pre>
 
 </div>

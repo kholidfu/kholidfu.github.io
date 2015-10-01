@@ -199,3 +199,30 @@ Terakhir, jalankan =supervisor= dengan menjalankan perintah berikut:
   # sorting term
   sorted(db.term.find_one({"q": t})['refer'].items(), key=lambda x: x[1], reverse=True)
 #+END_SRC
+* Mencegah Cascade di django models
+django, by default menggunakan cascade untuk model ForeignKey, ini artinya
+jika data child dihapus maka data parent juga ikut terhapus. Untuk mencegah
+hal ini, kita dapat menambahkan argument berikut:
+
+#+BEGIN_SRC python
+  nama = models.ForeignKey(Guru, on_delete=models.SET_NULL)
+#+END_SRC
+
+Jika setting sudah benar, tandanya ada tanda silang di sebelah field
+ForeignKey.
+* CSS, JS dan IMG tidak mau load di django-admin
+Jika hal ini terjadi, berarti setting nginx Anda perlu dibenahi, yakni
+dengan menambahkan location /static/ di konfig nginx Anda, misal
+sebagai berikut:
+
+#+BEGIN_SRC text
+  server {
+      ...
+  
+      location /static/ {
+          alias /home/sopier/mslib/mslib/static/;
+      }
+      
+      ...
+  }
+#+END_SRC
