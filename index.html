@@ -139,6 +139,8 @@ for the JavaScript code in this tag.
 <li><a href="#sec-4-9">4.9 Jalankan supervisor</a></li>
 </ul>
 </li>
+<li><a href="#sec-5">5 Install library lxml di dalam virtualenv</a></li>
+<li><a href="#sec-6">6 Catch search engine terms with python, flask and mongo</a></li>
 </ul>
 </div>
 </div>
@@ -424,6 +426,70 @@ server {
 </pre>
 
 </div>
+</div>
+
+</div>
+
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Install library lxml di dalam virtualenv</h2>
+<div class="outline-text-2" id="text-5">
+
+
+
+
+<pre class="example">sudo apt-get install libxml2-dev libxslt-dev
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Catch search engine terms with python, flask and mongo</h2>
+<div class="outline-text-2" id="text-6">
+
+
+
+
+<pre class="example"># pip install referer_parser
+from referer_parser import Referer
+# dbase
+import pymongo
+
+c = pymongo.Connection()
+refdb = c['referer']
+
+# ganti "-" =&gt; " " pada q                                                     
+t = q.replace("-", " ")
+
+# referer tracker                                                             
+try:
+    head = request.headers
+    url = head['Referer']
+    refobj = Referer(url)
+    # setem ini sudah bersih!
+    setem = refobj.search_term
+
+    # jika ada setem, input into db                                                   
+    if setem:
+        # jika lom ada setem, insert!                                               
+        if refdb.term.find_one({"q": t}) is None:
+            refdb.term.insert({"q": t, "refer": {setem: 1}})
+        # jika sudah ada, pilihannya ada 2, set atau increment!
+        else:
+            # jika sudah ada setem, increment!                                      
+            if setem in refdb.term.find_one({"q": t})['refer']:
+                refdb.term.update({"q": t}, {"$inc": {"refer." + str(setem): 1}}, upsert=True)
+            # jika lom ada setem, set setem: 1!                                     
+            elif setem not in refdb.term.find_one({"q": t})['refer']:
+                refdb.term.update({"q": t}, {"$set": {"refer." + str(setem): 1}}, upsert=True)
+except:
+    pass
+
+# sorting term
+sorted(db.term.find_one({"q": t})['refer'].items(), key=lambda x: x[1], reverse=True)
+</pre>
+
 </div>
 </div>
 </div>
