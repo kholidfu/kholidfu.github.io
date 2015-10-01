@@ -23,7 +23,9 @@ bagian dari artikel ini tidak works lagi, mungkin karena versi yang
 berbeda atau karena perbedaan environment.
 
 ** Question
-Jika ada pertanyaan, silakan mention saya di twitter: @sopier
+Jika ada pertanyaan, silakan mention saya di twitter: @sopier. Tidak
+ada jaminan bisa memberikan solusi pasti, sekedar diusahakan sesuai
+kemampuan.
 * server.labs127.io
 ** Mencegah SSH Timeout
   Bagi Anda yang sering melakukan koneksi SSH ke server, tentu sangat
@@ -317,5 +319,8 @@ Maka untuk menjalankan gunicorn:
   gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
 #+END_SRC
 * emacs.labs127.io
+**COMING SOON
 * js.labs127.io
-* css.labs127.io
+**COMING SOON
+* reading.labs127.io
+**COMING SOON
