@@ -15,7 +15,7 @@
   #+END_SRC
 
 * Membuat / Menambah swap di Ubuntu
-  Terkadang karena keterbatasan /budget/, kita tidak dapat melakukan
+  Terkadang karena keterbatasan /memory/, kita tidak dapat melakukan
   instalasi paket atau /library/ tertentu di server. Hal ini pernah penulis
   alami ketika akan memasang /library/ =pandas=. Daripada harus upgrade 
   droplet, saya coba membuat swap di server tersebut, dan setelah membuat
