@@ -3,9 +3,9 @@
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Personal Blog</title>
+<title>Me and labs127.io</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="Personal Blog"/>
+<meta name="title" content="Me and labs127.io"/>
 <meta name="generator" content="Org-mode"/>
 <meta name="generated" content="2015-10-01"/>
 <meta name="author" content="Kholid Fuadi"/>
@@ -116,21 +116,32 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="content">
-<h1 class="title">Personal Blog</h1>
+<h1 class="title">Me and labs127.io</h1>
 
 
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 Hello World</a></li>
+<li><a href="#sec-1">1 Mencegah SSH Timeout</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Hello World</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> Mencegah SSH Timeout</h2>
 <div class="outline-text-2" id="text-1">
+
+<p>  Bagi Anda yang sering melakukan koneksi SSH ke server, tentu sangat
+  mengganggu bukan? Solusinya mudah, tambahkan atau buat konfigurasi baru
+  di berkas <code>~/.ssh/config</code>:
+</p>
+
+
+
+<pre class="example">Host *
+  ServerAliveInterval 10
+</pre>
 
 </div>
 </div>

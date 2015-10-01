@@ -1,7 +1,15 @@
-#+TITLE: Personal Blog
+#+TITLE: Me and labs127.io
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2015-10-01 Thu>
 #+STYLE: <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
 #+STARTUP: indent
 
-* Hello World
+* Mencegah SSH Timeout
+  Bagi Anda yang sering melakukan koneksi SSH ke server, tentu sangat
+  mengganggu bukan? Solusinya mudah, tambahkan atau buat konfigurasi baru
+  di berkas =~/.ssh/config=:
+
+  #+BEGIN_SRC text
+    Host *
+      ServerAliveInterval 10
+  #+END_SRC
