@@ -2,6 +2,11 @@
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2015-10-01 Thu>
 #+STYLE: <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
+#+STYLE: <style type="text/css">
+#+STYLE:<!--/*--><![CDATA[/*><!--*/
+#+STYLE: div.figure { float:left; }
+#+STYLE: /*]]>*/-->
+#+STYLE: </style>
 #+STARTUP: indent
 
 Akhirnya menemukan /platform/ yang nyaman buat menampung momen2
@@ -17,6 +22,12 @@ dalam sekejap.
 Selanjutnya tinggal seremonial git, dan artikel sudah live!
 
 *Who am I* 
+
+#+ATTR_HTML: alt="me, coffee and smoke" title="me, coffee, and smoke" width="150px"
+[[./img/klobot.jpg]]
+#+begin_html
+ <br style="clear:both;" />
+#+end_html
 
 A father with 3 kids, start coding in 2010, and now still
 learning. Interested [but not limited] to python, using emacs and
