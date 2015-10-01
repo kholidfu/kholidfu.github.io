@@ -123,34 +123,83 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 Mencegah SSH Timeout</a></li>
-<li><a href="#sec-2">2 Membuat / Menambah swap di Ubuntu</a></li>
-<li><a href="#sec-3">3 Set Locale di Ubuntu Server</a></li>
-<li><a href="#sec-4">4 Deploy Flask + Nginx + Supervisor di Ubuntu</a>
+<li><a href="#sec-1">1 Intro</a>
 <ul>
-<li><a href="#sec-4-1">4.1 Add user di Ubuntu</a></li>
-<li><a href="#sec-4-2">4.2 Install needed package</a></li>
-<li><a href="#sec-4-3">4.3 Install virtualenv &amp; supervisor</a></li>
-<li><a href="#sec-4-4">4.4 git clone</a></li>
-<li><a href="#sec-4-5">4.5 Setting virtualenv</a></li>
-<li><a href="#sec-4-6">4.6 Setting supervisor</a></li>
-<li><a href="#sec-4-7">4.7 Sunting berkas run.py</a></li>
-<li><a href="#sec-4-8">4.8 Setting nginx</a></li>
-<li><a href="#sec-4-9">4.9 Jalankan supervisor</a></li>
+<li><a href="#sec-1-1">1.1 Disclaimer</a></li>
+<li><a href="#sec-1-2">1.2 Question</a></li>
 </ul>
 </li>
-<li><a href="#sec-5">5 Install library lxml di dalam virtualenv</a></li>
-<li><a href="#sec-6">6 Catch search engine terms with python, flask and mongo</a></li>
-<li><a href="#sec-7">7 Mencegah Cascade di django models</a></li>
-<li><a href="#sec-8">8 CSS, JS dan IMG tidak mau load di django-admin</a></li>
-<li><a href="#sec-9">9 Setting gunicorn + django + nginx</a></li>
+<li><a href="#sec-2">2 Mencegah SSH Timeout</a></li>
+<li><a href="#sec-3">3 Membuat / Menambah swap di Ubuntu</a></li>
+<li><a href="#sec-4">4 Set Locale di Ubuntu Server</a></li>
+<li><a href="#sec-5">5 Deploy Flask + Nginx + Supervisor di Ubuntu</a>
+<ul>
+<li><a href="#sec-5-1">5.1 Add user di Ubuntu</a></li>
+<li><a href="#sec-5-2">5.2 Install needed package</a></li>
+<li><a href="#sec-5-3">5.3 Install virtualenv &amp; supervisor</a></li>
+<li><a href="#sec-5-4">5.4 git clone</a></li>
+<li><a href="#sec-5-5">5.5 Setting virtualenv</a></li>
+<li><a href="#sec-5-6">5.6 Setting supervisor</a></li>
+<li><a href="#sec-5-7">5.7 Sunting berkas run.py</a></li>
+<li><a href="#sec-5-8">5.8 Setting nginx</a></li>
+<li><a href="#sec-5-9">5.9 Jalankan supervisor</a></li>
+</ul>
+</li>
+<li><a href="#sec-6">6 Install library lxml di dalam virtualenv</a></li>
+<li><a href="#sec-7">7 Catch search engine terms with python, flask and mongo</a></li>
+<li><a href="#sec-8">8 Mencegah Cascade di django models</a></li>
+<li><a href="#sec-9">9 CSS, JS dan IMG tidak mau load di django-admin</a></li>
+<li><a href="#sec-10">10 Setting gunicorn + django + nginx</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Mencegah SSH Timeout</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> Intro</h2>
 <div class="outline-text-2" id="text-1">
+
+<p>Akhirnya menemukan <i>platform</i> yang nyaman buat menampung momen2
+<i>gotchas</i> yang penulis alami selama terjun di dunia
+per-coding-an. Tidak ada yang spesial, hanya berkas <code>.html</code> biasa, dengan
+sedikit bumbu stylesheet yang juga didapat dari browsing di internet.
+</p>
+<p>
+Menggunakan <code>emacs</code> <code>org-mode</code>, penulis dapat dengan nyaman membuat
+tulisan menggunakan <code>.org</code>, kemudian meng-export berkas tersebut ke html
+dengan semudah menekan <code>C c e h</code>, dan berkas org berubah menjadi html
+dalam sekejap.
+</p>
+<p>
+Selanjutnya tinggal seremonial git, dan artikel sudah live!
+</p>
+
+</div>
+
+<div id="outline-container-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Disclaimer</h3>
+<div class="outline-text-3" id="text-1-1">
+
+<p>Penulis tidak bertanggungjawab jika ternyata sebagian atau seluruh
+bagian dari artikel ini tidak works lagi, mungkin karena versi yang
+berbeda atau karena perbedaan environment.
+</p>
+</div>
+
+</div>
+
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Question</h3>
+<div class="outline-text-3" id="text-1-2">
+
+<p>Jika ada pertanyaan, silakan mention saya di twitter: @sopier
+</p></div>
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Mencegah SSH Timeout</h2>
+<div class="outline-text-2" id="text-2">
 
 <p>  Bagi Anda yang sering melakukan koneksi SSH ke server, tentu sangat
   mengganggu bukan? Solusinya mudah, tambahkan atau buat konfigurasi baru
@@ -168,9 +217,9 @@ for the JavaScript code in this tag.
 
 </div>
 
-<div id="outline-container-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Membuat / Menambah swap di Ubuntu</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Membuat / Menambah swap di Ubuntu</h2>
+<div class="outline-text-2" id="text-3">
 
 <p>  Terkadang karena keterbatasan <i>memory</i>, kita tidak dapat melakukan
   instalasi paket atau <i>library</i> tertentu di server. Hal ini pernah penulis
@@ -197,9 +246,9 @@ swapon /swapfile
 
 </div>
 
-<div id="outline-container-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Set Locale di Ubuntu Server</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Set Locale di Ubuntu Server</h2>
+<div class="outline-text-2" id="text-4">
 
 <p>Ini hal wajib yang perlu dilakukan ketika setup server, karena jika
 belum diset, biasanya ada beberapa masalah yang muncul, misal tidak
@@ -224,16 +273,16 @@ Selanjutnya silakan re-login atau reboot, agar setting berlaku.
 
 </div>
 
-<div id="outline-container-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Deploy Flask + Nginx + Supervisor di Ubuntu</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Deploy Flask + Nginx + Supervisor di Ubuntu</h2>
+<div class="outline-text-2" id="text-5">
 
 
 </div>
 
-<div id="outline-container-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Add user di Ubuntu</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Add user di Ubuntu</h3>
+<div class="outline-text-3" id="text-5-1">
 
 
 
@@ -246,9 +295,9 @@ adduser sopier sudo
 
 </div>
 
-<div id="outline-container-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Install needed package</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> Install needed package</h3>
+<div class="outline-text-3" id="text-5-2">
 
 
 
@@ -261,9 +310,9 @@ emacs24-nox git
 
 </div>
 
-<div id="outline-container-4-3" class="outline-3">
-<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Install virtualenv &amp; supervisor</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> Install virtualenv &amp; supervisor</h3>
+<div class="outline-text-3" id="text-5-3">
 
 
 
@@ -275,9 +324,9 @@ emacs24-nox git
 
 </div>
 
-<div id="outline-container-4-4" class="outline-3">
-<h3 id="sec-4-4"><span class="section-number-3">4.4</span> git clone</h3>
-<div class="outline-text-3" id="text-4-4">
+<div id="outline-container-5-4" class="outline-3">
+<h3 id="sec-5-4"><span class="section-number-3">5.4</span> git clone</h3>
+<div class="outline-text-3" id="text-5-4">
 
 
 
@@ -289,9 +338,9 @@ emacs24-nox git
 
 </div>
 
-<div id="outline-container-4-5" class="outline-3">
-<h3 id="sec-4-5"><span class="section-number-3">4.5</span> Setting virtualenv</h3>
-<div class="outline-text-3" id="text-4-5">
+<div id="outline-container-5-5" class="outline-3">
+<h3 id="sec-5-5"><span class="section-number-3">5.5</span> Setting virtualenv</h3>
+<div class="outline-text-3" id="text-5-5">
 
 
 
@@ -307,9 +356,9 @@ pip install uwsgi
 
 </div>
 
-<div id="outline-container-4-6" class="outline-3">
-<h3 id="sec-4-6"><span class="section-number-3">4.6</span> Setting supervisor</h3>
-<div class="outline-text-3" id="text-4-6">
+<div id="outline-container-5-6" class="outline-3">
+<h3 id="sec-5-6"><span class="section-number-3">5.6</span> Setting supervisor</h3>
+<div class="outline-text-3" id="text-5-6">
 
 <p>Buat berkas baru, misal di <code>~/supervisord.conf</code>, dan isikan baris
 konfigurasi berikut:
@@ -350,9 +399,9 @@ stopsignal=QUIT
 
 </div>
 
-<div id="outline-container-4-7" class="outline-3">
-<h3 id="sec-4-7"><span class="section-number-3">4.7</span> Sunting berkas run.py</h3>
-<div class="outline-text-3" id="text-4-7">
+<div id="outline-container-5-7" class="outline-3">
+<h3 id="sec-5-7"><span class="section-number-3">5.7</span> Sunting berkas run.py</h3>
+<div class="outline-text-3" id="text-5-7">
 
 <p>Berikut ini setting untuk run.py (sesuaikan seperlunya):
 </p>
@@ -369,9 +418,9 @@ if __name__ == "__main__":
 
 </div>
 
-<div id="outline-container-4-8" class="outline-3">
-<h3 id="sec-4-8"><span class="section-number-3">4.8</span> Setting nginx</h3>
-<div class="outline-text-3" id="text-4-8">
+<div id="outline-container-5-8" class="outline-3">
+<h3 id="sec-5-8"><span class="section-number-3">5.8</span> Setting nginx</h3>
+<div class="outline-text-3" id="text-5-8">
 
 <p>Berikut ini adalah konfigurasi nginx sederhana tapi works:
 </p>
@@ -417,9 +466,9 @@ server {
 
 </div>
 
-<div id="outline-container-4-9" class="outline-3">
-<h3 id="sec-4-9"><span class="section-number-3">4.9</span> Jalankan supervisor</h3>
-<div class="outline-text-3" id="text-4-9">
+<div id="outline-container-5-9" class="outline-3">
+<h3 id="sec-5-9"><span class="section-number-3">5.9</span> Jalankan supervisor</h3>
+<div class="outline-text-3" id="text-5-9">
 
 <p>Terakhir, jalankan <code>supervisor</code> dengan menjalankan perintah berikut:
 </p>
@@ -433,9 +482,9 @@ server {
 
 </div>
 
-<div id="outline-container-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Install library lxml di dalam virtualenv</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Install library lxml di dalam virtualenv</h2>
+<div class="outline-text-2" id="text-6">
 
 
 
@@ -447,9 +496,9 @@ server {
 
 </div>
 
-<div id="outline-container-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Catch search engine terms with python, flask and mongo</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Catch search engine terms with python, flask and mongo</h2>
+<div class="outline-text-2" id="text-7">
 
 
 
@@ -497,9 +546,9 @@ sorted(db.term.find_one({"q": t})['refer'].items(), key=lambda x: x[1], reverse=
 
 </div>
 
-<div id="outline-container-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> Mencegah Cascade di django models</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Mencegah Cascade di django models</h2>
+<div class="outline-text-2" id="text-8">
 
 <p>django, by default menggunakan cascade untuk model ForeignKey, ini artinya
 jika data child dihapus maka data parent juga ikut terhapus. Untuk mencegah
@@ -519,9 +568,9 @@ ForeignKey.
 
 </div>
 
-<div id="outline-container-8" class="outline-2">
-<h2 id="sec-8"><span class="section-number-2">8</span> CSS, JS dan IMG tidak mau load di django-admin</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> CSS, JS dan IMG tidak mau load di django-admin</h2>
+<div class="outline-text-2" id="text-9">
 
 <p>Jika hal ini terjadi, berarti setting nginx Anda perlu dibenahi, yakni
 dengan menambahkan location <i>static</i> di konfig nginx Anda, misal
@@ -545,9 +594,9 @@ sebagai berikut:
 
 </div>
 
-<div id="outline-container-9" class="outline-2">
-<h2 id="sec-9"><span class="section-number-2">9</span> Setting gunicorn + django + nginx</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> Setting gunicorn + django + nginx</h2>
+<div class="outline-text-2" id="text-10">
 
 <p>Dengan asumsi struktur direktori sebagai berikut:
 </p>
