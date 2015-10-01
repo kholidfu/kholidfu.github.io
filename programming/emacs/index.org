@@ -1,0 +1,7 @@
+#+TITLE: emacs - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-01 Thu>
+#+STYLE: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+#+STARTUP: indent
+
+* emacs

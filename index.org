@@ -4,5 +4,38 @@
 #+STYLE: <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
 #+STARTUP: indent
 
-Kategori:
-- [[file:programming/index.html][Programming]]
+Akhirnya menemukan /platform/ yang nyaman buat menampung momen2
+/gotchas/ yang penulis alami selama terjun di dunia
+per-coding-an. Tidak ada yang spesial, hanya berkas ~.html~ biasa, dengan
+sedikit bumbu stylesheet yang juga didapat dari selancar di internet.
+
+Menggunakan =emacs= ~org-mode~, penulis dapat dengan nyaman membuat
+tulisan menggunakan ~.org~, kemudian meng-export berkas tersebut ke html
+dengan semudah menekan ~C c e h~, dan berkas org berubah menjadi html
+dalam sekejap.
+
+Selanjutnya tinggal seremonial git, dan artikel sudah live!
+
+*Who am I* 
+
+A father with 3 kids, start coding in 2010, and now still
+learning. Interested [but not limited] to python, using emacs and
+coffee addict.
+
+*Disclaimer*
+
+Penulis tidak bertanggungjawab jika ternyata sebagian atau seluruh
+bagian dari artikel ini tidak works lagi, mungkin karena versi yang
+berbeda atau karena perbedaan environment.
+
+*Question*
+
+Jika ada pertanyaan, silakan mention saya di twitter: @sopier. _Tidak
+ada jaminan solusi, namun diusahakan sesuai kemampuan._
+
+*Kategori:*
+
+- [[file:programming/index.html][Tech]]
+  - [[./programming/python/index.html][python]]
+  - [[./programming/emacs/index.html][emacs]]
+  - [[./programming/server/index.html][server]]

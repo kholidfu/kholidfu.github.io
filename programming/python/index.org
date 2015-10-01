@@ -1,0 +1,254 @@
+#+TITLE: python - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-01 Thu>
+#+STYLE: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+#+STARTUP: indent
+
+* python.labs127.io
+** Deploy Flask + Nginx + Supervisor di Ubuntu
+*** Add user di Ubuntu
+#+BEGIN_SRC text
+  adduser sopier
+  adduser sopier sudo
+#+END_SRC
+*** Install needed package
+#+BEGIN_SRC text
+  sudo apt-get install build-essential python-dev python-pip nginx
+  emacs24-nox git
+#+END_SRC
+*** Install virtualenv & supervisor
+#+BEGIN_SRC text
+  sudo pip install virtualenv supervisor
+#+END_SRC
+*** git clone
+#+BEGIN_SRC sh
+  git clone https://github.com/sopier/example.com
+#+END_SRC
+*** Setting virtualenv
+#+BEGIN_SRC text
+  cd example.com
+  virtualenv .
+  . bin/activate
+  pip install -r requirements.txt
+  pip install uwsgi
+#+END_SRC
+*** Setting supervisor
+Buat berkas baru, misal di =~/supervisord.conf=, dan isikan baris
+konfigurasi berikut:
+#+BEGIN_SRC text
+  [unix_http_server]
+  file=/tmp/uwsgi.sock   ; (the path to the socket file)
+  
+  [supervisord]
+  logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
+  logfile_maxbytes=50MB       ; (max main logfile bytes b4 rotation;default 50MB)
+  logfile_backups=10          ; (num of main logfile rotation backups;default 10)
+  loglevel=info               ; (log level;default info; others: debug,warn,trace)
+  pidfile=/tmp/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+  nodaemon=false              ; (start in foreground if true;default false)
+  minfds=1024                 ; (min. avail startup file descriptors;default 1024)
+  minprocs=200
+  
+  [rpcinterface:supervisor]
+  supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+  
+  [supervisorctl]
+  logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
+  serverurl=unix:///tmp/uwsgi.sock ; use a unix:// URL
+  
+  [program:example.com]
+  command=/home/sopier/example.com/bin/uwsgi --socket /tmp/uwsgi.sock --module run --callable app -H /home/sopier/example.com/ --chdir /home/sopier/example.com/ --chmod-socket=666 --processes=5
+  directory=/home/sopier/example.com/
+  autostart=true
+  autorestart=true
+  stdout_logfile=/tmp/example.log
+  redirect_stderr=true
+  stopsignal=QUIT
+#+END_SRC
+*** Sunting berkas run.py
+Berikut ini setting untuk run.py (sesuaikan seperlunya):
+#+BEGIN_SRC python
+  #!/usr/bin/env python
+  from app import app
+  
+  if __name__ == "__main__":
+      app.run(debug=False)
+#+END_SRC
+*** Setting nginx
+Berikut ini adalah konfigurasi nginx sederhana tapi works:
+#+BEGIN_SRC text
+  server {
+      listen        80;
+      server_name   www.example.com;
+      location / { try_files $uri @app; }
+      location @app {
+          include uwsgi_params;
+          uwsgi_pass unix:/tmp/uwsgi.sock;
+      }
+  }
+#+END_SRC
+Atau jika Anda ingin multiple site, berikut ini contoh konfigurasinya:
+#+BEGIN_SRC text
+  server {
+      listen        80;
+      server_name   www.example1.com;
+      location / { try_files $uri @app; }
+      location @app {
+          include uwsgi_params;
+          uwsgi_pass unix:/tmp/uwsgi1.sock;
+      }
+  }
+  server {
+      listen        80;
+      server_name   www.example2.com;
+      location / { try_files $uri @app; }
+      location @app {
+          include uwsgi_params;
+          uwsgi_pass unix:/tmp/uwsgi2.sock;
+      }
+  }
+#+END_SRC
+*** Jalankan supervisor
+Terakhir, jalankan =supervisor= dengan menjalankan perintah berikut:
+#+BEGIN_SRC sh
+  sudo supervisord -c ~/supervisord.conf
+#+END_SRC
+** Install library lxml di dalam virtualenv
+#+BEGIN_SRC sh
+  sudo apt-get install libxml2-dev libxslt-dev
+#+END_SRC
+** Catch search engine terms with python, flask and mongo
+#+BEGIN_SRC python
+  # pip install referer_parser
+  from referer_parser import Referer
+  # dbase
+  import pymongo
+  
+  c = pymongo.Connection()
+  refdb = c['referer']
+  
+  # ganti "-" => " " pada q                                                     
+  t = q.replace("-", " ")
+  
+  # referer tracker                                                             
+  try:
+      head = request.headers
+      url = head['Referer']
+      refobj = Referer(url)
+      # setem ini sudah bersih!
+      setem = refobj.search_term
+  
+      # jika ada setem, input into db                                                   
+      if setem:
+          # jika lom ada setem, insert!                                               
+          if refdb.term.find_one({"q": t}) is None:
+              refdb.term.insert({"q": t, "refer": {setem: 1}})
+          # jika sudah ada, pilihannya ada 2, set atau increment!
+          else:
+              # jika sudah ada setem, increment!                                      
+              if setem in refdb.term.find_one({"q": t})['refer']:
+                  refdb.term.update({"q": t}, {"$inc": {"refer." + str(setem): 1}}, upsert=True)
+              # jika lom ada setem, set setem: 1!                                     
+              elif setem not in refdb.term.find_one({"q": t})['refer']:
+                  refdb.term.update({"q": t}, {"$set": {"refer." + str(setem): 1}}, upsert=True)
+  except:
+      pass
+      
+  # sorting term
+  sorted(db.term.find_one({"q": t})['refer'].items(), key=lambda x: x[1], reverse=True)
+#+END_SRC
+** Mencegah Cascade di django models
+django, by default menggunakan cascade untuk model ForeignKey, ini artinya
+jika data child dihapus maka data parent juga ikut terhapus. Untuk mencegah
+hal ini, kita dapat menambahkan argument berikut:
+
+#+BEGIN_SRC python
+  nama = models.ForeignKey(Guru, on_delete=models.SET_NULL)
+#+END_SRC
+
+Jika setting sudah benar, tandanya ada tanda silang di sebelah field
+ForeignKey.
+** CSS, JS dan IMG tidak mau load di django-admin
+Jika hal ini terjadi, berarti setting nginx Anda perlu dibenahi, yakni
+dengan menambahkan location /static/ di konfig nginx Anda, misal
+sebagai berikut:
+
+#+BEGIN_SRC text
+  server {
+      ...
+  
+      location /static/ {
+          alias /home/sopier/mslib/mslib/static/;
+      }
+      
+      ...
+  }
+#+END_SRC
+** Setting gunicorn + django + nginx
+Dengan asumsi struktur direktori sebagai berikut:
+
+#+BEGIN_SRC text
+  mslib/
+  ├── app
+  │   ├── admin.py
+  │   ├── __init__.py
+  │   ├── migrations
+  │   ├── models.py
+  │   ├── tests.py
+  │   ├── urls.py
+  │   ├── views.py
+  ├── manage.py
+  ├── mslib
+  │   ├── __init__.py
+  │   ├── settings.py
+  │   ├── urls.py
+  │   ├── wsgi.py
+  ├── static
+  │   ├── admin
+  │   ├── app
+  │   └── js
+  └── templates
+      ├── 404.html
+      ├── admin
+      └── app
+#+END_SRC
+
+Dan berikut ini setting untuk nginx:
+
+#+BEGIN_SRC text
+  upstream app_server {
+     server 127.0.0.1:8000 fail_timeout=0;
+  }
+  
+  server {
+     listen 80;
+     server_name 159.xxx.xxx.xxx;
+     client_max_body_size 4G;
+     proxy_read_timeout 1200;
+  
+     location / {
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header Host $http_host;
+         proxy_redirect off;
+         proxy_pass http://app_server;
+         if (!-f $request_filename) {
+             proxy_pass http://app_server;
+             break;
+         }
+     }
+  
+     location /static/ {
+         alias /home/sopier/mslib/mslib/static/;
+     }
+  
+     location /media/ {
+         alias /home/sopier/mslib/mslib/collections/;
+     }
+  }
+#+END_SRC
+
+Maka untuk menjalankan gunicorn:
+
+#+BEGIN_SRC sh
+  gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
+#+END_SRC

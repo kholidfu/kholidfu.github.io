@@ -1,0 +1,50 @@
+#+TITLE: server - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-01 Thu>
+#+STYLE: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+#+STARTUP: indent
+
+* server.labs127.io
+** Mencegah SSH Timeout
+  Bagi Anda yang sering melakukan koneksi SSH ke server, tentu sangat
+  mengganggu bukan? Solusinya mudah, tambahkan atau buat konfigurasi baru
+  di berkas =~/.ssh/config=:
+
+  #+BEGIN_SRC text
+    Host *
+      ServerAliveInterval 10
+  #+END_SRC
+
+** Membuat / Menambah swap di Ubuntu
+  Terkadang karena keterbatasan /memory/, kita tidak dapat melakukan
+  instalasi paket atau /library/ tertentu di server. Hal ini pernah penulis
+  alami ketika akan memasang /library/ =pandas=. Daripada harus upgrade 
+  droplet, saya coba membuat swap di server tersebut, dan setelah membuat
+  swap sebesar 1GB, library tersebut berhasil terpasang dengan sukses.
+
+  Berikut ini langkah-langkahnya:
+  #+BEGIN_SRC sh
+    # create new partition 1M * 1024 = 1GB
+    dd if=/dev/zero of=/swapfile bs=1M count=1024
+    # set as swap
+    mkswap /swapfile
+    # activate the swap once
+    swapon /swapfile
+    # add to /etc/fstab to auto load when reboot [optional]
+    /swapfile swap swap defaults 0 0
+  #+END_SRC
+** Set Locale di Ubuntu Server
+Ini hal wajib yang perlu dilakukan ketika setup server, karena jika
+belum diset, biasanya ada beberapa masalah yang muncul, misal tidak
+mau login ke mongo console atau psql (postgresql).
+
+Cara untuk setting locale (ubuntu) adalah dengan menyunting berkas 
+=/etc/default/locale= dan isikan baris config berikut:
+
+#+BEGIN_SRC text
+  LC_ALL="en_US.UTF-8"
+  LANG="en_US.UTF-8"
+  LANGUAGE="en_US.UTF-8"
+#+END_SRC
+
+Selanjutnya silakan re-login atau reboot, agar setting berlaku.
