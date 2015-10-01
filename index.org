@@ -13,3 +13,22 @@
     Host *
       ServerAliveInterval 10
   #+END_SRC
+
+* Membuat / Menambah swap di Ubuntu
+  Terkadang karena keterbatasan /budget/, kita tidak dapat melakukan
+  instalasi paket atau /library/ tertentu di server. Hal ini pernah penulis
+  alami ketika akan memasang /library/ =pandas=. Daripada harus upgrade 
+  droplet, saya coba membuat swap di server tersebut, dan setelah membuat
+  swap sebesar 1GB, library tersebut berhasil terpasang dengan sukses.
+
+  Berikut ini langkah-langkahnya:
+  #+BEGIN_SRC sh
+    # create new partition 1M * 1024 = 1GB
+    dd if=/dev/zero of=/swapfile bs=1M count=1024
+    # set as swap
+    mkswap /swapfile
+    # activate the swap once
+    swapon /swapfile
+    # add to /etc/fstab to auto load when reboot [optional]
+    /swapfile swap swap defaults 0 0
+  #+END_SRC

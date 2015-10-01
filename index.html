@@ -124,6 +124,7 @@ for the JavaScript code in this tag.
 <div id="text-table-of-contents">
 <ul>
 <li><a href="#sec-1">1 Mencegah SSH Timeout</a></li>
+<li><a href="#sec-2">2 Membuat / Menambah swap di Ubuntu</a></li>
 </ul>
 </div>
 </div>
@@ -141,6 +142,36 @@ for the JavaScript code in this tag.
 
 <pre class="example">Host *
   ServerAliveInterval 10
+</pre>
+
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Membuat / Menambah swap di Ubuntu</h2>
+<div class="outline-text-2" id="text-2">
+
+<p>  Terkadang karena keterbatasan <i>budget</i>, kita tidak dapat melakukan
+  instalasi paket atau <i>library</i> tertentu di server. Hal ini pernah penulis
+  alami ketika akan memasang <i>library</i> <code>pandas</code>. Daripada harus upgrade 
+  droplet, saya coba membuat swap di server tersebut, dan setelah membuat
+  swap sebesar 1GB, library tersebut berhasil terpasang dengan sukses.
+</p>
+<p>
+  Berikut ini langkah-langkahnya:
+</p>
+
+
+<pre class="example"># create new partition 1M * 1024 = 1GB
+dd if=/dev/zero of=/swapfile bs=1M count=1024
+# set as swap
+mkswap /swapfile
+# activate the swap once
+swapon /swapfile
+# add to /etc/fstab to auto load when reboot [optional]
+/swapfile swap swap defaults 0 0
 </pre>
 
 </div>
