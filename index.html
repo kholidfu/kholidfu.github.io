@@ -125,6 +125,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#sec-1">1 Mencegah SSH Timeout</a></li>
 <li><a href="#sec-2">2 Membuat / Menambah swap di Ubuntu</a></li>
+<li><a href="#sec-3">3 Set Locale</a></li>
 </ul>
 </div>
 </div>
@@ -175,6 +176,33 @@ swapon /swapfile
 </pre>
 
 </div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Set Locale</h2>
+<div class="outline-text-2" id="text-3">
+
+<p>Ini hal wajib yang perlu dilakukan ketika setup server, karena jika
+belum diset, biasanya ada beberapa masalah yang muncul, misal tidak
+mau login ke mongo console atau psql (postgresql).
+</p>
+<p>
+Cara untuk setting locale (ubuntu) adalah dengan menyunting berkas 
+<code>/etc/default/locale</code> dan isikan baris config berikut:
+</p>
+
+
+
+<pre class="example">LC_ALL="en_US.UTF-8"
+LANG="en_US.UTF-8"
+LANGUAGE="en_US.UTF-8"
+</pre>
+
+
+<p>
+Selanjutnya silakan re-login atau reboot, agar setting berlaku.
+</p></div>
 </div>
 </div>
 

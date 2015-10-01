@@ -32,3 +32,18 @@
     # add to /etc/fstab to auto load when reboot [optional]
     /swapfile swap swap defaults 0 0
   #+END_SRC
+* Set Locale
+Ini hal wajib yang perlu dilakukan ketika setup server, karena jika
+belum diset, biasanya ada beberapa masalah yang muncul, misal tidak
+mau login ke mongo console atau psql (postgresql).
+
+Cara untuk setting locale (ubuntu) adalah dengan menyunting berkas 
+=/etc/default/locale= dan isikan baris config berikut:
+
+#+BEGIN_SRC text
+  LC_ALL="en_US.UTF-8"
+  LANG="en_US.UTF-8"
+  LANGUAGE="en_US.UTF-8"
+#+END_SRC
+
+Selanjutnya silakan re-login atau reboot, agar setting berlaku.
