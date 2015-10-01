@@ -5,4 +5,4 @@
 #+STARTUP: indent
 
 Kategori:
-- [[/programming/][Programming]]
+- [[file:programming/index.html][Programming]]
