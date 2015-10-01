@@ -3,9 +3,9 @@
                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>Me and labs127.io</title>
+<title>labs127.io and me</title>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-<meta name="title" content="Me and labs127.io"/>
+<meta name="title" content="labs127.io and me"/>
 <meta name="generator" content="Org-mode"/>
 <meta name="generated" content="2015-10-01"/>
 <meta name="author" content="Kholid Fuadi"/>
@@ -116,7 +116,7 @@ for the JavaScript code in this tag.
 </div>
 
 <div id="content">
-<h1 class="title">Me and labs127.io</h1>
+<h1 class="title">labs127.io and me</h1>
 
 
 <div id="table-of-contents">
@@ -143,7 +143,7 @@ for the JavaScript code in this tag.
 <li><a href="#sec-6">6 Catch search engine terms with python, flask and mongo</a></li>
 <li><a href="#sec-7">7 Mencegah Cascade di django models</a></li>
 <li><a href="#sec-8">8 CSS, JS dan IMG tidak mau load di django-admin</a></li>
-<li><a href="#sec-9">9 Setting gunicorn + django</a></li>
+<li><a href="#sec-9">9 Setting gunicorn + django + nginx</a></li>
 </ul>
 </div>
 </div>
@@ -546,9 +546,11 @@ sebagai berikut:
 </div>
 
 <div id="outline-container-9" class="outline-2">
-<h2 id="sec-9"><span class="section-number-2">9</span> Setting gunicorn + django</h2>
+<h2 id="sec-9"><span class="section-number-2">9</span> Setting gunicorn + django + nginx</h2>
 <div class="outline-text-2" id="text-9">
 
+<p>Dengan asumsi struktur direktori sebagai berikut:
+</p>
 
 
 
@@ -575,6 +577,54 @@ sebagai berikut:
     ├── 404.html
     ├── admin
     └── app
+</pre>
+
+
+<p>
+Maka untuk menjalankan gunicorn:
+</p>
+
+
+
+<pre class="example">gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
+</pre>
+
+
+<p>
+Dan berikut setting untuk nginx:
+</p>
+
+
+
+<pre class="example">upstream app_server {
+   server 127.0.0.1:8000 fail_timeout=0;
+}
+
+server {
+   listen 80;
+   server_name 159.xxx.xxx.xxx;
+   client_max_body_size 4G;
+   proxy_read_timeout 1200;
+
+   location / {
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header Host $http_host;
+       proxy_redirect off;
+       proxy_pass http://app_server;
+       if (!-f $request_filename) {
+           proxy_pass http://app_server;
+           break;
+       }
+   }
+
+   location /static/ {
+       alias /home/sopier/mslib/mslib/static/;
+   }
+
+   location /media/ {
+       alias /home/sopier/mslib/mslib/collections/;
+   }
+}
 </pre>
 
 </div>

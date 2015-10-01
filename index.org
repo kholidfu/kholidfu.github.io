@@ -1,4 +1,4 @@
-#+TITLE: Me and labs127.io
+#+TITLE: labs127.io and me
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2015-10-01 Thu>
 #+STYLE: <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
@@ -226,7 +226,9 @@ sebagai berikut:
       ...
   }
 #+END_SRC
-* Setting gunicorn + django
+* Setting gunicorn + django + nginx
+Dengan asumsi struktur direktori sebagai berikut:
+
 #+BEGIN_SRC text
   mslib/
   ├── app
@@ -251,4 +253,44 @@ sebagai berikut:
       ├── 404.html
       ├── admin
       └── app
+#+END_SRC
+
+Maka untuk menjalankan gunicorn:
+
+#+BEGIN_SRC sh
+  gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
+#+END_SRC
+
+Dan berikut setting untuk nginx:
+
+#+BEGIN_SRC text
+  upstream app_server {
+     server 127.0.0.1:8000 fail_timeout=0;
+  }
+  
+  server {
+     listen 80;
+     server_name 159.xxx.xxx.xxx;
+     client_max_body_size 4G;
+     proxy_read_timeout 1200;
+  
+     location / {
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header Host $http_host;
+         proxy_redirect off;
+         proxy_pass http://app_server;
+         if (!-f $request_filename) {
+             proxy_pass http://app_server;
+             break;
+         }
+     }
+  
+     location /static/ {
+         alias /home/sopier/mslib/mslib/static/;
+     }
+  
+     location /media/ {
+         alias /home/sopier/mslib/mslib/collections/;
+     }
+  }
 #+END_SRC
