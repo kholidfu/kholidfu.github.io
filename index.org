@@ -4,7 +4,7 @@
 #+STYLE: <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
 #+STARTUP: indent
 
-* Intro
+* intro.labs127.io
 Akhirnya menemukan /platform/ yang nyaman buat menampung momen2
 /gotchas/ yang penulis alami selama terjun di dunia
 per-coding-an. Tidak ada yang spesial, hanya berkas ~.html~ biasa, dengan
@@ -24,7 +24,8 @@ berbeda atau karena perbedaan environment.
 
 ** Question
 Jika ada pertanyaan, silakan mention saya di twitter: @sopier
-* Mencegah SSH Timeout
+* server.labs127.io
+** Mencegah SSH Timeout
   Bagi Anda yang sering melakukan koneksi SSH ke server, tentu sangat
   mengganggu bukan? Solusinya mudah, tambahkan atau buat konfigurasi baru
   di berkas =~/.ssh/config=:
@@ -34,7 +35,7 @@ Jika ada pertanyaan, silakan mention saya di twitter: @sopier
       ServerAliveInterval 10
   #+END_SRC
 
-* Membuat / Menambah swap di Ubuntu
+** Membuat / Menambah swap di Ubuntu
   Terkadang karena keterbatasan /memory/, kita tidak dapat melakukan
   instalasi paket atau /library/ tertentu di server. Hal ini pernah penulis
   alami ketika akan memasang /library/ =pandas=. Daripada harus upgrade 
@@ -52,7 +53,7 @@ Jika ada pertanyaan, silakan mention saya di twitter: @sopier
     # add to /etc/fstab to auto load when reboot [optional]
     /swapfile swap swap defaults 0 0
   #+END_SRC
-* Set Locale di Ubuntu Server
+** Set Locale di Ubuntu Server
 Ini hal wajib yang perlu dilakukan ketika setup server, karena jika
 belum diset, biasanya ada beberapa masalah yang muncul, misal tidak
 mau login ke mongo console atau psql (postgresql).
@@ -67,26 +68,27 @@ Cara untuk setting locale (ubuntu) adalah dengan menyunting berkas
 #+END_SRC
 
 Selanjutnya silakan re-login atau reboot, agar setting berlaku.
-* Deploy Flask + Nginx + Supervisor di Ubuntu
-** Add user di Ubuntu
+* python.labs127.io
+** Deploy Flask + Nginx + Supervisor di Ubuntu
+*** Add user di Ubuntu
 #+BEGIN_SRC text
   adduser sopier
   adduser sopier sudo
 #+END_SRC
-** Install needed package
+*** Install needed package
 #+BEGIN_SRC text
   sudo apt-get install build-essential python-dev python-pip nginx
   emacs24-nox git
 #+END_SRC
-** Install virtualenv & supervisor
+*** Install virtualenv & supervisor
 #+BEGIN_SRC text
   sudo pip install virtualenv supervisor
 #+END_SRC
-** git clone
+*** git clone
 #+BEGIN_SRC sh
   git clone https://github.com/sopier/example.com
 #+END_SRC
-** Setting virtualenv
+*** Setting virtualenv
 #+BEGIN_SRC text
   cd example.com
   virtualenv .
@@ -94,7 +96,7 @@ Selanjutnya silakan re-login atau reboot, agar setting berlaku.
   pip install -r requirements.txt
   pip install uwsgi
 #+END_SRC
-** Setting supervisor
+*** Setting supervisor
 Buat berkas baru, misal di =~/supervisord.conf=, dan isikan baris
 konfigurasi berikut:
 #+BEGIN_SRC text
@@ -127,7 +129,7 @@ konfigurasi berikut:
   redirect_stderr=true
   stopsignal=QUIT
 #+END_SRC
-** Sunting berkas run.py
+*** Sunting berkas run.py
 Berikut ini setting untuk run.py (sesuaikan seperlunya):
 #+BEGIN_SRC python
   #!/usr/bin/env python
@@ -136,7 +138,7 @@ Berikut ini setting untuk run.py (sesuaikan seperlunya):
   if __name__ == "__main__":
       app.run(debug=False)
 #+END_SRC
-** Setting nginx
+*** Setting nginx
 Berikut ini adalah konfigurasi nginx sederhana tapi works:
 #+BEGIN_SRC text
   server {
@@ -170,16 +172,16 @@ Atau jika Anda ingin multiple site, berikut ini contoh konfigurasinya:
       }
   }
 #+END_SRC
-** Jalankan supervisor
+*** Jalankan supervisor
 Terakhir, jalankan =supervisor= dengan menjalankan perintah berikut:
 #+BEGIN_SRC sh
   sudo supervisord -c ~/supervisord.conf
 #+END_SRC
-* Install library lxml di dalam virtualenv
+** Install library lxml di dalam virtualenv
 #+BEGIN_SRC sh
   sudo apt-get install libxml2-dev libxslt-dev
 #+END_SRC
-* Catch search engine terms with python, flask and mongo
+** Catch search engine terms with python, flask and mongo
 #+BEGIN_SRC python
   # pip install referer_parser
   from referer_parser import Referer
@@ -219,7 +221,7 @@ Terakhir, jalankan =supervisor= dengan menjalankan perintah berikut:
   # sorting term
   sorted(db.term.find_one({"q": t})['refer'].items(), key=lambda x: x[1], reverse=True)
 #+END_SRC
-* Mencegah Cascade di django models
+** Mencegah Cascade di django models
 django, by default menggunakan cascade untuk model ForeignKey, ini artinya
 jika data child dihapus maka data parent juga ikut terhapus. Untuk mencegah
 hal ini, kita dapat menambahkan argument berikut:
@@ -230,7 +232,7 @@ hal ini, kita dapat menambahkan argument berikut:
 
 Jika setting sudah benar, tandanya ada tanda silang di sebelah field
 ForeignKey.
-* CSS, JS dan IMG tidak mau load di django-admin
+** CSS, JS dan IMG tidak mau load di django-admin
 Jika hal ini terjadi, berarti setting nginx Anda perlu dibenahi, yakni
 dengan menambahkan location /static/ di konfig nginx Anda, misal
 sebagai berikut:
@@ -246,7 +248,7 @@ sebagai berikut:
       ...
   }
 #+END_SRC
-* Setting gunicorn + django + nginx
+** Setting gunicorn + django + nginx
 Dengan asumsi struktur direktori sebagai berikut:
 
 #+BEGIN_SRC text
@@ -314,3 +316,6 @@ Maka untuk menjalankan gunicorn:
 #+BEGIN_SRC sh
   gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
 #+END_SRC
+* emacs.labs127.io
+* js.labs127.io
+* css.labs127.io
