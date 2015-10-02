@@ -16,7 +16,7 @@
 
 Welcome! I am a father with 3 kids, currently lives in Yogyakarta,
 Indonesia. Start coding in 2010, I am an independent software
-developer, interested [but not limited] to _python_, using _emacs_ and
+developer, interested [but not limited] to ~python~, using ~emacs~ and
 coffee addict.
 
 *Categories*
@@ -44,15 +44,16 @@ coffee addict.
 
 Akhirnya menemukan /platform/ yang nyaman buat menampung momen2
 /gotchas/ yang penulis alami selama terjun di dunia
-per-coding-an. Tidak ada yang spesial, hanya berkas ~.html~ biasa, dengan
-sedikit bumbu stylesheet yang juga didapat dari selancar di internet.
+per-coding-an. Tidak ada yang spesial, hanya berkas ~.html~ biasa,
+dengan sedikit bumbu =stylesheet= yang juga didapat dari selancar di
+internet.
 
 Menggunakan =emacs= ~org-mode~, penulis dapat dengan nyaman membuat
-tulisan menggunakan ~.org~, kemudian meng-export berkas tersebut ke html
-dengan semudah menekan ~C-c C-e h~, dan berkas org berubah menjadi html
-dalam sekejap.
+tulisan menggunakan ~.org~, kemudian meng-export berkas tersebut ke
+html dengan semudah menekan ~C-c C-e h~, dan berkas =.org= berubah
+menjadi =.html= dalam sekejap.
 
-Selanjutnya tinggal seremonial git, dan artikel sudah live!
+Selanjutnya tinggal seremonial =git=, dan artikel sudah /live!/
 
 *Contact*
 
@@ -62,8 +63,8 @@ ada jaminan solusi, namun diusahakan sesuai kemampuan._
 *Disclaimer*
 
 Penulis tidak bertanggungjawab jika ternyata sebagian atau seluruh
-bagian dari artikel ini tidak works lagi, mungkin karena versi yang
-berbeda atau karena perbedaan environment.
+bagian dari artikel ini tidak /works/ lagi, mungkin karena perbedaan
+=version= karena perbedaan =environment=.
 
 *More about me*
 - [ [[file:./assets/cv_7.pdf][my cv]] ]
