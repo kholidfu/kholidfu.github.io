@@ -117,9 +117,23 @@ pre {
     padding: .5em;
     overflow: auto;
 }
+
 pre.src {
-	overflow: auto;
+
 }
+
+pre.src-sh {
+	overflow: none;
+}
+
+pre.src-python:before {
+	content: 'python';
+}
+
+pre.src-text:before {
+	content: 'text';
+}
+
 .verbatim pre {
     margin: 0;
 }
