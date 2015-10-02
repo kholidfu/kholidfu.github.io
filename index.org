@@ -64,9 +64,10 @@ ada jaminan solusi, namun diusahakan sesuai kemampuan._
 
 Penulis tidak bertanggungjawab jika ternyata sebagian atau seluruh
 bagian dari artikel ini tidak /works/ lagi, mungkin karena perbedaan
-=version= karena perbedaan =environment=.
+=version= atau karena perbedaan =environment=.
 
 *More about me*
 - [ [[file:./assets/cv_7.pdf][my cv]] ]
 - [ [[https://www.youtube.com/user/sopier/][youtube channels]] ]
 - [ [[https://github.com/sopier][github]] ]
+- [ [[https://www.facebook.com/kholid.fuadi][fb]] ]
