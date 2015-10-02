@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-02 Fri 19:42 -->
+<!-- 2015-10-02 Fri 22:00 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>python - labs127.io and me</title>
@@ -179,8 +179,8 @@ for the JavaScript code in this tag.
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 
-<pre class="src src-sh">adduser sopier
-adduser sopier sudo
+<pre class="src src-sh">  adduser sopier
+  adduser sopier sudo
 </pre>
 </div>
 </div>
@@ -190,8 +190,8 @@ adduser sopier sudo
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 
-<pre class="src src-sh">sudo apt-get install build-essential python-dev python-pip nginx
-emacs24-nox git
+<pre class="src src-sh">  sudo apt-get install build-essential python-dev python-pip nginx
+  emacs24-nox git
 </pre>
 </div>
 </div>
@@ -201,7 +201,7 @@ emacs24-nox git
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 
-<pre class="src src-sh">sudo pip install virtualenv supervisor
+<pre class="src src-sh">  sudo pip install virtualenv supervisor
 </pre>
 </div>
 </div>
@@ -211,7 +211,7 @@ emacs24-nox git
 <div class="outline-text-3" id="text-1-4">
 <div class="org-src-container">
 
-<pre class="src src-sh">git clone https://github.com/sopier/example.com
+<pre class="src src-sh">  git clone https://github.com/sopier/example.com
 </pre>
 </div>
 </div>
@@ -221,11 +221,11 @@ emacs24-nox git
 <div class="outline-text-3" id="text-1-5">
 <div class="org-src-container">
 
-<pre class="src src-sh">cd example.com
-virtualenv .
-. bin/activate
-pip install -r requirements.txt
-pip install uwsgi
+<pre class="src src-sh">  <span style="color: #b0c4de;">cd</span> example.com
+  virtualenv .
+  <span style="color: #b0c4de;">.</span> bin/activate
+  pip install -r requirements.txt
+  pip install uwsgi
 </pre>
 </div>
 </div>
@@ -239,40 +239,40 @@ konfigurasi berikut:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-text">[unix_http_server]
-file=/tmp/uwsgi.sock   ; (the path to the socket file)
+<pre class="src src-text">  [unix_http_server]
+  file=/tmp/uwsgi.sock   ; (the path to the socket file)
 
-[supervisord]
-logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
-logfile_maxbytes=50MB       ; (max main logfile bytes b4 rotation;default 50MB)
-logfile_backups=10          ; (num of main logfile rotation backups;default 10)
-loglevel=info               ; (log level;default info; others: debug,warn,trace)
-pidfile=/tmp/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
-nodaemon=false              ; (start in foreground if true;default false)
-minfds=1024                 ; (min. avail startup file descriptors;default 1024)
-minprocs=200
+  [supervisord]
+  logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
+  logfile_maxbytes=50MB       ; (max main logfile bytes b4 rotation;default 50MB)
+  logfile_backups=10          ; (num of main logfile rotation backups;default 10)
+  loglevel=info               ; (log level;default info; others: debug,warn,trace)
+  pidfile=/tmp/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+  nodaemon=false              ; (start in foreground if true;default false)
+  minfds=1024                 ; (min. avail startup file descriptors;default 1024)
+  minprocs=200
 
-[rpcinterface:supervisor]
-supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
+  [rpcinterface:supervisor]
+  supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
 
-[supervisorctl]
-logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
-serverurl=unix:///tmp/uwsgi.sock ; use a unix:// URL
+  [supervisorctl]
+  logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
+  serverurl=unix:///tmp/uwsgi.sock ; use a unix:// URL
 
-[program:example.com]
-command=/home/sopier/example.com/bin/uwsgi 
-			--socket /tmp/uwsgi.sock 
-			--module run 
-			--callable app -H /home/sopier/example.com/ 
-			--chdir /home/sopier/example.com/ 
-			--chmod-socket=666 
-			--processes=5
-directory=/home/sopier/example.com/
-autostart=true
-autorestart=true
-stdout_logfile=/tmp/example.log
-redirect_stderr=true
-stopsignal=QUIT
+  [program:example.com]
+  command=/home/sopier/example.com/bin/uwsgi 
+              --socket /tmp/uwsgi.sock 
+              --module run 
+              --callable app -H /home/sopier/example.com/ 
+              --chdir /home/sopier/example.com/ 
+              --chmod-socket=666 
+              --processes=5
+  directory=/home/sopier/example.com/
+  autostart=true
+  autorestart=true
+  stdout_logfile=/tmp/example.log
+  redirect_stderr=true
+  stopsignal=QUIT
 </pre>
 </div>
 </div>
@@ -285,11 +285,11 @@ Berikut ini setting untuk run.py (sesuaikan seperlunya):
 </p>
 <div class="org-src-container">
 
-<pre class="src src-python">#!/usr/bin/env python
-from app import app
+<pre class="src src-python">  <span style="color: #fa8072; font-style: italic;">#</span><span style="color: #ff7f24; font-style: italic;">!/usr/bin/env python</span>
+  <span style="color: #00ffff;">from</span> app <span style="color: #00ffff;">import</span> app
 
-if __name__ == "__main__":
-	app.run(debug=False)
+  <span style="color: #00ffff;">if</span> <span style="color: #b0c4de;">__name__</span> == <span style="color: #ffc1c1;">"__main__"</span>:
+      app.run(debug=<span style="color: #8470ff; font-weight: bold;">False</span>)
 </pre>
 </div>
 </div>
@@ -302,15 +302,15 @@ Berikut ini adalah konfigurasi nginx sederhana tapi works:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-text">server {
-	listen        80;
-	server_name   www.example.com;
-	location / { try_files $uri @app; }
-	location @app {
-		include uwsgi_params;
-		uwsgi_pass unix:/tmp/uwsgi.sock;
-	}
-}
+<pre class="src src-text">  server {
+      listen        80;
+      server_name   www.example.com;
+      location / { try_files $uri @app; }
+      location @app {
+          include uwsgi_params;
+          uwsgi_pass unix:/tmp/uwsgi.sock;
+      }
+  }
 </pre>
 </div>
 <p>
@@ -318,24 +318,24 @@ Atau jika Anda ingin multiple site, berikut ini contoh konfigurasinya:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-text">server {
-	listen        80;
-	server_name   www.example1.com;
-	location / { try_files $uri @app; }
-	location @app {
-		include uwsgi_params;
-		uwsgi_pass unix:/tmp/uwsgi1.sock;
-	}
-}
-server {
-	listen        80;
-	server_name   www.example2.com;
-	location / { try_files $uri @app; }
-	location @app {
-		include uwsgi_params;
-		uwsgi_pass unix:/tmp/uwsgi2.sock;
-	}
-}
+<pre class="src src-text">  server {
+      listen        80;
+      server_name   www.example1.com;
+      location / { try_files $uri @app; }
+      location @app {
+          include uwsgi_params;
+          uwsgi_pass unix:/tmp/uwsgi1.sock;
+      }
+  }
+  server {
+      listen        80;
+      server_name   www.example2.com;
+      location / { try_files $uri @app; }
+      location @app {
+          include uwsgi_params;
+          uwsgi_pass unix:/tmp/uwsgi2.sock;
+      }
+  }
 </pre>
 </div>
 </div>
@@ -348,7 +348,7 @@ Terakhir, jalankan <code>supervisor</code> dengan menjalankan perintah berikut:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">sudo supervisord -c ~/supervisord.conf
+<pre class="src src-sh">  sudo supervisord -c ~/supervisord.conf
 </pre>
 </div>
 </div>
@@ -359,7 +359,7 @@ Terakhir, jalankan <code>supervisor</code> dengan menjalankan perintah berikut:
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 
-<pre class="src src-sh">sudo apt-get install libxml2-dev libxslt-dev
+<pre class="src src-sh">  sudo apt-get install libxml2-dev libxslt-dev
 </pre>
 </div>
 </div>
@@ -369,59 +369,59 @@ Terakhir, jalankan <code>supervisor</code> dengan menjalankan perintah berikut:
 <div class="outline-text-2" id="text-3">
 <div class="org-src-container">
 
-<pre class="src src-python"># pip install referer_parser
-from referer_parser import Referer
-# dbase
-import pymongo
+<pre class="src src-python">  <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">pip install referer_parser</span>
+  <span style="color: #00ffff;">from</span> referer_parser <span style="color: #00ffff;">import</span> Referer
+  <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">dbase</span>
+  <span style="color: #00ffff;">import</span> pymongo
 
-c = pymongo.Connection()
-refdb = c['referer']
+  <span style="color: #7fffd4;">c</span> = pymongo.Connection()
+  <span style="color: #7fffd4;">refdb</span> = c[<span style="color: #ffc1c1;">'referer'</span>]
 
-# ganti "-" =&gt; " " pada q
-t = q.replace("-", " ")
+  <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">ganti "-" =&gt; " " pada q</span>
+  <span style="color: #7fffd4;">t</span> = q.replace(<span style="color: #ffc1c1;">"-"</span>, <span style="color: #ffc1c1;">" "</span>)
 
-# referer tracker
-try:
-	head = request.headers
-	url = head['Referer']
-	refobj = Referer(url)
-	# setem ini sudah bersih!
-	setem = refobj.search_term
+  <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">referer tracker</span>
+  <span style="color: #00ffff;">try</span>:
+      <span style="color: #7fffd4;">head</span> = request.headers
+      <span style="color: #7fffd4;">url</span> = head[<span style="color: #ffc1c1;">'Referer'</span>]
+      <span style="color: #7fffd4;">refobj</span> = Referer(url)
+      <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">setem ini sudah bersih!</span>
+      <span style="color: #7fffd4;">setem</span> = refobj.search_term
 
-	# jika ada setem, input into db                                                
+      <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">jika ada setem, input into db                                                </span>
 
-	if setem:
-		# jika lom ada setem, insert!                                              
+      <span style="color: #00ffff;">if</span> setem:
+          <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">jika lom ada setem, insert!                                              </span>
 
-		if refdb.term.find_one({"q": t}) is None:
-			refdb.term.insert({"q": t, "refer": {setem: 1}})
-		# jika sudah ada, pilihannya ada 2, set atau increment!
-		else:
-			# jika sudah ada setem, increment!                                    
+          <span style="color: #00ffff;">if</span> refdb.term.find_one({<span style="color: #ffc1c1;">"q"</span>: t}) <span style="color: #00ffff;">is</span> <span style="color: #8470ff; font-weight: bold;">None</span>:
+              refdb.term.insert({<span style="color: #ffc1c1;">"q"</span>: t, <span style="color: #ffc1c1;">"refer"</span>: {setem: 1}})
+          <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">jika sudah ada, pilihannya ada 2, set atau increment!</span>
+          <span style="color: #00ffff;">else</span>:
+              <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">jika sudah ada setem, increment!                                    </span>
 
-			if setem in refdb.term.find_one({"q": t})['refer']:
-				refdb.term.update(
-					{"q": t},
-					{"$inc": {"refer." + str(setem): 1}},
-					upsert=True
-				)
-			# jika lom ada setem, set setem: 1!                                    
+              <span style="color: #00ffff;">if</span> setem <span style="color: #00ffff;">in</span> refdb.term.find_one({<span style="color: #ffc1c1;">"q"</span>: t})[<span style="color: #ffc1c1;">'refer'</span>]:
+                  refdb.term.update(
+                      {<span style="color: #ffc1c1;">"q"</span>: t},
+                      {<span style="color: #ffc1c1;">"$inc"</span>: {<span style="color: #ffc1c1;">"refer."</span> + <span style="color: #b0c4de;">str</span>(setem): 1}},
+                      upsert=<span style="color: #8470ff; font-weight: bold;">True</span>
+                  )
+              <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">jika lom ada setem, set setem: 1!                                    </span>
 
-			elif setem not in refdb.term.find_one({"q": t})['refer']:
-				refdb.term.update(
-					{"q": t},
-					{"$set": {"refer." + str(setem): 1}},
-					upsert=True
-				)
-except:
-	pass
+              <span style="color: #00ffff;">elif</span> setem <span style="color: #00ffff;">not</span> <span style="color: #00ffff;">in</span> refdb.term.find_one({<span style="color: #ffc1c1;">"q"</span>: t})[<span style="color: #ffc1c1;">'refer'</span>]:
+                  refdb.term.update(
+                      {<span style="color: #ffc1c1;">"q"</span>: t},
+                      {<span style="color: #ffc1c1;">"$set"</span>: {<span style="color: #ffc1c1;">"refer."</span> + <span style="color: #b0c4de;">str</span>(setem): 1}},
+                      upsert=<span style="color: #8470ff; font-weight: bold;">True</span>
+                  )
+  <span style="color: #00ffff;">except</span>:
+      <span style="color: #00ffff;">pass</span>
 
-# sorting term
-sorted(
-	db.term.find_one({"q": t})['refer'].items(),
-	key=lambda x: x[1],
-	reverse=True
-)
+  <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">sorting term</span>
+  <span style="color: #b0c4de;">sorted</span>(
+      db.term.find_one({<span style="color: #ffc1c1;">"q"</span>: t})[<span style="color: #ffc1c1;">'refer'</span>].items(),
+      key=<span style="color: #00ffff;">lambda</span> x: x[1],
+      reverse=<span style="color: #8470ff; font-weight: bold;">True</span>
+  )
 </pre>
 </div>
 </div>
@@ -437,7 +437,7 @@ hal ini, kita dapat menambahkan argument berikut:
 
 <div class="org-src-container">
 
-<pre class="src src-python">nama = models.ForeignKey(Guru, on_delete=models.SET_NULL)
+<pre class="src src-python">  <span style="color: #7fffd4;">nama</span> = models.ForeignKey(Guru, on_delete=models.SET_NULL)
 </pre>
 </div>
 
@@ -458,15 +458,15 @@ sebagai berikut:
 
 <div class="org-src-container">
 
-<pre class="src src-text">server {
-	...
-
-	location /static/ {
-		alias /home/sopier/mslib/mslib/static/;
-	}
-
-	...
-}
+<pre class="src src-text">  server {
+      ...
+  
+      location /static/ {
+          alias /home/sopier/mslib/mslib/static/;
+      }
+      
+      ...
+  }
 </pre>
 </div>
 </div>
@@ -480,29 +480,29 @@ Dengan asumsi struktur direktori sebagai berikut:
 
 <div class="org-src-container">
 
-<pre class="src src-text">mslib/
-├── app
-│   ├── admin.py
-│   ├── __init__.py
-│   ├── migrations
-│   ├── models.py
-│   ├── tests.py
-│   ├── urls.py
-│   ├── views.py
-├── manage.py
-├── mslib
-│   ├── __init__.py
-│   ├── settings.py
-│   ├── urls.py
-│   ├── wsgi.py
-├── static
-│   ├── admin
-│   ├── app
-│   └── js
-└── templates
-	├── 404.html
-	├── admin
-	└── app
+<pre class="src src-text">  mslib/
+  &#9500;&#9472;&#9472; app
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; admin.py
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; __init__.py
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; migrations
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; models.py
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; tests.py
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; urls.py
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; views.py
+  &#9500;&#9472;&#9472; manage.py
+  &#9500;&#9472;&#9472; mslib
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; __init__.py
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; settings.py
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; urls.py
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; wsgi.py
+  &#9500;&#9472;&#9472; static
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; admin
+  &#9474;&#160;&#160; &#9500;&#9472;&#9472; app
+  &#9474;&#160;&#160; &#9492;&#9472;&#9472; js
+  &#9492;&#9472;&#9472; templates
+      &#9500;&#9472;&#9472; 404.html
+      &#9500;&#9472;&#9472; admin
+      &#9492;&#9472;&#9472; app
 </pre>
 </div>
 
@@ -512,35 +512,35 @@ Dan berikut ini setting untuk nginx:
 
 <div class="org-src-container">
 
-<pre class="src src-text">upstream app_server {
-   server 127.0.0.1:8000 fail_timeout=0;
-}
-
-server {
-   listen 80;
-   server_name 159.xxx.xxx.xxx;
-   client_max_body_size 4G;
-   proxy_read_timeout 1200;
-
-   location / {
-	   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-	   proxy_set_header Host $http_host;
-	   proxy_redirect off;
-	   proxy_pass http://app_server;
-	   if (!-f $request_filename) {
-		   proxy_pass http://app_server;
-		   break;
-	   }
-   }
-
-   location /static/ {
-	   alias /home/sopier/mslib/mslib/static/;
-   }
-
-   location /media/ {
-	   alias /home/sopier/mslib/mslib/collections/;
-   }
-}
+<pre class="src src-text">  upstream app_server {
+     server 127.0.0.1:8000 fail_timeout=0;
+  }
+  
+  server {
+     listen 80;
+     server_name 159.xxx.xxx.xxx;
+     client_max_body_size 4G;
+     proxy_read_timeout 1200;
+  
+     location / {
+         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+         proxy_set_header Host $http_host;
+         proxy_redirect off;
+         proxy_pass http://app_server;
+         if (!-f $request_filename) {
+             proxy_pass http://app_server;
+             break;
+         }
+     }
+  
+     location /static/ {
+         alias /home/sopier/mslib/mslib/static/;
+     }
+  
+     location /media/ {
+         alias /home/sopier/mslib/mslib/collections/;
+     }
+  }
 </pre>
 </div>
 
@@ -550,9 +550,7 @@ Maka untuk menjalankan gunicorn:
 
 <div class="org-src-container">
 
-<pre class="src src-sh">gunicorn 
-  --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi 
-  --bind 127.0.0.1:8000
+<pre class="src src-sh">  gunicorn --env <span style="color: #7fffd4;">DJANGO_SETTINGS_MODULE</span>=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
 </pre>
 </div>
 </div>
@@ -561,7 +559,7 @@ Maka untuk menjalankan gunicorn:
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-02 Fri 19:42</p>
+<p class="date">Created: 2015-10-02 Fri 22:00</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

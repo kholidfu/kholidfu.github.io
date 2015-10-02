@@ -75,7 +75,7 @@ Berikut ini setting untuk run.py (sesuaikan seperlunya):
 #+BEGIN_SRC python
   #!/usr/bin/env python
   from app import app
-  
+
   if __name__ == "__main__":
       app.run(debug=False)
 #+END_SRC
@@ -271,7 +271,5 @@ Dan berikut ini setting untuk nginx:
 Maka untuk menjalankan gunicorn:
 
 #+BEGIN_SRC sh
-  gunicorn 
-    --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi 
-    --bind 127.0.0.1:8000
+  gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
 #+END_SRC

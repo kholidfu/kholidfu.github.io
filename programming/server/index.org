@@ -4,8 +4,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
 #+STARTUP: indent
 
-* server.labs127.io
-** Mencegah SSH Timeout
+* Mencegah SSH Timeout
   Bagi Anda yang sering melakukan koneksi SSH ke server, tentu sangat
   mengganggu bukan? Solusinya mudah, tambahkan atau buat konfigurasi baru
   di berkas =~/.ssh/config=:
@@ -15,7 +14,7 @@
       ServerAliveInterval 10
   #+END_SRC
 
-** Membuat / Menambah swap di Ubuntu
+* Membuat / Menambah swap di Ubuntu
   Terkadang karena keterbatasan /memory/, kita tidak dapat melakukan
   instalasi paket atau /library/ tertentu di server. Hal ini pernah penulis
   alami ketika akan memasang /library/ =pandas=. Daripada harus upgrade 
@@ -33,7 +32,7 @@
     # add to /etc/fstab to auto load when reboot [optional]
     /swapfile swap swap defaults 0 0
   #+END_SRC
-** Set Locale di Ubuntu Server
+* Set Locale di Ubuntu Server
 Ini hal wajib yang perlu dilakukan ketika setup server, karena jika
 belum diset, biasanya ada beberapa masalah yang muncul, misal tidak
 mau login ke mongo console atau psql (postgresql).
