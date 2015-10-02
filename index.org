@@ -1,18 +1,21 @@
 #+TITLE: labs127.io and me
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2015-10-01 Thu>
-#+STYLE: <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
-#+STYLE: <style type="text/css">
-#+STYLE:<!--/*--><![CDATA[/*><!--*/
-#+STYLE: div.figure { float:left; }
-#+STYLE: /*]]>*/-->
-#+STYLE: </style>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
+#+HTML_HEAD: <style type="text/css">
+#+HTML_HEAD:<!--/*--><![CDATA[/*><!--*/
+#+HTML_HEAD: div.figure { float:left; padding: 0px; }
+#+HTML_HEAD: /*]]>*/-->
+#+HTML_HEAD: </style>
 #+STARTUP: indent
 
 *[ Kholid Fuadi ]*
 
-#+ATTR_HTML: alt="me, coffee and smoke" title="me, coffee, and smoke" width="150px"
+#+ATTR_HTML: :alt me, coffee and smoke :title me, coffee, and smoke :style width:150px;
 [[./img/klobot.jpg]]
+#+begin_html
+ <br style="clear:both;" />
+#+end_html
 
 Welcome! I am a father with 3 kids, currently lives in Yogyakarta,
 Indonesia. Start coding in 2010, I am an independent software
