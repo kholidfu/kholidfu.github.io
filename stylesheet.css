@@ -13,7 +13,8 @@ body {
 }
 
 code {
-    color: #00f;
+    /*color: #00f;*/
+	font-family: courier, monospace;
 }
 
 div#content {
