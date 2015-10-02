@@ -19,7 +19,7 @@ Indonesia. Start coding in 2010, I am an independent software
 developer, interested [but not limited] to _python_, using _emacs_ and
 coffee addict.
 
-*Category*
+*Categories*
 - [[file:programming/index.html][Tech]]
   - [[./programming/python/index.html][python]]
   - [[./programming/emacs/index.html][emacs]]
@@ -27,18 +27,18 @@ coffee addict.
 
 *Recent Talks and Tutorial*
 - Video
-  - [[https://www.youtube.com/watch?v%3DjtsOPVcFETM][Intro into Emacs (Part 1)]]
-  - [[https://www.youtube.com/watch?v%3DKOZRyp8kuJg][Intro into Emacs (Part 2)]]
   - [[https://www.youtube.com/playlist?list%3DPL4feh7bQU2gY-6pmpSXzAelZgFjqZ7vAh][Vim Playlist {video}]]
   - [[https://www.youtube.com/playlist?list%3DPL4feh7bQU2gaFa9Vh0SHJqUQAq1d2dJ__][Emacs Playlist {video}]]
+  - [[https://www.youtube.com/watch?v%3DjtsOPVcFETM][Intro into Emacs (Part 1)]]
+  - [[https://www.youtube.com/watch?v%3DKOZRyp8kuJg][Intro into Emacs (Part 2)]]
 - PDF
-  - [[file:./assets/emacs_docs.pdf][Tutorial Emacs]]
   - [[file:./assets/vim_docs.pdf][Tutorial VIM]]
+  - [[file:./assets/emacs_docs.pdf][Tutorial Emacs]]
+  - [[file:assets/tesis_latex.pdf][Latex for Thesis]]
+  - [[file:./assets/cmdlist.pdf][General Latex Tips]]
   - [[file:./assets/matplotlib_docs.pdf][Intro into matplotlib]]
   - [[file:assets/pandas_intro.pdf][Intro into Pandas]]
   - [[file:./assets/python_nltk_docs.pdf][Intro into python NLTK]]
-  - [[file:assets/tesis_latex.pdf][Latex for Thesis]]
-  - [[file:./assets/cmdlist.pdf][General Latex Tips]]
 
 *About this page*
 
@@ -68,3 +68,4 @@ berbeda atau karena perbedaan environment.
 *More about me*
 - [ [[file:./assets/cv_7.pdf][my cv]] ]
 - [ [[https://www.youtube.com/user/sopier/][youtube channels]] ]
+- [ [[https://github.com/sopier][github]] ]
