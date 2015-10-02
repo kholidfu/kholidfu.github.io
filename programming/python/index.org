@@ -6,17 +6,17 @@
 
 * Deploy Flask + Nginx + Supervisor di Ubuntu
 ** Add user di Ubuntu
-#+BEGIN_SRC text
+#+BEGIN_SRC sh
   adduser sopier
   adduser sopier sudo
 #+END_SRC
 ** Install needed package
-#+BEGIN_SRC text
+#+BEGIN_SRC sh
   sudo apt-get install build-essential python-dev python-pip nginx
   emacs24-nox git
 #+END_SRC
 ** Install virtualenv & supervisor
-#+BEGIN_SRC text
+#+BEGIN_SRC sh
   sudo pip install virtualenv supervisor
 #+END_SRC
 ** git clone
@@ -24,7 +24,7 @@
   git clone https://github.com/sopier/example.com
 #+END_SRC
 ** Setting virtualenv
-#+BEGIN_SRC text
+#+BEGIN_SRC sh
   cd example.com
   virtualenv .
   . bin/activate
@@ -37,7 +37,7 @@ konfigurasi berikut:
 #+BEGIN_SRC text
   [unix_http_server]
   file=/tmp/uwsgi.sock   ; (the path to the socket file)
-  
+
   [supervisord]
   logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
   logfile_maxbytes=50MB       ; (max main logfile bytes b4 rotation;default 50MB)
@@ -47,16 +47,22 @@ konfigurasi berikut:
   nodaemon=false              ; (start in foreground if true;default false)
   minfds=1024                 ; (min. avail startup file descriptors;default 1024)
   minprocs=200
-  
+
   [rpcinterface:supervisor]
   supervisor.rpcinterface_factory = supervisor.rpcinterface:make_main_rpcinterface
-  
+
   [supervisorctl]
   logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
   serverurl=unix:///tmp/uwsgi.sock ; use a unix:// URL
-  
+
   [program:example.com]
-  command=/home/sopier/example.com/bin/uwsgi --socket /tmp/uwsgi.sock --module run --callable app -H /home/sopier/example.com/ --chdir /home/sopier/example.com/ --chmod-socket=666 --processes=5
+  command=/home/sopier/example.com/bin/uwsgi 
+              --socket /tmp/uwsgi.sock 
+              --module run 
+              --callable app -H /home/sopier/example.com/ 
+              --chdir /home/sopier/example.com/ 
+              --chmod-socket=666 
+              --processes=5
   directory=/home/sopier/example.com/
   autostart=true
   autorestart=true
@@ -122,39 +128,55 @@ Terakhir, jalankan =supervisor= dengan menjalankan perintah berikut:
   from referer_parser import Referer
   # dbase
   import pymongo
-  
+
   c = pymongo.Connection()
   refdb = c['referer']
-  
-  # ganti "-" => " " pada q                                                     
+
+  # ganti "-" => " " pada q
   t = q.replace("-", " ")
-  
-  # referer tracker                                                             
+
+  # referer tracker
   try:
       head = request.headers
       url = head['Referer']
       refobj = Referer(url)
       # setem ini sudah bersih!
       setem = refobj.search_term
-  
-      # jika ada setem, input into db                                                   
+
+      # jika ada setem, input into db                                                
+
       if setem:
-          # jika lom ada setem, insert!                                               
+          # jika lom ada setem, insert!                                              
+
           if refdb.term.find_one({"q": t}) is None:
               refdb.term.insert({"q": t, "refer": {setem: 1}})
           # jika sudah ada, pilihannya ada 2, set atau increment!
           else:
-              # jika sudah ada setem, increment!                                      
+              # jika sudah ada setem, increment!                                    
+
               if setem in refdb.term.find_one({"q": t})['refer']:
-                  refdb.term.update({"q": t}, {"$inc": {"refer." + str(setem): 1}}, upsert=True)
-              # jika lom ada setem, set setem: 1!                                     
+                  refdb.term.update(
+                      {"q": t},
+                      {"$inc": {"refer." + str(setem): 1}},
+                      upsert=True
+                  )
+              # jika lom ada setem, set setem: 1!                                    
+
               elif setem not in refdb.term.find_one({"q": t})['refer']:
-                  refdb.term.update({"q": t}, {"$set": {"refer." + str(setem): 1}}, upsert=True)
+                  refdb.term.update(
+                      {"q": t},
+                      {"$set": {"refer." + str(setem): 1}},
+                      upsert=True
+                  )
   except:
       pass
-      
+
   # sorting term
-  sorted(db.term.find_one({"q": t})['refer'].items(), key=lambda x: x[1], reverse=True)
+  sorted(
+      db.term.find_one({"q": t})['refer'].items(),
+      key=lambda x: x[1],
+      reverse=True
+  )
 #+END_SRC
 * Mencegah Cascade di django models
 django, by default menggunakan cascade untuk model ForeignKey, ini artinya
@@ -249,5 +271,7 @@ Dan berikut ini setting untuk nginx:
 Maka untuk menjalankan gunicorn:
 
 #+BEGIN_SRC sh
-  gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
+  gunicorn 
+    --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi 
+    --bind 127.0.0.1:8000
 #+END_SRC
