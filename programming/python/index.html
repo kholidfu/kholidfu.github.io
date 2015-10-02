@@ -123,49 +123,38 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">1 python.labs127.io</a>
+<li><a href="#sec-1">1 Deploy Flask + Nginx + Supervisor di Ubuntu</a>
 <ul>
-<li><a href="#sec-1-1">1.1 Deploy Flask + Nginx + Supervisor di Ubuntu</a>
-<ul>
-<li><a href="#sec-1-1-1">1.1.1 Add user di Ubuntu</a></li>
-<li><a href="#sec-1-1-2">1.1.2 Install needed package</a></li>
-<li><a href="#sec-1-1-3">1.1.3 Install virtualenv &amp; supervisor</a></li>
-<li><a href="#sec-1-1-4">1.1.4 git clone</a></li>
-<li><a href="#sec-1-1-5">1.1.5 Setting virtualenv</a></li>
-<li><a href="#sec-1-1-6">1.1.6 Setting supervisor</a></li>
-<li><a href="#sec-1-1-7">1.1.7 Sunting berkas run.py</a></li>
-<li><a href="#sec-1-1-8">1.1.8 Setting nginx</a></li>
-<li><a href="#sec-1-1-9">1.1.9 Jalankan supervisor</a></li>
+<li><a href="#sec-1-1">1.1 Add user di Ubuntu</a></li>
+<li><a href="#sec-1-2">1.2 Install needed package</a></li>
+<li><a href="#sec-1-3">1.3 Install virtualenv &amp; supervisor</a></li>
+<li><a href="#sec-1-4">1.4 git clone</a></li>
+<li><a href="#sec-1-5">1.5 Setting virtualenv</a></li>
+<li><a href="#sec-1-6">1.6 Setting supervisor</a></li>
+<li><a href="#sec-1-7">1.7 Sunting berkas run.py</a></li>
+<li><a href="#sec-1-8">1.8 Setting nginx</a></li>
+<li><a href="#sec-1-9">1.9 Jalankan supervisor</a></li>
 </ul>
 </li>
-<li><a href="#sec-1-2">1.2 Install library lxml di dalam virtualenv</a></li>
-<li><a href="#sec-1-3">1.3 Catch search engine terms with python, flask and mongo</a></li>
-<li><a href="#sec-1-4">1.4 Mencegah Cascade di django models</a></li>
-<li><a href="#sec-1-5">1.5 CSS, JS dan IMG tidak mau load di django-admin</a></li>
-<li><a href="#sec-1-6">1.6 Setting gunicorn + django + nginx</a></li>
-</ul>
-</li>
+<li><a href="#sec-2">2 Install library lxml di dalam virtualenv</a></li>
+<li><a href="#sec-3">3 Catch search engine terms with python, flask and mongo</a></li>
+<li><a href="#sec-4">4 Mencegah Cascade di django models</a></li>
+<li><a href="#sec-5">5 CSS, JS dan IMG tidak mau load di django-admin</a></li>
+<li><a href="#sec-6">6 Setting gunicorn + django + nginx</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> python.labs127.io</h2>
+<h2 id="sec-1"><span class="section-number-2">1</span> Deploy Flask + Nginx + Supervisor di Ubuntu</h2>
 <div class="outline-text-2" id="text-1">
 
 
 </div>
 
 <div id="outline-container-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Deploy Flask + Nginx + Supervisor di Ubuntu</h3>
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Add user di Ubuntu</h3>
 <div class="outline-text-3" id="text-1-1">
-
-
-</div>
-
-<div id="outline-container-1-1-1" class="outline-4">
-<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> Add user di Ubuntu</h4>
-<div class="outline-text-4" id="text-1-1-1">
 
 
 
@@ -178,9 +167,9 @@ adduser sopier sudo
 
 </div>
 
-<div id="outline-container-1-1-2" class="outline-4">
-<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> Install needed package</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<div id="outline-container-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Install needed package</h3>
+<div class="outline-text-3" id="text-1-2">
 
 
 
@@ -193,9 +182,9 @@ emacs24-nox git
 
 </div>
 
-<div id="outline-container-1-1-3" class="outline-4">
-<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> Install virtualenv &amp; supervisor</h4>
-<div class="outline-text-4" id="text-1-1-3">
+<div id="outline-container-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Install virtualenv &amp; supervisor</h3>
+<div class="outline-text-3" id="text-1-3">
 
 
 
@@ -207,9 +196,9 @@ emacs24-nox git
 
 </div>
 
-<div id="outline-container-1-1-4" class="outline-4">
-<h4 id="sec-1-1-4"><span class="section-number-4">1.1.4</span> git clone</h4>
-<div class="outline-text-4" id="text-1-1-4">
+<div id="outline-container-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> git clone</h3>
+<div class="outline-text-3" id="text-1-4">
 
 
 
@@ -221,9 +210,9 @@ emacs24-nox git
 
 </div>
 
-<div id="outline-container-1-1-5" class="outline-4">
-<h4 id="sec-1-1-5"><span class="section-number-4">1.1.5</span> Setting virtualenv</h4>
-<div class="outline-text-4" id="text-1-1-5">
+<div id="outline-container-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Setting virtualenv</h3>
+<div class="outline-text-3" id="text-1-5">
 
 
 
@@ -239,9 +228,9 @@ pip install uwsgi
 
 </div>
 
-<div id="outline-container-1-1-6" class="outline-4">
-<h4 id="sec-1-1-6"><span class="section-number-4">1.1.6</span> Setting supervisor</h4>
-<div class="outline-text-4" id="text-1-1-6">
+<div id="outline-container-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Setting supervisor</h3>
+<div class="outline-text-3" id="text-1-6">
 
 <p>Buat berkas baru, misal di <code>~/supervisord.conf</code>, dan isikan baris
 konfigurasi berikut:
@@ -282,9 +271,9 @@ stopsignal=QUIT
 
 </div>
 
-<div id="outline-container-1-1-7" class="outline-4">
-<h4 id="sec-1-1-7"><span class="section-number-4">1.1.7</span> Sunting berkas run.py</h4>
-<div class="outline-text-4" id="text-1-1-7">
+<div id="outline-container-1-7" class="outline-3">
+<h3 id="sec-1-7"><span class="section-number-3">1.7</span> Sunting berkas run.py</h3>
+<div class="outline-text-3" id="text-1-7">
 
 <p>Berikut ini setting untuk run.py (sesuaikan seperlunya):
 </p>
@@ -301,9 +290,9 @@ if __name__ == "__main__":
 
 </div>
 
-<div id="outline-container-1-1-8" class="outline-4">
-<h4 id="sec-1-1-8"><span class="section-number-4">1.1.8</span> Setting nginx</h4>
-<div class="outline-text-4" id="text-1-1-8">
+<div id="outline-container-1-8" class="outline-3">
+<h3 id="sec-1-8"><span class="section-number-3">1.8</span> Setting nginx</h3>
+<div class="outline-text-3" id="text-1-8">
 
 <p>Berikut ini adalah konfigurasi nginx sederhana tapi works:
 </p>
@@ -349,9 +338,9 @@ server {
 
 </div>
 
-<div id="outline-container-1-1-9" class="outline-4">
-<h4 id="sec-1-1-9"><span class="section-number-4">1.1.9</span> Jalankan supervisor</h4>
-<div class="outline-text-4" id="text-1-1-9">
+<div id="outline-container-1-9" class="outline-3">
+<h3 id="sec-1-9"><span class="section-number-3">1.9</span> Jalankan supervisor</h3>
+<div class="outline-text-3" id="text-1-9">
 
 <p>Terakhir, jalankan <code>supervisor</code> dengan menjalankan perintah berikut:
 </p>
@@ -365,9 +354,9 @@ server {
 
 </div>
 
-<div id="outline-container-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Install library lxml di dalam virtualenv</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Install library lxml di dalam virtualenv</h2>
+<div class="outline-text-2" id="text-2">
 
 
 
@@ -379,9 +368,9 @@ server {
 
 </div>
 
-<div id="outline-container-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Catch search engine terms with python, flask and mongo</h3>
-<div class="outline-text-3" id="text-1-3">
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Catch search engine terms with python, flask and mongo</h2>
+<div class="outline-text-2" id="text-3">
 
 
 
@@ -429,9 +418,9 @@ sorted(db.term.find_one({"q": t})['refer'].items(), key=lambda x: x[1], reverse=
 
 </div>
 
-<div id="outline-container-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Mencegah Cascade di django models</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Mencegah Cascade di django models</h2>
+<div class="outline-text-2" id="text-4">
 
 <p>django, by default menggunakan cascade untuk model ForeignKey, ini artinya
 jika data child dihapus maka data parent juga ikut terhapus. Untuk mencegah
@@ -451,9 +440,9 @@ ForeignKey.
 
 </div>
 
-<div id="outline-container-1-5" class="outline-3">
-<h3 id="sec-1-5"><span class="section-number-3">1.5</span> CSS, JS dan IMG tidak mau load di django-admin</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> CSS, JS dan IMG tidak mau load di django-admin</h2>
+<div class="outline-text-2" id="text-5">
 
 <p>Jika hal ini terjadi, berarti setting nginx Anda perlu dibenahi, yakni
 dengan menambahkan location <i>static</i> di konfig nginx Anda, misal
@@ -477,9 +466,9 @@ sebagai berikut:
 
 </div>
 
-<div id="outline-container-1-6" class="outline-3">
-<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Setting gunicorn + django + nginx</h3>
-<div class="outline-text-3" id="text-1-6">
+<div id="outline-container-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Setting gunicorn + django + nginx</h2>
+<div class="outline-text-2" id="text-6">
 
 <p>Dengan asumsi struktur direktori sebagai berikut:
 </p>
@@ -559,7 +548,6 @@ Maka untuk menjalankan gunicorn:
 <pre class="example">gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
 </pre>
 
-</div>
 </div>
 </div>
 </div>
