@@ -19,11 +19,6 @@ Indonesia. Start coding in 2010, I am an independent software
 developer, interested [but not limited] to ~python~, using ~emacs~ and
 coffee addict.
 
-*Categories*
-- [[file:programming/index.html][Tech]]
-  - [[./programming/python/index.html][python]]
-  - [[./programming/emacs/index.html][emacs]]
-  - [[./programming/server/index.html][server]]
 
 *Recent Talks and Tutorial*
 - Video
@@ -54,6 +49,11 @@ html dengan semudah menekan ~C-c C-e h~, dan berkas =.org= berubah
 menjadi =.html= dalam sekejap.
 
 Selanjutnya tinggal seremonial =git=, dan artikel sudah /live!/
+
+Kategori tulisan yang tersedia di laman ini:
+- [[./programming/python/index.html][python]]
+- [[./programming/server/index.html][server]]
+- [[./programming/emacs/index.html][emacs]]
 
 *Contact*
 
