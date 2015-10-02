@@ -1,0 +1,139 @@
+#+TITLE: java - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-01 Thu>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+#+STARTUP: indent
+
+* PDF Link Stamper
+/Snippet/ ini berfungsi untuk menambahkan /stamp/ berupa link yang
+ditaruh di pojok-kiri-bawah setiap halaman pdf.
+
+#+BEGIN_SRC java
+
+import com.itextpdf.text.Anchor;
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.ColumnText;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfReader;
+import com.itextpdf.text.pdf.PdfStamper;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+/*
+ ,* source of inspiration:
+ ,* http://tutorials.jenkov.com/java-itext/modifying-pdf-documents.html
+ ,* http://blindcoder.wordpress.com/2012/12/10/itext-adding-web-links-at-an-absolute-position-in-java/
+ ,*/
+
+public class StampText {
+
+  public static void main(String[] args) throws InterruptedException {
+    try {
+
+    	// processbuilder for qpdf
+    	ProcessBuilder pb = new ProcessBuilder("qpdf",
+											   "--decrypt",
+											   "/home/banteng/Desktop/test.pdf",
+											   "/home/banteng/Desktop/test2.pdf");
+    	Process p = pb.start();
+    	p.waitFor();
+    	
+    	PdfReader pdfReader = new PdfReader("/home/banteng/Desktop/test2.pdf");
+
+    	PdfStamper pdfStamper = new PdfStamper(pdfReader,
+        new FileOutputStream("/home/banteng/Desktop/test3.pdf"));
+
+    	for(int i=1; i<= pdfReader.getNumberOfPages(); i++){
+
+          PdfContentByte content = pdfStamper.getOverContent(i);
+
+          // get page size
+          Rectangle crop = pdfReader.getCropBox(i);
+          
+          // font untuk anchor (default == 6)
+          Font font = FontFactory.getFont(FontFactory.COURIER, 6,
+										  Font.UNDERLINE);
+          font.setColor(0, 0, 255);
+          // font untuk pre (default == 6)
+          Font pre = FontFactory.getFont(FontFactory.COURIER, 6);
+          pre.setColor(0, 0, 0);
+          // adding phrase pre
+          Phrase phrase0 = new Phrase("Downloaded from", pre);
+          Phrase phrase1 = new Phrase("awesome site", pre);
+          Chunk chunk = new Chunk("www.example.com", font);
+          Anchor anchor = new Anchor(chunk);
+          anchor.setReference("http://www.example.com");
+          
+          // setting default
+          
+          ColumnText.showTextAligned(content,
+									 Element.ALIGN_LEFT,
+									 phrase0,
+									 crop.getLeft() + 15,
+									 crop.getBottom() + 10, 0);
+          ColumnText.showTextAligned(content,
+									 Element.ALIGN_LEFT,
+									 anchor,
+									 crop.getLeft() + 74,
+									 crop.getBottom() + 10, 0);
+          ColumnText.showTextAligned(content,
+									 Element.ALIGN_LEFT,
+									 phrase1,
+									 crop.getLeft() + 137,
+									 crop.getBottom() + 10, 0);
+          
+          /*
+          ColumnText.showTextAligned(content,
+									 Element.ALIGN_LEFT,
+									 phrase0,
+									 crop.getLeft() + 22,
+									 crop.getBottom() + 1, 0);
+          ColumnText.showTextAligned(content,
+									 Element.ALIGN_LEFT,
+									 anchor,
+									 crop.getLeft() + 83,
+									 crop.getBottom() + 1, 0);
+          ColumnText.showTextAligned(content,
+									 Element.ALIGN_LEFT,
+									 phrase1,
+									 crop.getLeft() + 145,
+									 crop.getBottom() + 1, 0);
+          */
+          
+          // setting untuk halaman kecil
+          /*
+          ColumnText.showTextAligned(content,
+									 Element.ALIGN_LEFT,
+									 phrase0,
+									 crop.getLeft() + 45,
+									 crop.getBottom() + 1, 0);
+          ColumnText.showTextAligned(content,
+									 Element.ALIGN_LEFT,
+									 anchor,
+									 crop.getLeft() + 93,
+									 crop.getBottom() + 1, 0);
+          ColumnText.showTextAligned(content,
+									 Element.ALIGN_LEFT,
+									 phrase1,
+									 crop.getLeft() + 144,
+									 crop.getBottom() + 1, 0);
+          */
+      }
+
+      pdfStamper.close();
+
+    } catch (IOException e) {
+      e.printStackTrace();
+    } catch (DocumentException e) {
+      e.printStackTrace();
+    }
+  }
+}
+#+END_SRC
