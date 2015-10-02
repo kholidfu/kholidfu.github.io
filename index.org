@@ -20,7 +20,7 @@ developer, interested [but not limited] to ~python~, using ~emacs~ and
 coffee addict.
 
 
-*Recent Talks and Tutorial*
+*Recent Talks and Tutorials*
 - Video
   - [[https://www.youtube.com/watch?v%3DjtsOPVcFETM][Intro into Emacs {Video #1}]]
   - [[https://www.youtube.com/watch?v%3DKOZRyp8kuJg][Intro into Emacs {Video #2}]]
