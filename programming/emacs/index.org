@@ -4,4 +4,6 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
 #+STARTUP: indent
 
-* emacs
+*References*
+- [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
+

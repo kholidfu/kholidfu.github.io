@@ -1,0 +1,9 @@
+#+TITLE: latex - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-01 Thu>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+#+STARTUP: indent
+
+#+BEGIN_SRC latex
+  LaTeX $x^2$
+#+END_SRC

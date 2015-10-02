@@ -57,6 +57,7 @@ Kategori tulisan yang tersedia di laman ini:
 - [[./programming/python/index.html][python]]
 - [[./programming/server/index.html][server]]
 - [[./programming/emacs/index.html][emacs]]
+- [[file:programming/latex/index.html][latex]]
 
 *Contact*
 
