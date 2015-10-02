@@ -27,10 +27,10 @@ coffee addict.
 
 *Recent Talks and Tutorial*
 - Video
+  - [[https://www.youtube.com/watch?v%3DjtsOPVcFETM][Intro into Emacs {Video #1}]]
+  - [[https://www.youtube.com/watch?v%3DKOZRyp8kuJg][Intro into Emacs {Video #2}]]
   - [[https://www.youtube.com/playlist?list%3DPL4feh7bQU2gY-6pmpSXzAelZgFjqZ7vAh][Vim Playlist {video}]]
   - [[https://www.youtube.com/playlist?list%3DPL4feh7bQU2gaFa9Vh0SHJqUQAq1d2dJ__][Emacs Playlist {video}]]
-  - [[https://www.youtube.com/watch?v%3DjtsOPVcFETM][Intro into Emacs (Part 1)]]
-  - [[https://www.youtube.com/watch?v%3DKOZRyp8kuJg][Intro into Emacs (Part 2)]]
 - PDF
   - [[file:./assets/vim_docs.pdf][Tutorial VIM]]
   - [[file:./assets/emacs_docs.pdf][Tutorial Emacs]]
