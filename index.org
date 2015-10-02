@@ -16,7 +16,7 @@ sedikit bumbu stylesheet yang juga didapat dari selancar di internet.
 
 Menggunakan =emacs= ~org-mode~, penulis dapat dengan nyaman membuat
 tulisan menggunakan ~.org~, kemudian meng-export berkas tersebut ke html
-dengan semudah menekan ~C c e h~, dan berkas org berubah menjadi html
+dengan semudah menekan ~C-c C-e h~, dan berkas org berubah menjadi html
 dalam sekejap.
 
 Selanjutnya tinggal seremonial git, dan artikel sudah live!
@@ -29,9 +29,9 @@ Selanjutnya tinggal seremonial git, dan artikel sudah live!
  <br style="clear:both;" />
 #+end_html
 
-A father with 3 kids, start coding in 2010, and now still
-learning. Interested [but not limited] to python, using emacs and
-coffee addict.
+A father with 3 kids, currently lives in Yogyakarta, Indonesia. Start
+coding in 2010, interested [but not limited] to python, using emacs
+and coffee addict.
 
 *Disclaimer*
 
