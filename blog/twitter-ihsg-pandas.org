@@ -47,7 +47,7 @@ pshm.dl()
 # update twitter _with_media
 photo = open('ihsg.png', 'rb')
 t.upload_media(status='[Autotwit] Grafik Pergerakan IHSG 3 bulan terakhir ' \
-               'dgn Analisis MACD ' \+ now_time + ' #saham #ihsg #jci #idx', 
+               'dgn Analisis MACD ' + now_time + ' #saham #ihsg #jci #idx', 
                media=photo)
 photo.close()
 #+END_SRC
