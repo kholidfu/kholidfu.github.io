@@ -37,6 +37,11 @@ _Future Improve:_
 - Alias-ing command =emacsclient -c -n= with shorter and cleaner
   command, such as =em /path/to/your/dir/or/file=
 
+Sumber[fn:1]
+
 * Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
+* Footnotes
+
+[fn:1] http://emacs-fu.blogspot.co.id/2009/02/emacs-daemon.html
