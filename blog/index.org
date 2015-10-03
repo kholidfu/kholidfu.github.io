@@ -8,3 +8,4 @@
 List of posts:
 
 - <2015-10-03 Sat> [[file:twitter-ihsg-pandas.html][Analisis teknikal IHSG dengan python pandas]]
+- <2015-10-04 Sun> [[file:export-import-table-postgresql.html][Export Import Truncate Table di PostgreSQL]]

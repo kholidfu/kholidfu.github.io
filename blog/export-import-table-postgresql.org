@@ -1,0 +1,37 @@
+#+TITLE: export import truncate table di postgresql - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-01 Thu>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+Berikut ini langkah-langkah melakukan =export import= /table/ di
+=postgresql=. Untuk =export= saya menggunakan =pgadmin=, sedangkan
+=import= langsung dilakukan =psql=.
+
+Langkah-langkah =export=:
+#+BEGIN_SRC text
+- Klik kanan table
+- pilih backup
+- pilih format plain
+- pilih dump options #1: only data
+- pilih dump options #2: use column inserts
+  			 		   : use insert commands
+#+END_SRC
+
+Kemudian untuk =import=:
+
+#+BEGIN_SRC sh
+sudo -u postgres -i
+psql
+#+END_SRC
+
+#+BEGIN_SRC sql
+\c nama_db;  # connecting to db nama_db
+\i path/to/your/exported/table
+#+END_SRC
+
+Jika butuh /truncate/ (mereset table tanpa merubah struktur), jalankan
+/syntax/ berikut di =psql=:
+#+BEGIN_SRC sql
+TRUNCATE TABLE nama_table RESTART IDENTITY;
+#+END_SRC

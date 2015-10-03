@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-04 Sun 00:27 -->
+<!-- 2015-10-04 Sun 00:28 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title>Blog - labs127.io and me</title>
+<title>export import truncate table di postgresql - labs127.io and me</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kholid Fuadi" />
 <style type="text/css">
@@ -144,20 +144,59 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Blog - labs127.io and me</h1>
+<h1 class="title">export import truncate table di postgresql - labs127.io and me</h1>
 <p>
-List of posts:
+Berikut ini langkah-langkah melakukan <code>export import</code> <i>table</i> di
+<code>postgresql</code>. Untuk <code>export</code> saya menggunakan <code>pgadmin</code>, sedangkan
+<code>import</code> langsung dilakukan <code>psql</code>.
 </p>
 
-<ul class="org-ul">
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-03 Sat&gt; </span></span> <a href="twitter-ihsg-pandas.html">Analisis teknikal IHSG dengan python pandas</a></li>
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt; </span></span> <a href="export-import-table-postgresql.html">Export Import Truncate Table di PostgreSQL</a></li>
-</ul>
+<p>
+Langkah-langkah <code>export</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">- Klik kanan table
+- pilih backup
+- pilih format plain
+- pilih dump options #1: only data
+- pilih dump options #2: use column inserts
+                       : use insert commands
+</pre>
+</div>
+
+<p>
+Kemudian untuk <code>import</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">sudo -u postgres -i
+psql
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-sql">\c nama_db;  # connecting to db nama_db
+\i path/to/your/exported/table
+</pre>
+</div>
+
+<p>
+Jika butuh <i>truncate</i> (mereset table tanpa merubah struktur), jalankan
+<i>syntax</i> berikut di <code>psql</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sql">TRUNCATE TABLE nama_table RESTART IDENTITY;
+</pre>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-04 Sun 00:27</p>
+<p class="date">Created: 2015-10-04 Sun 00:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
