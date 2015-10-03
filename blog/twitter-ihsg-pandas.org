@@ -11,10 +11,10 @@ Skrip ini pertama kali saya buat tahun 2013 yang lalu, dan baru saja
 diperbarui, menyesuaikan dengan beberapa /dependencies/ yang sudah
 berganti versi. Gambaran skrip ini sebagai berikut:
 
-- ambil data dari yahoo finance[fn:1]
-- olah data dengan pandas[fn:2]
-- gambar plot dengan matplotlib[fn:3]
-- update twitter dengan twython[fn:4]
+- ambil data dari /yahoo finance/[fn:1]
+- olah data dengan =pandas=[fn:2]
+- gambar plot dengan =matplotlib=[fn:3]
+- update twitter dengan =twython=[fn:4]
 
 #+BEGIN_SRC python
 # app.py

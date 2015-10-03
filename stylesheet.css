@@ -15,6 +15,11 @@ body {
 code {
     /*color: #00f;*/
 	font-family: monospace;
+	border: 1px solid #e1e1e8;
+	padding: 1px 3px;
+	background-color: #f7f7f9;
+	color: #c25;
+	border-radius: 3px;
 }
 
 div#content {
