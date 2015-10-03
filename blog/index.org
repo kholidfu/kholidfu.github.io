@@ -1,0 +1,10 @@
+#+TITLE: Blog - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-01 Thu>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+
+List of posts:
+
+- <2015-10-03 Sat> [[file:twitter-ihsg-pandas.html][Analisis teknikal IHSG dengan python pandas]]

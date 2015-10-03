@@ -59,6 +59,7 @@ Kategori tulisan yang tersedia di laman ini:
 - [[./programming/emacs/index.html][emacs]]
 - [[file:programming/latex/index.html][latex]]
 - [[file:programming/java/index.html][java]]
+- [[file:blog/index.html][blog]]
 
 *Contact*
 
