@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-04 Sun 00:28 -->
+<!-- 2015-10-04 Sun 00:34 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>export import truncate table di postgresql - labs127.io and me</title>
@@ -184,7 +184,7 @@ psql
 </div>
 
 <p>
-Jika butuh <i>truncate</i> (mereset table tanpa merubah struktur), jalankan
+Jika butuh <code>truncate</code> (mereset table tanpa merubah struktur), jalankan
 <i>syntax</i> berikut di <code>psql</code>:
 </p>
 <div class="org-src-container">
@@ -192,11 +192,21 @@ Jika butuh <i>truncate</i> (mereset table tanpa merubah struktur), jalankan
 <pre class="src src-sql">TRUNCATE TABLE nama_table RESTART IDENTITY;
 </pre>
 </div>
+
+<p>
+Mencari data ganda di postgresql. Contoh berikut mencari nama ganda di
+table <code>nama_table</code>.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sql">SELECT nama,count(*) from nama_table group by nama having count(*) &gt; 1;
+</pre>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-04 Sun 00:28</p>
+<p class="date">Created: 2015-10-04 Sun 00:34</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

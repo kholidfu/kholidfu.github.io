@@ -30,8 +30,14 @@ psql
 \i path/to/your/exported/table
 #+END_SRC
 
-Jika butuh /truncate/ (mereset table tanpa merubah struktur), jalankan
+Jika butuh =truncate= (mereset table tanpa merubah struktur), jalankan
 /syntax/ berikut di =psql=:
 #+BEGIN_SRC sql
 TRUNCATE TABLE nama_table RESTART IDENTITY;
+#+END_SRC
+
+Mencari data ganda di postgresql. Contoh berikut mencari nama ganda di
+table =nama_table=.
+#+BEGIN_SRC sql
+SELECT nama,count(*) from nama_table group by nama having count(*) > 1;
 #+END_SRC
