@@ -81,11 +81,11 @@ h1 {
     background: #369 none repeat scroll 0 0;
     color: #fff;
     font-family: "BitStream Vera Sans", Verdana;
-    font-size: 200%;
+    font-size: 100%;
     font-weight: bold;
     /*letter-spacing: 0.1em;*/
-    margin: -1em -1em .2em;
-    padding: 0.75em 1em;
+    margin: -2em -2em .2em;
+    padding: 1.75em 1em;
 }
 
 h2 {
@@ -824,4 +824,8 @@ blockquote {
 
 .footpara {
 	font-size: 10px;
+}
+
+.footdef {
+	margin-bottom: 0px;
 }
