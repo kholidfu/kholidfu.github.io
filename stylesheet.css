@@ -821,3 +821,7 @@ blockquote {
 	font-style: italic;
 	color: #888888;
 }
+
+.footpara {
+	font-size: 10px;
+}
