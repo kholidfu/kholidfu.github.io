@@ -813,3 +813,11 @@ td, th {
     font-weight: bold;
   }
 
+blockquote {
+	border-left: 4px solid #336699;
+	font-size: 12px;
+	padding-left: 15px;
+	text-align: justify;
+	font-style: italic;
+	color: #888888;
+}
