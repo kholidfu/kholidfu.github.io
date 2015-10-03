@@ -11,10 +11,10 @@ Skrip ini pertama kali saya buat tahun 2013 yang lalu, dan baru saja
 diperbarui, menyesuaikan dengan beberapa /dependencies/ yang sudah
 berganti versi. Gambaran skrip ini sebagai berikut:
 
-- ambil data dari yahoo finance
-- oleh data dengan pandas
-- gambar plot dengan matplotlib
-- update twitter dengan twython
+- ambil data dari yahoo finance[fn:1]
+- olah data dengan pandas[fn:2]
+- gambar plot dengan matplotlib[fn:3]
+- update twitter dengan twython[fn:4]
 
 #+BEGIN_SRC python
 # app.py
@@ -111,3 +111,13 @@ dl()
 #+END_SRC
 
 Sumber: [[https://github.com/sopier/twitsaham][twitsaham di github]]
+
+* Footnotes
+
+[fn:4] https://github.com/ryanmcgrath/twython
+
+[fn:3] http://matplotlib.org/
+
+[fn:2] http://pandas.pydata.org/
+
+[fn:1] http://finance.yahoo.com/q?s=%5EJKSE
