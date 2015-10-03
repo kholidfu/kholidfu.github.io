@@ -16,6 +16,15 @@ berganti versi. Gambaran skrip ini sebagai berikut:
 - gambar plot dengan =matplotlib=[fn:3]
 - update twitter dengan =twython=[fn:4]
 
+Hasil analisis teknikal ini dapat dibaca sebagai berikut:
+
+#+BEGIN_QUOTE
+Jika harga adjusted close (garis tengah tidak putus) menyentuh garis
+upper bollinger band, maka ini merupakan sinyal jual. Dan sebaliknya,
+jika harga adjusted close, menyentuh garis lower bollinger band, maka
+ini berarti sinyal untuk beli.
+#+END_QUOTE
+
 #+BEGIN_SRC python
 # app.py
 from twython import Twython
