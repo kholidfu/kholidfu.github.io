@@ -4,6 +4,39 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
 #+STARTUP: indent
 
-*References*
+
+* Menjalankan emacs secara daemon
+Emacs terasa lambat saat /startup/? Bahkan dengan processor *i7 4790
+RAM 8GB*, dengan jumlah /packages/ yang tidak terlalu banyak juga,
+kadang =emacs= terasa lambat ketika /startup/.
+
+Untuk menghindari hal ini, saya coba menggunakan fitur =daemon= yang
+tersedia /by default/ di =emacs=. Caranya adalah sebagai berikut:
+
+Jalankan perintah ini di =console=:
+
+#+BEGIN_SRC sh
+emacs --daemon
+#+END_SRC
+
+Sekarang =emacs= sudah berjalan secara /daemon/ di /background/. Untuk
+menjalankan /client/ =emacs=, jalankan perintah berikut:
+
+#+BEGIN_SRC sh
+# jalankan emacs window mode
+emacsclient -c -n /path/to/your/dir/or/file
+# jalankan emacs no-window mode
+emacsclient /path/to/your/dir/or/file
+#+END_SRC
+
+Perubahannya? Sangat signifikan! bahkan terasa lebih cepat membuka
+=emacs= dibanding membuka aplikasi =terminal=.
+
+_Future Improve:_
+- Auto start daemon each time machine rebooted
+- Alias-ing command =emacsclient -c -n= with shorter and cleaner
+  command, such as =em /path/to/your/dir/or/file=
+
+* Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
