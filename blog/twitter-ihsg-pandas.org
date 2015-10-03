@@ -7,7 +7,7 @@
 #+ATTR_HTML: :style width:600px;
 [[file:./images/ihsg.png]]
 
-Skrip ini pertama kali saya buat tahun 2013 yang lalu, dan baru saja
+Skrip[fn:5] ini pertama kali saya buat tahun 2013 yang lalu, dan baru saja
 diperbarui, menyesuaikan dengan beberapa /dependencies/ yang sudah
 berganti versi. Gambaran skrip ini sebagai berikut:
 
@@ -119,9 +119,11 @@ def dl():
 dl()
 #+END_SRC
 
-Sumber: [[https://github.com/sopier/twitsaham][twitsaham di github]]
+
 
 * Footnotes
+
+[fn:5] https://github.com/sopier/twitsaham
 
 [fn:4] https://github.com/ryanmcgrath/twython
 
