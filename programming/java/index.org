@@ -137,3 +137,6 @@ public class StampText {
   }
 }
 #+END_SRC
+
+Mohon dimaklumi jika kode terlihat janggal, bukan =java= /native
+coder/ soalnya :p
