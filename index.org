@@ -68,10 +68,16 @@ ada jaminan solusi, namun diusahakan sesuai kemampuan._
 
 *Disclaimer*
 
-Penulis tidak bertanggungjawab jika ternyata sebagian atau seluruh
-bagian dari artikel ini tidak /works/ lagi, mungkin karena perbedaan
-=version= atau karena perbedaan =environment=. /So/, jangan lupa
-mantranya, _Google is your friend_.
+Sebagian besar isi dari artikel-artikel yang dimuat di sini merupakan
+_pengalaman pribadi_ penulis ketika berinteraksi dengan dunia
+pemrograman, /so/, jangan kaget jika mungkin ada sebagian artikel yang
+isinya cuma =code=, tanpa disertai dengan keterangan yang
+memadai.
+
+Penulis tidak bertanggungjawab jika ternyata sebagian atau
+seluruh bagian dari artikel ini tidak /works/ lagi, mungkin karena
+perbedaan =version= atau karena perbedaan =environment=. /So/, jangan
+lupa mantranya, _Google is your friend_.
 
 *More about me*
 - [ [[file:./assets/cv_7.pdf][my cv]] ]
