@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-03 Sat 21:26 -->
+<!-- 2015-10-04 Sun 09:11 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -200,13 +200,33 @@ Perubahannya? Sangat signifikan! bahkan terasa lebih cepat membuka
 </p>
 
 <p>
-<span class="underline">Future Improve:</span>
+Jika pingin lebih efektif lagi, Anda bisa menambahkan <code>emacs --daemon</code>
+setiap kali mesin Anda boot.
 </p>
-<ul class="org-ul">
-<li>Auto start daemon each time machine rebooted</li>
-<li>Alias-ing command <code>emacsclient -c -n</code> with shorter and cleaner
-command, such as <code>em /path/to/your/dir/or/file</code></li>
-</ul>
+
+<p>
+Lagi, saya membuat <i>custom</i> <code>alias</code> di <code>.bashrc</code> sebagai berikut:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-text"># alias emacs client
+alias emacs='emacsclient -n -c'
+
+# autostrat emacs --daemon if it's not running yet
+export ALTERNATE_EDITOR=""
+</pre>
+</div>
+
+<p>
+<i>Reload</i> konfigurasi <code>bash</code> Anda:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b0c4de;">source</span> ~/.bashrc
+</pre>
+</div>
 
 <p>
 Sumber<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
@@ -236,7 +256,7 @@ Sumber<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-03 Sat 21:26</p>
+<p class="date">Created: 2015-10-04 Sun 09:11</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

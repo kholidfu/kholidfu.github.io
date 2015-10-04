@@ -32,10 +32,24 @@ emacsclient /path/to/your/dir/or/file
 Perubahannya? Sangat signifikan! bahkan terasa lebih cepat membuka
 =emacs= dibanding membuka aplikasi =terminal=.
 
-_Future Improve:_
-- Auto start daemon each time machine rebooted
-- Alias-ing command =emacsclient -c -n= with shorter and cleaner
-  command, such as =em /path/to/your/dir/or/file=
+Jika pingin lebih efektif lagi, Anda bisa menambahkan =emacs --daemon=
+setiap kali mesin Anda boot.
+
+Lagi, saya membuat /custom/ =alias= di =.bashrc= sebagai berikut:
+
+#+BEGIN_SRC text
+# alias emacs client
+alias emacs='emacsclient -n -c'
+
+# autostrat emacs --daemon if it's not running yet
+export ALTERNATE_EDITOR=""
+#+END_SRC
+
+/Reload/ konfigurasi =bash= Anda:
+
+#+BEGIN_SRC sh
+source ~/.bashrc
+#+END_SRC
 
 Sumber[fn:1]
 
