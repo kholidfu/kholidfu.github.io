@@ -48,7 +48,7 @@ internet.
 
 Menggunakan =emacs= ~org-mode~, penulis dapat dengan nyaman membuat
 tulisan menggunakan ~.org~, kemudian meng-export berkas tersebut ke
-html dengan semudah menekan ~C-c C-e h~, dan berkas =.org= berubah
+html dengan semudah menekan ~C-c C-e h h~, dan berkas =.org= berubah
 menjadi =.html= dalam sekejap.
 
 Selanjutnya tinggal seremonial =git=, dan artikel sudah /live!/
