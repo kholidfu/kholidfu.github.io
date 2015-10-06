@@ -53,6 +53,30 @@ source ~/.bashrc
 
 Sumber[fn:1]
 
+* Mode Fullscreen di Emacs
+Salah satu cara untuk mengurangi /distraction/ ketika sedang /coding/
+adalah dengan membuat layar /editor/ menjadi /fullscreen/. Kalau
+bekerja di =terminal=, kita dapat dengan mudah menekan =F11= untuk
+mengaktifkan mode /fullscreen/. Bagaimana dengan =emacs=? Bisa tapi
+butuh sedikit /tweak/ di =.emacs=.
+
+Tambahkan baris kode berikut di =.emacs= Anda:
+
+#+BEGIN_SRC lisp
+;; F11 key to toggle full screen mode
+(defun toggle-fullscreen ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen 
+		       (if (frame-parameter nil 'fullscreen)
+			   nil
+			 'fullboth)))
+
+(global-set-key [f11] 'toggle-fullscreen)
+#+END_SRC
+
+/Reload/ konfigurasi dengan =M-x load-file= =~/.emacs=. Sekarang coba
+tekan =F11=, dan layar =emacs= akan berubah menjadi /fullscreen/!
+Tekan =F11= sekali lagi untuk kembali ke ukuran /window/ sebelumnya.
 * Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
