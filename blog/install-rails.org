@@ -61,6 +61,12 @@ gem install rails -V
 git clone https://github.com/username/awesome-ruby.git
 #+END_SRC
 
+Install semua /dependencies/:
+#+BEGIN_SRC sh
+bundle install
+#+END_SRC
+
+Create and migrate database:
 #+BEGIN_SRC sh
 rake db:create
 rake db:migrate
