@@ -79,6 +79,25 @@ rails -s
 
 Now, you should see your =http://localhost:3000= can be accessed.
 
+Entah gimana, saya tidak bisa melakukan perintah =rake db:migrate=
+jika berada di =git branch=. Untuk itu, saya jalankan perintah berikut:
+#+BEGIN_SRC sh
+bundle exec rake db:migrate
+#+END_SRC
+
+*Bonus:*
+
+Membuat /database/ =postgresql=:
+#+BEGIN_SRC sh
+sudo -u postgres -i
+#+END_SRC
+
+Perintah di atas akan membawa Anda ke console postgres, disana Anda
+dapat mengetikkan perintah berikut untuk membuat /database/:
+#+BEGIN_SRC sql
+createdb banteng
+#+END_SRC
+
 Reference: 
 - computersnyou.com[fn:1]
 - stackoverflow.com[fn:2]
