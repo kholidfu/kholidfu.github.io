@@ -87,6 +87,12 @@ jika berada di =git branch=. Untuk itu, saya jalankan perintah berikut:
 bundle exec rake db:migrate
 #+END_SRC
 
+Dan entah kenapa juga, setiap kali =terminal= ditutup, =rvm= perlu
+diperbarui dengan mengetik:
+#+BEGIN_SRC sh
+source ~/.rvm/scripts/rvm
+#+END_SRC
+
 *Bonus:*
 
 Membuat /database/ =postgresql=:
