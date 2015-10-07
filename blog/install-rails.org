@@ -79,6 +79,8 @@ rails -s
 
 Now, you should see your =http://localhost:3000= can be accessed.
 
+*Notes:*
+
 Entah gimana, saya tidak bisa melakukan perintah =rake db:migrate=
 jika berada di =git branch=. Untuk itu, saya jalankan perintah berikut:
 #+BEGIN_SRC sh
@@ -98,7 +100,7 @@ dapat mengetikkan perintah berikut untuk membuat /database/:
 createdb banteng
 #+END_SRC
 
-Reference: 
+*Reference:*
 - computersnyou.com[fn:1]
 - stackoverflow.com[fn:2]
 
