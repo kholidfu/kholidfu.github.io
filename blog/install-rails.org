@@ -1,0 +1,84 @@
+#+TITLE: konfigurasi ruby on rails di linux mint 17.1 - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-07 Wed>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+Seperti biasa jalankan dulu =sudo apt-get update= untuk memastikan
+bahwa paket yang terpasang di sistem kita sudah
+ter-update. 
+
+Pertama, uninstall =ruby= (bawaan OS):
+#+BEGIN_SRC sh
+sudo apt-get purge ruby
+#+END_SRC
+
+Install RVM (Ruby Version Manager):
+#+BEGIN_SRC sh
+\curl -L https://get.rvm.io | bash -s stable --ruby
+#+END_SRC
+
+Jika /error/ muncul =GPG Bad Signature= atau sejenisnya, maka jalankan
+perintah berikut:
+
+#+BEGIN_SRC sh
+command curl -sSL https://rvm.io/mpapis.asc | gpg --import - && !!
+#+END_SRC
+
+Verifikasi instalasi =rvm= dengan mengetikkan perintah berikut:
+#+BEGIN_SRC sh
+source ~/.rvm/scripts/rvm
+type rvm | head -n 1
+#+END_SRC
+
+Jika /output/-nya: =rvm is a function=, berarti instalasi =rvm= sudah
+berhasil.
+
+Sekarang /install/ =ruby=:
+#+BEGIN_SRC sh
+rvm install ruby
+#+END_SRC
+
+Untuk melihat paket =ruby= di =rvm=:
+#+BEGIN_SRC sh
+rvm list
+#+END_SRC
+
+Untuk melihat paket =ruby= yang sudah terpasang, jalankan perintah berikut:
+#+BEGIN_SRC sh
+ruby --version && which ruby
+#+END_SRC
+
+=Ruby= sudah terpasang, sekarang waktunya /install/ =rails=:
+
+#+BEGIN_SRC sh
+gem install bundler -V
+gem install rails -V
+#+END_SRC
+
+=Clone= repo:
+#+BEGIN_SRC sh
+git clone https://github.com/username/awesome-ruby.git
+#+END_SRC
+
+#+BEGIN_SRC sh
+rake db:create
+rake db:migrate
+#+END_SRC
+
+Jalankan /server/ dengan:
+#+BEGIN_SRC sh
+rails -s
+#+END_SRC
+
+Now, you should see your =http://localhost:3000= can be accessed.
+
+Reference: 
+- computersnyou.com[fn:1]
+- stackoverflow.com[fn:2]
+
+* Footnotes
+
+[fn:2] http://stackoverflow.com/questions/22167838/how-to-clone-and-run-another-users-rails-app
+
+[fn:1] https://www.computersnyou.com/4235/setup-ruby-rails-development-environment-linux-mint/

@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-07 Wed 12:43 -->
+<!-- 2015-10-07 Wed 12:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title>Blog - labs127.io and me</title>
+<title>konfigurasi ruby on rails di linux mint 17.1 - labs127.io and me</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kholid Fuadi" />
 <style type="text/css">
@@ -144,21 +144,150 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Blog - labs127.io and me</h1>
+<h1 class="title">konfigurasi ruby on rails di linux mint 17.1 - labs127.io and me</h1>
 <p>
-List of posts:
+Seperti biasa jalankan dulu <code>sudo apt-get update</code> untuk memastikan
+bahwa paket yang terpasang di sistem kita sudah
+ter-update. 
 </p>
 
-<ul class="org-ul">
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-03 Sat&gt; </span></span> <a href="twitter-ihsg-pandas.html">Analisis teknikal IHSG dengan python pandas</a></li>
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt; </span></span> <a href="export-import-table-postgresql.html">Export Import Truncate Table di PostgreSQL</a></li>
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-07 Wed&gt; </span></span> <a href="install-rails.html">Konfigurasi ruby on rails di linux mint 17.1</a></li>
-</ul>
+<p>
+Pertama, uninstall <code>ruby</code> (bawaan OS):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">sudo apt-get purge ruby
+</pre>
 </div>
+
+<p>
+Install RVM (Ruby Version Manager):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">\curl -L https://get.rvm.io | bash -s stable --ruby
+</pre>
+</div>
+
+<p>
+Jika <i>error</i> muncul <code>GPG Bad Signature</code> atau sejenisnya, maka jalankan
+perintah berikut:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b0c4de;">command</span> curl -sSL https://rvm.io/mpapis.asc | gpg --import - &amp;&amp; !!
+</pre>
+</div>
+
+<p>
+Verifikasi instalasi <code>rvm</code> dengan mengetikkan perintah berikut:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b0c4de;">source</span> ~/.rvm/scripts/rvm
+<span style="color: #b0c4de;">type</span> rvm | head -n 1
+</pre>
+</div>
+
+<p>
+Jika <i>output</i>-nya: <code>rvm is a function</code>, berarti instalasi <code>rvm</code> sudah
+berhasil.
+</p>
+
+<p>
+Sekarang <i>install</i> <code>ruby</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">rvm install ruby
+</pre>
+</div>
+
+<p>
+Untuk melihat paket <code>ruby</code> di <code>rvm</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">rvm list
+</pre>
+</div>
+
+<p>
+Untuk melihat paket <code>ruby</code> yang sudah terpasang, jalankan perintah berikut:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">ruby --version &amp;&amp; which ruby
+</pre>
+</div>
+
+<p>
+<code>Ruby</code> sudah terpasang, sekarang waktunya <i>install</i> <code>rails</code>:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">gem install bundler -V
+gem install rails -V
+</pre>
+</div>
+
+<p>
+<code>Clone</code> repo:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">git clone https://github.com/username/awesome-ruby.git
+</pre>
+</div>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">rake db:create
+rake db:migrate
+</pre>
+</div>
+
+<p>
+Jalankan <i>server</i> dengan:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">rails -s
+</pre>
+</div>
+
+<p>
+Now, you should see your <code>http://localhost:3000</code> can be accessed.
+</p>
+
+<p>
+Reference: 
+</p>
+<ul class="org-ul">
+<li>computersnyou.com<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup></li>
+<li>stackoverflow.com<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup></li>
+</ul>
+<div id="footnotes">
+<h2 class="footnotes">Footnotes: </h2>
+<div id="text-footnotes">
+
+<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.computersnyou.com/4235/setup-ruby-rails-development-environment-linux-mint/">https://www.computersnyou.com/4235/setup-ruby-rails-development-environment-linux-mint/</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://stackoverflow.com/questions/22167838/how-to-clone-and-run-another-users-rails-app">http://stackoverflow.com/questions/22167838/how-to-clone-and-run-another-users-rails-app</a>
+</p></div></div>
+
+
+</div>
+</div></div>
 <div id="postamble" class="status">
-<p class="date">Date: 2015-10-01</p>
+<p class="date">Date: 2015-10-07</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-07 Wed 12:43</p>
+<p class="date">Created: 2015-10-07 Wed 12:42</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
