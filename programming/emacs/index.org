@@ -4,6 +4,9 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
 #+STARTUP: indent
 
+Tulisan/tips yang ada di laman ini merupakan kumpulan catatan saya
+selama bergumul dengan =emacs=. Syukur kalau masih /works/ dan berguna
+bagi pembaca sekalian.
 
 * Menjalankan emacs secara daemon
 Emacs terasa lambat saat /startup/? Bahkan dengan processor *i7 4790
