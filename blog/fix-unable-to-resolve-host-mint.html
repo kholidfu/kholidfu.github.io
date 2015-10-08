@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-08 Thu 08:01 -->
+<!-- 2015-10-08 Thu 08:00 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title>Blog - labs127.io and me</title>
+<title>fix :: unable to resolve host - labs127.io and me</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kholid Fuadi" />
 <style type="text/css">
@@ -144,22 +144,49 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Blog - labs127.io and me</h1>
+<h1 class="title">fix :: unable to resolve host - labs127.io and me</h1>
 <p>
-List of posts:
+Bukan masalah besar sih, namun cukup mengganggu, terutama jika sering
+berinteraksi dengan <code>terminal</code>. Penyebab masalah ini adalah
+ketidaksempurnaan konfigurasi pada berkas <code>/etc/hosts</code> dan
+<code>/etc/hostname</code>. Solusinya:
 </p>
 
-<ul class="org-ul">
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-03 Sat&gt; </span></span> <a href="twitter-ihsg-pandas.html">Analisis teknikal IHSG dengan python pandas</a></li>
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-04 Sun&gt; </span></span> <a href="export-import-table-postgresql.html">Export Import Truncate Table di PostgreSQL</a></li>
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-07 Wed&gt; </span></span> <a href="install-rails.html">Konfigurasi ruby on rails di linux mint 17.1</a></li>
-<li><span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-08 Thu&gt; </span></span> <a href="fix-unable-to-resolve-host-mint.html">Fix - unable to resolve host xyz di linux mint 17.1</a></li>
-</ul>
+<p>
+Sebagai contoh berikut ini konfigurasi <code>/etc/hosts/</code> saya:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">127.0.0.1 localhost banteng.app phpmyadmin.app                                  
+127.0.1.1 bantengpc                                                             
+                                                                                
+# The following lines are desirable for IPv6 capable hosts                      
+::1 ip6-localhost ip6-loopback                                                  
+fe00::0 ip6-localnet                                                            
+ff00::0 ip6-mcastprefix                                                         
+ff02::1 ip6-allnodes                                                            
+ff02::2 ip6-allrouters
+</pre>
+</div>
+
+<p>
+Selanjutnya tambahkan <i>hostname</i> <b>bantengpc</b> di berkas <code>/etc/hostname</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">bantengpc
+</pre>
+</div>
+
+<p>
+<i>Reboot</i>, dan seharusnya sekarang sudah tidak muncul lagi pesan
+<code>unable to resolve host xyx</code> ketika menggunakan <code>sudo</code> di <i>terminal</i>.
+</p>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2015-10-01</p>
+<p class="date">Date: 2015-10-08</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-08 Thu 08:01</p>
+<p class="date">Created: 2015-10-08 Thu 08:00</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

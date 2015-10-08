@@ -1,0 +1,31 @@
+#+TITLE: fix :: unable to resolve host - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-08 Thu>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+Bukan masalah besar sih, namun cukup mengganggu, terutama jika sering
+berinteraksi dengan =terminal=. Penyebab masalah ini adalah
+ketidaksempurnaan konfigurasi pada berkas =/etc/hosts= dan
+=/etc/hostname=. Solusinya:
+
+Sebagai contoh berikut ini konfigurasi =/etc/hosts/= saya:
+#+BEGIN_SRC text
+127.0.0.1 localhost banteng.app phpmyadmin.app                                  
+127.0.1.1 bantengpc                                                             
+                                                                                
+# The following lines are desirable for IPv6 capable hosts                      
+::1 ip6-localhost ip6-loopback                                                  
+fe00::0 ip6-localnet                                                            
+ff00::0 ip6-mcastprefix                                                         
+ff02::1 ip6-allnodes                                                            
+ff02::2 ip6-allrouters
+#+END_SRC
+
+Selanjutnya tambahkan /hostname/ *bantengpc* di berkas =/etc/hostname=
+#+BEGIN_SRC text
+bantengpc
+#+END_SRC
+
+/Reboot/, dan seharusnya sekarang sudah tidak muncul lagi pesan
+=unable to resolve host xyx= ketika menggunakan =sudo= di /terminal/.

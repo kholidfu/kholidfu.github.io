@@ -10,3 +10,4 @@ List of posts:
 - <2015-10-03 Sat> [[file:twitter-ihsg-pandas.html][Analisis teknikal IHSG dengan python pandas]]
 - <2015-10-04 Sun> [[file:export-import-table-postgresql.html][Export Import Truncate Table di PostgreSQL]]
 - <2015-10-07 Wed> [[file:install-rails.org][Konfigurasi ruby on rails di linux mint 17.1]]
+- <2015-10-08 Thu> [[file:fix-unable-to-resolve-host-mint.html][Fix - unable to resolve host xyz di linux mint 17.1]]
