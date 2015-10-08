@@ -77,6 +77,15 @@ Tambahkan baris kode berikut di =.emacs= Anda:
 /Reload/ konfigurasi dengan =M-x load-file= =~/.emacs=. Sekarang coba
 tekan =F11=, dan layar =emacs= akan berubah menjadi /fullscreen/!
 Tekan =F11= sekali lagi untuk kembali ke ukuran /window/ sebelumnya.
+* Customize Saved
+Ingin menghilangkan toolbar, menubar, scrollbar?  Sebagai contoh, saya
+ingin menghilangkan scroll bar di sebelah kanan, ketikkan fungsi
+berikut:
+
+=M-x customize-saved=
+
+Kemudian search /scroll bar/ tekan /Return/ kemudian ubah nilai, dan tekan
+Apply and Save.
 * Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
