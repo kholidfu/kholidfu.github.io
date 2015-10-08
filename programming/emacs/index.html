@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-08 Thu 19:45 -->
+<!-- 2015-10-08 Thu 22:02 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -276,9 +276,31 @@ Tekan <code>F11</code> sekali lagi untuk kembali ke ukuran <i>window</i> sebelum
 <h2 id="orgheadline3"><span class="section-number-2">3</span> Fungsi customize-saved</h2>
 <div class="outline-text-2" id="text-3">
 <p>
-Ingin menghilangkan <i>toolbar</i>, <i>menubar</i>, <i>scrollbar</i>?  Sebagai contoh, saya
-ingin menghilangkan <i>scrollbar</i> di sebelah kanan, ketikkan fungsi
-berikut:
+Ingin menghilangkan <i>toolbar</i>, <i>menubar</i>, <i>scrollbar</i>? Ada beberapa
+cara sih sebenarnya, pertama bisa melalui <i>menubar</i>, pilih
+</p>
+
+<p>
+<code>Options</code> <code>&gt;&gt;</code> <code>Customize Emacs</code> <code>&gt;&gt;</code> <code>Saved Options</code>
+</p>
+
+<p>
+Atau bisa dengan menambahkan baris berikut di <code>~/.emacs</code> Anda:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-lisp">(menu-bar-mode -1) <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Disable menubar</span>
+(tool-bar-mode -1) <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Disable toolbar</span>
+(scroll-bar-mode -1) <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Disable scrollbar</span>
+(tooltip-mode -1)) <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Disable tooltip</span>
+</pre>
+</div>
+
+<p>
+Atau melalui fungsi <code>customize-saved</code>. Saya sendiri cenderung memilih
+yang terakhir ini. Sebagai contoh, saya ingin menghilangkan
+<i>scrollbar</i> di sebelah kanan, ketikkan fungsi berikut:
 </p>
 
 <p>
@@ -320,7 +342,7 @@ kemudian ubah nilai, dan tekan <code>Apply and Save</code>.
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-08 Thu 19:45</p>
+<p class="date">Created: 2015-10-08 Thu 22:02</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

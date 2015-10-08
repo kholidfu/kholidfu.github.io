@@ -78,9 +78,23 @@ Tambahkan baris kode berikut di =.emacs= Anda:
 tekan =F11=, dan layar =emacs= akan berubah menjadi /fullscreen/!
 Tekan =F11= sekali lagi untuk kembali ke ukuran /window/ sebelumnya.
 * Fungsi customize-saved
-Ingin menghilangkan /toolbar/, /menubar/, /scrollbar/?  Sebagai contoh, saya
-ingin menghilangkan /scrollbar/ di sebelah kanan, ketikkan fungsi
-berikut:
+Ingin menghilangkan /toolbar/, /menubar/, /scrollbar/? Ada beberapa
+cara sih sebenarnya, pertama bisa melalui /menubar/, pilih
+
+=Options= =>>= =Customize Emacs= =>>= =Saved Options=
+
+Atau bisa dengan menambahkan baris berikut di =~/.emacs= Anda:
+
+#+BEGIN_SRC lisp
+(menu-bar-mode -1) ;; Disable menubar
+(tool-bar-mode -1) ;; Disable toolbar
+(scroll-bar-mode -1) ;; Disable scrollbar
+(tooltip-mode -1)) ;; Disable tooltip
+#+END_SRC
+
+Atau melalui fungsi =customize-saved=. Saya sendiri cenderung memilih
+yang terakhir ini. Sebagai contoh, saya ingin menghilangkan
+/scrollbar/ di sebelah kanan, ketikkan fungsi berikut:
 
 =M-x customize-saved=
 
