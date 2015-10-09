@@ -127,15 +127,22 @@ Yak, =Ctrl+Alt+e=, dan /ZAP/! emacs nongol dan siap diajak kerja!
 * Membuat tautan internal di emacs org-mode
 Ingin merujuk ke bagian tertentu di org-mode? Caranya mudah, gunakan
 /syntax/ tujuan seperti contoh berikut:
+
 #+BEGIN_SRC emacs-lisp
 <<sec:one>>This is target heading.
 #+END_SRC
+
 Setelah itu Anda dapat merujuk pada tautan tersebut dengan:
 #+BEGIN_SRC emacs-lisp
 [[sec:one][Lihat bagian ini]]
 #+END_SRC
+
 Secara otomatis, orgmode akan membuat tautan ke =<<sec:one>>= dengan
-/anchor text/ =Lihat bagian ini=.
+/anchor text/ =Lihat bagian ini=. Atau jika ingin tanpa /anchor text/,
+dapat juga membuat tujuan dengan /syntax/:
+#+BEGIN_SRC emacs-lisp
+[[sec:one]]
+#+END_SRC
 * <<sec:five>>Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
