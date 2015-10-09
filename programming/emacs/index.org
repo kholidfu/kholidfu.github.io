@@ -114,15 +114,15 @@ harus bersentuhan dengan /mouse/.
 
 Pagi ini muncul pertanyaan, kenapa tidak bikin /shortkey/ juga untuk
 emacs? Yah akhirnya langsung dieksekusi dengan melakukan konfigurasi
-melalui =system= =>>= =keyboard=, dan menambahkan /custom shortcut/
-disana.
+melalui =System Settings= =>>= =keyboard= (/linux mint 17.1/), dan
+menambahkan /custom shortcut/ disana.
 
 Saya pilih kombinasi =Ctrl+Alt+e=, e untuk emacs, biar mudah
 diingat. Dan satu hal lagi, /command/ yang saya jalankan bukan =emacs
 .=, melainkan =emacsclient -n -c .=, hal ini karena saya sudah
 menambahkan =emacs --daemon= setiap kali komputer menyala.
 
-Yak, =Ctrl+Alt+e=, dan ZAP! emacs sudah siap!
+Yak, =Ctrl+Alt+e=, dan /ZAP/! emacs nongol dan siap diajak kerja!
 * Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
