@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-08 Thu 22:07 -->
+<!-- 2015-10-09 Fri 07:57 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -152,7 +152,8 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline1">1. Menjalankan emacs secara daemon</a></li>
 <li><a href="#orgheadline2">2. Mode Fullscreen di Emacs</a></li>
 <li><a href="#orgheadline3">3. Fungsi customize-saved</a></li>
-<li><a href="#orgheadline4">4. Emacs Good Reads</a></li>
+<li><a href="#orgheadline4">4. Menambahkan keyboard shortcut untuk emacs</a></li>
+<li><a href="#orgheadline5">5. Emacs Good Reads</a></li>
 </ul>
 </div>
 </div>
@@ -325,8 +326,36 @@ kemudian ubah nilai, dan tekan <code>Apply and Save</code>.
 </div>
 
 <div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Emacs Good Reads</h2>
+<h2 id="orgheadline4"><span class="section-number-2">4</span> Menambahkan keyboard shortcut untuk emacs</h2>
 <div class="outline-text-2" id="text-4">
+<p>
+Pengguna ubuntu pasti familiar dengan <i>shortkey</i> <code>Ctrl+Alt+t</code>, ya
+kombinasi tombol tersebut dapat membuka aplikasi <i>terminal</i> tanpa
+harus bersentuhan dengan <i>mouse</i>.
+</p>
+
+<p>
+Pagi ini muncul pertanyaan, kenapa tidak bikin <i>shortkey</i> juga untuk
+emacs? Yah akhirnya langsung dieksekusi dengan melakukan konfigurasi
+melalui <code>system</code> <code>&gt;&gt;</code> <code>keyboard</code>, dan menambahkan <i>custom shortcut</i>
+disana.
+</p>
+
+<p>
+Saya pilih kombinasi <code>Ctrl+Alt+e</code>, e untuk emacs, biar mudah
+diingat. Dan satu hal lagi, <i>command</i> yang saya jalankan bukan <code>emacs
+.</code>, melainkan <code>emacsclient -n -c .</code>, hal ini karena saya sudah
+menambahkan <code>emacs --daemon</code> setiap kali komputer menyala.
+</p>
+
+<p>
+Yak, <code>Ctrl+Alt+e</code>, dan ZAP! emacs sudah siap!
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">5</span> Emacs Good Reads</h2>
+<div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><a href="http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a></li>
 </ul>
@@ -346,7 +375,7 @@ kemudian ubah nilai, dan tekan <code>Apply and Save</code>.
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-08 Thu 22:07</p>
+<p class="date">Created: 2015-10-09 Fri 07:57</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

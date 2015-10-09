@@ -107,6 +107,22 @@ kemudian ubah nilai, dan tekan =Apply and Save=.
 #+ATTR_HTML: :alt emacs customize-saved :title emacs customize-saved :style width:600px;
 [[file:img/emacs_customize_saved.png]]
 
+* Menambahkan keyboard shortcut untuk emacs
+Pengguna ubuntu pasti familiar dengan /shortkey/ =Ctrl+Alt+t=, ya
+kombinasi tombol tersebut dapat membuka aplikasi /terminal/ tanpa
+harus bersentuhan dengan /mouse/.
+
+Pagi ini muncul pertanyaan, kenapa tidak bikin /shortkey/ juga untuk
+emacs? Yah akhirnya langsung dieksekusi dengan melakukan konfigurasi
+melalui =system= =>>= =keyboard=, dan menambahkan /custom shortcut/
+disana.
+
+Saya pilih kombinasi =Ctrl+Alt+e=, e untuk emacs, biar mudah
+diingat. Dan satu hal lagi, /command/ yang saya jalankan bukan =emacs
+.=, melainkan =emacsclient -n -c .=, hal ini karena saya sudah
+menambahkan =emacs --daemon= setiap kali komputer menyala.
+
+Yak, =Ctrl+Alt+e=, dan ZAP! emacs sudah siap!
 * Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
