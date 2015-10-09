@@ -120,7 +120,8 @@ menambahkan /custom shortcut/ disana.
 Saya pilih kombinasi =Ctrl+Alt+e=, e untuk emacs, biar mudah
 diingat. Dan satu hal lagi, /command/ yang saya jalankan bukan =emacs
 .=, melainkan =emacsclient -n -c .=, hal ini karena saya sudah
-menambahkan =emacs --daemon= (See [[sec:one][emacs as daemon]]) setiap kali komputer menyala.
+menambahkan =emacs --daemon= (Baca artikel [[sec:one][emacs as daemon]]) setiap
+kali komputer menyala.
 
 Yak, =Ctrl+Alt+e=, dan /ZAP/! emacs nongol dan siap diajak kerja!
 * Membuat tautan internal di emacs org-mode
