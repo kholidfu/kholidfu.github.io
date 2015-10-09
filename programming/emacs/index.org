@@ -209,6 +209,13 @@ Berikut ini tangkapan layarnya:
 
 Lebih rapi dan lebih nyaman di mata (subjective detected)... Selamat mencoba!
 
+* <<sec:seven>>Membuat teks rata tengah di org-mode
+Gunakan blok berikut untuk membuat teks rata tengah:
+#+BEGIN_SRC org
+,#+BEGIN_CENTER
+Teks ini rata tengah.
+,#+END_CENTER
+#+END_SRC
 * <<sec:onethousand>>Kombinasi keystroke yang sering saya pakai
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
