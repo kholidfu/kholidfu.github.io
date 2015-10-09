@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-09 Fri 22:44 -->
+<!-- 2015-10-10 Sat 02:24 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -154,7 +154,9 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline3">3. Fungsi customize-saved</a></li>
 <li><a href="#orgheadline4">4. Menambahkan keyboard shortcut untuk emacs</a></li>
 <li><a href="#orgheadline5">5. Membuat tautan internal di emacs org-mode</a></li>
-<li><a href="#orgheadline6">6. Emacs Good Reads</a></li>
+<li><a href="#orgheadline6">6. Header org-mode untuk LaTeX export</a></li>
+<li><a href="#orgheadline7">7. Kombinasi keystroke yang sering saya pakai</a></li>
+<li><a href="#orgheadline8">8. Emacs Good Reads</a></li>
 </ul>
 </div>
 </div>
@@ -356,7 +358,7 @@ Yak, <code>Ctrl+Alt+e</code>, dan <i>ZAP</i>! emacs nongol dan siap diajak kerja
 </div>
 </div>
 <div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Membuat tautan internal di emacs org-mode</h2>
+<h2 id="orgheadline5"><span class="section-number-2">5</span> <a id="orgtarget5"></a>Membuat tautan internal di emacs org-mode</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Ingin merujuk ke bagian tertentu di org-mode? Caranya mudah, gunakan
@@ -396,8 +398,140 @@ Selamat mencoba!
 </div>
 </div>
 <div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> <a id="orgtarget5"></a>Emacs Good Reads</h2>
+<h2 id="orgheadline6"><span class="section-number-2">6</span> <a id="orgtarget6"></a>Header org-mode untuk LaTeX export</h2>
 <div class="outline-text-2" id="text-6">
+<p>
+Awal perkenalan saya dengan <code>LaTeX</code> dulu karena tidak menemukan
+program <i>word processor</i> yang mumpuni di Linux. Dari jaman openoffice
+sampai libreoffice, masih saja ada kekurangpuasan, apalagi kalau
+sebuah dokumen dikerjakan bareng tim yang menggunakan MS. Office
+family, tambah puyeng deh, setting sama hasilnya bisa beda.
+</p>
+
+<p>
+Setelah browsing sana-sini, akhirnya sadar kalau mau dokumen kita bisa
+dibuka di OS apapun dengan format yang dijamin sama, salah satunya
+adalah dengan membuat berkas dengan tipe PDF.
+</p>
+
+<p>
+Salah satu aplikasi yang bagus untuk <i>generate</i> dokumen PDF katanya
+adalah <code>LaTeX</code><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>, maka dicobalah si Latex. Untuk hasil, jangan tanya,
+PDF keluaran Latex kualitasnya masih paling bagus dibanding misalnya
+dengan menggunakan libreoffice. Namun, <i>learning curve</i> nya itu yang
+mungkin tidak setiap orang mampu melewatinya.
+</p>
+
+<p>
+Setelah berkutat dengan <code>LaTeX</code> beberapa lama, dan mulai menggunakan
+<code>emacs</code> instead of <code>vim</code>, tau jugalah saya bahwa ternyata ada
+<code>org-mode</code> di emacs yang dapat digunakan untuk mengekspor dokumen
+<code>.org</code> ke <code>.tex</code> kemudian ke <code>.pdf</code>. Meskipun dari pengalaman pribadi,
+untuk dokumen yang sifatnya kompleks, kadang saya masih harus <i>switch</i>
+ke <code>.tex</code> lagi, namun untuk dokumen yang tidak terlalu rumit,
+<code>org-mode</code> ini adalah sebuah jawaban.
+</p>
+
+<blockquote>
+<p>
+Producing high-quality PDF is as easy as typing in emacs + org-mode.
+</p>
+</blockquote>
+
+<p>
+<i>By default</i>, tanpa setting tambahan, dokumen <code>.org</code> dapat langsung
+diekspor ke <code>.pdf</code> (tentunya Anda sudah memasang <code>tex</code> di OS
+Anda). Berikut ini adalah tampilan standarnya:
+</p>
+
+
+<div class="figure">
+<p><img src="img/ugly_org_export.png" alt="org-mode export to pdf" title="org-mode export to pdf" style="width:400px;" />
+</p>
+</div>
+
+<p>
+<i>A little bit scary, huh?</i>. Kurang suka dengan tampilan defaultnya?
+Anda pun dapat meng-custom nya dengan menggunakan <code>#+LATEX_xxx</code> di
+org-mode.
+</p>
+
+<p>
+Dan berikut ini adalah salah satu setting-an yang sering saya
+pakai. Setting ini merubah link menjadi warna biru dan tanpa box merah
+yang menyeramkan itu.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="color: #b3b3b3;">#+TITLE:</span> <span style="color: #afeeee; font-weight: bold;">Beginning RoR</span>
+<span style="color: #b3b3b3;">#+AUTHOR:</span> <span style="color: #afeeee;">Kholid Fuadi</span>
+<span style="color: #b3b3b3;">#+DATE:</span> <span style="color: #afeeee;">&lt;2015-10-10 Sat&gt;</span>
+<span style="color: #ff7f24; font-style: italic;">#+STARTUP: indent</span>
+<span style="color: #ff7f24; font-style: italic;">#+LATEX_CLASS: article</span>
+<span style="color: #ff7f24; font-style: italic;">#+LATEX_CLASS_OPTIONS: [a4paper]</span>
+<span style="color: #ff7f24; font-style: italic;">#+LATEX_HEADER: \usepackage{graphicx}</span>
+<span style="color: #ff7f24; font-style: italic;">#+LATEX_HEADER: \usepackage{hyperref}</span>
+<span style="color: #ff7f24; font-style: italic;">#+LATEX_HEADER: \hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=red}</span>
+</pre>
+</div>
+
+<p>
+Berikut ini tangkapan layarnya:
+</p>
+
+
+<div class="figure">
+<p><img src="img/nicer_org_export_pdf.png" alt="org-mode export to pdf" title="org-mode export to pdf" style="width:400px;" />
+</p>
+</div>
+
+<p>
+Lebih rapi dan lebih nyaman di mata (subjective detected)&#x2026; Selamat mencoba!
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">7</span> <a id="orgtarget7"></a>Kombinasi keystroke yang sering saya pakai</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Selain <i>keystroke</i> navigasi, ada beberapa kombinasi <i>keystroke</i> yang
+sering saya pakai di emacs. Berikut ini beberapa di antaranya:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Keystroke</th>
+<th scope="col" class="org-left">Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">C-u C-c C-l</td>
+<td class="org-left">Membuat internal link with autocompletion,</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">berguna ketika membuat tautan ke berkas di sebuah direktori.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">8</span> <a id="orgtarget8"></a>Emacs Good Reads</h2>
+<div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li><a href="http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a></li>
 </ul>
@@ -411,13 +545,17 @@ Selamat mencoba!
 <a href="http://emacs-fu.blogspot.co.id/2009/02/emacs-daemon.html">http://emacs-fu.blogspot.co.id/2009/02/emacs-daemon.html</a>
 </p></div></div>
 
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://latex-project.org/intro.html">https://latex-project.org/intro.html</a>
+</p></div></div>
+
 
 </div>
 </div></div>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-09 Fri 22:44</p>
+<p class="date">Created: 2015-10-10 Sat 02:24</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

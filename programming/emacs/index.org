@@ -124,7 +124,7 @@ menambahkan =emacs --daemon= (Baca artikel [[sec:one][emacs as daemon]]) setiap
 kali komputer menyala.
 
 Yak, =Ctrl+Alt+e=, dan /ZAP/! emacs nongol dan siap diajak kerja!
-* Membuat tautan internal di emacs org-mode
+* <<sec:five>>Membuat tautan internal di emacs org-mode
 Ingin merujuk ke bagian tertentu di org-mode? Caranya mudah, gunakan
 /syntax/ tujuan seperti contoh berikut:
 
@@ -146,9 +146,83 @@ tautan tujuan dengan /syntax/:
 #+END_SRC
 
 Selamat mencoba!
-* <<sec:five>>Emacs Good Reads
+* <<sec:six>>Header org-mode untuk LaTeX export
+Awal perkenalan saya dengan =LaTeX= dulu karena tidak menemukan
+program /word processor/ yang mumpuni di Linux. Dari jaman openoffice
+sampai libreoffice, masih saja ada kekurangpuasan, apalagi kalau
+sebuah dokumen dikerjakan bareng tim yang menggunakan MS. Office
+family, tambah puyeng deh, setting sama hasilnya bisa beda.
+
+Setelah browsing sana-sini, akhirnya sadar kalau mau dokumen kita bisa
+dibuka di OS apapun dengan format yang dijamin sama, salah satunya
+adalah dengan membuat berkas dengan tipe PDF.
+
+Salah satu aplikasi yang bagus untuk /generate/ dokumen PDF katanya
+adalah =LaTeX=[fn:2], maka dicobalah si Latex. Untuk hasil, jangan tanya,
+PDF keluaran Latex kualitasnya masih paling bagus dibanding misalnya
+dengan menggunakan libreoffice. Namun, /learning curve/ nya itu yang
+mungkin tidak setiap orang mampu melewatinya.
+
+Setelah berkutat dengan =LaTeX= beberapa lama, dan mulai menggunakan
+=emacs= instead of =vim=, tau jugalah saya bahwa ternyata ada
+=org-mode= di emacs yang dapat digunakan untuk mengekspor dokumen
+=.org= ke =.tex= kemudian ke =.pdf=. Meskipun dari pengalaman pribadi,
+untuk dokumen yang sifatnya kompleks, kadang saya masih harus /switch/
+ke =.tex= lagi, namun untuk dokumen yang tidak terlalu rumit,
+=org-mode= ini adalah sebuah jawaban.
+
+#+BEGIN_QUOTE
+Producing high-quality PDF is as easy as typing in emacs + org-mode.
+#+END_QUOTE
+
+/By default/, tanpa setting tambahan, dokumen =.org= dapat langsung
+diekspor ke =.pdf= (tentunya Anda sudah memasang =tex= di OS
+Anda). Berikut ini adalah tampilan standarnya:
+
+#+ATTR_HTML: :alt org-mode export to pdf :title org-mode export to pdf :style width:400px;
+[[file:img/ugly_org_export.png]]
+
+/A little bit scary, huh?/. Kurang suka dengan tampilan defaultnya?
+Anda pun dapat meng-custom nya dengan menggunakan =#+LATEX_xxx= di
+org-mode.
+
+Dan berikut ini adalah salah satu setting-an yang sering saya
+pakai. Setting ini merubah link menjadi warna biru dan tanpa box merah
+yang menyeramkan itu.
+
+#+BEGIN_SRC org
+#+TITLE: Beginning RoR
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-10 Sat>
+#+STARTUP: indent
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [a4paper]
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=red}
+#+END_SRC
+
+Berikut ini tangkapan layarnya:
+
+#+ATTR_HTML: :alt org-mode export to pdf :title org-mode export to pdf :style width:400px;
+[[file:img/nicer_org_export_pdf.png]]
+
+Lebih rapi dan lebih nyaman di mata (subjective detected)... Selamat mencoba!
+
+* <<sec:onethousand>>Kombinasi keystroke yang sering saya pakai
+Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
+sering saya pakai di emacs. Berikut ini beberapa di antaranya:
+
+| Keystroke   | Keterangan                                                   |
+|-------------+--------------------------------------------------------------|
+| C-u C-c C-l | Membuat internal link with autocompletion,                   |
+|             | berguna ketika membuat tautan ke berkas di sebuah direktori. |
+
+* <<sec:twothousands>>Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
 * Footnotes
+
+[fn:2] https://latex-project.org/intro.html
 
 [fn:1] http://emacs-fu.blogspot.co.id/2009/02/emacs-daemon.html
