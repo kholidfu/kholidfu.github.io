@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-09 Fri 10:43 -->
+<!-- 2015-10-09 Fri 16:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -153,7 +153,8 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline2">2. Mode Fullscreen di Emacs</a></li>
 <li><a href="#orgheadline3">3. Fungsi customize-saved</a></li>
 <li><a href="#orgheadline4">4. Menambahkan keyboard shortcut untuk emacs</a></li>
-<li><a href="#orgheadline5">5. Emacs Good Reads</a></li>
+<li><a href="#orgheadline5">5. Membuat tautan internal di emacs org-mode</a></li>
+<li><a href="#orgheadline6">6. Emacs Good Reads</a></li>
 </ul>
 </div>
 </div>
@@ -164,7 +165,7 @@ bagi pembaca sekalian.
 </p>
 
 <div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Menjalankan emacs secara daemon</h2>
+<h2 id="orgheadline1"><span class="section-number-2">1</span> <a id="orgtarget1"></a>Menjalankan emacs secara daemon</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Emacs terasa lambat saat <i>startup</i>? Bahkan dengan processor <b>i7 4790
@@ -242,7 +243,7 @@ Sumber<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
 </div>
 
 <div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Mode Fullscreen di Emacs</h2>
+<h2 id="orgheadline2"><span class="section-number-2">2</span> <a id="orgtarget2"></a>Mode Fullscreen di Emacs</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Salah satu cara untuk mengurangi <i>distraction</i> ketika sedang <i>coding</i>
@@ -278,7 +279,7 @@ Tekan <code>F11</code> sekali lagi untuk kembali ke ukuran <i>window</i> sebelum
 </div>
 </div>
 <div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Fungsi customize-saved</h2>
+<h2 id="orgheadline3"><span class="section-number-2">3</span> <a id="orgtarget3"></a>Fungsi customize-saved</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Ingin menghilangkan <i>toolbar</i>, <i>menubar</i>, <i>scrollbar</i>? Ada beberapa
@@ -326,7 +327,7 @@ kemudian ubah nilai, dan tekan <code>Apply and Save</code>.
 </div>
 
 <div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Menambahkan keyboard shortcut untuk emacs</h2>
+<h2 id="orgheadline4"><span class="section-number-2">4</span> <a id="orgtarget4"></a>Menambahkan keyboard shortcut untuk emacs</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Pengguna ubuntu pasti familiar dengan <i>shortkey</i> <code>Ctrl+Alt+t</code>, ya
@@ -345,7 +346,7 @@ menambahkan <i>custom shortcut</i> disana.
 Saya pilih kombinasi <code>Ctrl+Alt+e</code>, e untuk emacs, biar mudah
 diingat. Dan satu hal lagi, <i>command</i> yang saya jalankan bukan <code>emacs
 .</code>, melainkan <code>emacsclient -n -c .</code>, hal ini karena saya sudah
-menambahkan <code>emacs --daemon</code> setiap kali komputer menyala.
+menambahkan <code>emacs --daemon</code> (See <a href="#orgtarget1">emacs as daemon</a>) setiap kali komputer menyala.
 </p>
 
 <p>
@@ -354,8 +355,34 @@ Yak, <code>Ctrl+Alt+e</code>, dan <i>ZAP</i>! emacs nongol dan siap diajak kerja
 </div>
 </div>
 <div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Emacs Good Reads</h2>
+<h2 id="orgheadline5"><span class="section-number-2">5</span> Membuat tautan internal di emacs org-mode</h2>
 <div class="outline-text-2" id="text-5">
+<p>
+Ingin merujuk ke bagian tertentu di org-mode? Caranya mudah, gunakan
+<i>syntax</i> tujuan seperti contoh berikut:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">&lt;&lt;sec:one&gt;&gt;This is target heading.
+</pre>
+</div>
+<p>
+Setelah itu Anda dapat merujuk pada tautan tersebut dengan:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp">[[sec:one][Lihat bagian ini]]
+</pre>
+</div>
+<p>
+Secara otomatis, orgmode akan membuat tautan ke <code>&lt;&lt;sec:one&gt;&gt;</code> dengan
+<i>anchor text</i> <code>Lihat bagian ini</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">6</span> <a id="orgtarget5"></a>Emacs Good Reads</h2>
+<div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a></li>
 </ul>
@@ -375,7 +402,7 @@ Yak, <code>Ctrl+Alt+e</code>, dan <i>ZAP</i>! emacs nongol dan siap diajak kerja
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-09 Fri 10:43</p>
+<p class="date">Created: 2015-10-09 Fri 16:31</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

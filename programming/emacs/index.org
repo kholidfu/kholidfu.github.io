@@ -8,7 +8,7 @@ Tulisan/tips yang ada di laman ini merupakan kumpulan catatan saya
 selama bergumul dengan =emacs=. Syukur kalau masih /works/ dan berguna
 bagi pembaca sekalian.
 
-* Menjalankan emacs secara daemon
+* <<sec:one>>Menjalankan emacs secara daemon
 Emacs terasa lambat saat /startup/? Bahkan dengan processor *i7 4790
 RAM 8GB*, dengan jumlah /packages/ yang tidak terlalu banyak juga,
 kadang =emacs= terasa lambat ketika /startup/.
@@ -56,7 +56,7 @@ source ~/.bashrc
 
 Sumber[fn:1]
 
-* Mode Fullscreen di Emacs
+* <<sec:two>>Mode Fullscreen di Emacs
 Salah satu cara untuk mengurangi /distraction/ ketika sedang /coding/
 adalah dengan membuat layar /editor/ menjadi /fullscreen/. Kalau
 bekerja di =terminal=, kita dapat dengan mudah menekan =F11= untuk
@@ -80,7 +80,7 @@ Tambahkan baris kode berikut di =.emacs= Anda:
 /Reload/ konfigurasi dengan =M-x load-file= =~/.emacs=. Sekarang coba
 tekan =F11=, dan layar =emacs= akan berubah menjadi /fullscreen/!
 Tekan =F11= sekali lagi untuk kembali ke ukuran /window/ sebelumnya.
-* Fungsi customize-saved
+* <<sec:three>>Fungsi customize-saved
 Ingin menghilangkan /toolbar/, /menubar/, /scrollbar/? Ada beberapa
 cara sih sebenarnya, pertama bisa melalui /menubar/, pilih
 
@@ -107,7 +107,7 @@ kemudian ubah nilai, dan tekan =Apply and Save=.
 #+ATTR_HTML: :alt emacs customize-saved :title emacs customize-saved :style width:600px;
 [[file:img/emacs_customize_saved.png]]
 
-* Menambahkan keyboard shortcut untuk emacs
+* <<sec:four>>Menambahkan keyboard shortcut untuk emacs
 Pengguna ubuntu pasti familiar dengan /shortkey/ =Ctrl+Alt+t=, ya
 kombinasi tombol tersebut dapat membuka aplikasi /terminal/ tanpa
 harus bersentuhan dengan /mouse/.
@@ -120,10 +120,22 @@ menambahkan /custom shortcut/ disana.
 Saya pilih kombinasi =Ctrl+Alt+e=, e untuk emacs, biar mudah
 diingat. Dan satu hal lagi, /command/ yang saya jalankan bukan =emacs
 .=, melainkan =emacsclient -n -c .=, hal ini karena saya sudah
-menambahkan =emacs --daemon= setiap kali komputer menyala.
+menambahkan =emacs --daemon= (See [[sec:one][emacs as daemon]]) setiap kali komputer menyala.
 
 Yak, =Ctrl+Alt+e=, dan /ZAP/! emacs nongol dan siap diajak kerja!
-* Emacs Good Reads
+* Membuat tautan internal di emacs org-mode
+Ingin merujuk ke bagian tertentu di org-mode? Caranya mudah, gunakan
+/syntax/ tujuan seperti contoh berikut:
+#+BEGIN_SRC emacs-lisp
+<<sec:one>>This is target heading.
+#+END_SRC
+Setelah itu Anda dapat merujuk pada tautan tersebut dengan:
+#+BEGIN_SRC emacs-lisp
+[[sec:one][Lihat bagian ini]]
+#+END_SRC
+Secara otomatis, orgmode akan membuat tautan ke =<<sec:one>>= dengan
+/anchor text/ =Lihat bagian ini=.
+* <<sec:five>>Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
 * Footnotes
