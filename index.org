@@ -4,14 +4,17 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
 #+HTML_HEAD: <style type="text/css">
 #+HTML_HEAD:<!--/*--><![CDATA[/*><!--*/
-#+HTML_HEAD: div.figure { float:left; padding: 0px; }
+#+HTML_HEAD: div.figure { float:none; padding: 0px; }
 #+HTML_HEAD: /*]]>*/-->
 #+HTML_HEAD: </style>
 #+STARTUP: indent
 
-*[ Kholid Fuadi ]*
 
-#+ATTR_HTML: :alt me, coffee and smoke :title me, coffee, and smoke :style width:150px;
+#+BEGIN_CENTER
+*[ Kholid Fuadi ]*
+#+END_CENTER
+
+#+ATTR_HTML: :alt me, coffee and smoke :title me, coffee, and smoke :style width:150px; height: 150px; border-radius: 150px; -webkit-border-radius: 150px; -moz-border-radius: 150px;
 [[./img/klobot.jpg]]
 #+begin_html
  <br style="clear:both;" />
