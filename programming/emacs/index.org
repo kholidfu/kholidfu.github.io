@@ -138,11 +138,14 @@ Setelah itu Anda dapat merujuk pada tautan tersebut dengan:
 #+END_SRC
 
 Secara otomatis, orgmode akan membuat tautan ke =<<sec:one>>= dengan
-/anchor text/ =Lihat bagian ini=. Atau jika ingin tanpa /anchor text/,
-dapat juga membuat tujuan dengan /syntax/:
+/anchor text/ =Lihat bagian ini=. Atau jika ingin /anchor text/ dibuat
+otomatis menggunakan /numbering/ (1, 2, 3, dst), dapat juga membuat
+tautan tujuan dengan /syntax/:
 #+BEGIN_SRC emacs-lisp
 [[sec:one]]
 #+END_SRC
+
+Selamat mencoba!
 * <<sec:five>>Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
