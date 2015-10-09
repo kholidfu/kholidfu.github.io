@@ -128,12 +128,12 @@ Yak, =Ctrl+Alt+e=, dan /ZAP/! emacs nongol dan siap diajak kerja!
 Ingin merujuk ke bagian tertentu di org-mode? Caranya mudah, gunakan
 /syntax/ tujuan seperti contoh berikut:
 
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC text
 <<sec:one>>This is target heading.
 #+END_SRC
 
 Setelah itu Anda dapat merujuk pada tautan tersebut dengan:
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC text
 [[sec:one][Lihat bagian ini]]
 #+END_SRC
 
@@ -141,7 +141,7 @@ Secara otomatis, orgmode akan membuat tautan ke =<<sec:one>>= dengan
 /anchor text/ =Lihat bagian ini=. Atau jika ingin /anchor text/ dibuat
 otomatis menggunakan /numbering/ (1, 2, 3, dst), dapat juga membuat
 tautan tujuan dengan /syntax/:
-#+BEGIN_SRC emacs-lisp
+#+BEGIN_SRC text
 [[sec:one]]
 #+END_SRC
 
