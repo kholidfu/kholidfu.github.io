@@ -216,6 +216,26 @@ Gunakan blok berikut untuk membuat teks rata tengah:
 Teks ini rata tengah.
 ,#+END_CENTER
 #+END_SRC
+* <<sec:eight>>Syntax highlighting di latex org-mode
+Tambahkan konfigurasi berikut di =~/.emacs= Anda:
+#+BEGIN_SRC emacs-lisp
+;; Include the latex-exporter
+(require 'ox-latex)
+;; Add minted to the defaults packages to include when exporting.
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+;; Tell the latex export to use the minted package for source
+;; code coloration.
+(setq org-latex-listings 'minted)
+;; Let the exporter use the -shell-escape option to let latex
+;; execute external programs.
+;; This obviously and can be dangerous to activate!
+(setq org-latex-pdf-process '("pdflatex -shell-escape
+      -interaction nonstopmode -output-directory %o %f"))
+#+END_SRC
+
+Note: Di tutorial asli[fn:3], /command/ yang digunakan adalah =xelatex=,
+saya sendiri menggunakan =pdflatex=, so jika Anda punya /command/
+lain, silakan disesuaikan.
 * <<sec:onethousand>>Kombinasi keystroke yang sering saya pakai
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
@@ -229,6 +249,8 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
 * Footnotes
+
+[fn:3] http://joat-programmer.blogspot.co.id/2013/07/org-mode-version-8-and-pdf-export-with.html
 
 [fn:2] https://latex-project.org/intro.html
 

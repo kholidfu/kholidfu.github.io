@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-10 Sat 02:52 -->
+<!-- 2015-10-10 Sat 07:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -156,8 +156,9 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline5">5. Membuat tautan internal di emacs org-mode</a></li>
 <li><a href="#orgheadline6">6. Header org-mode untuk LaTeX export</a></li>
 <li><a href="#orgheadline7">7. Membuat teks rata tengah di org-mode</a></li>
-<li><a href="#orgheadline8">8. Kombinasi keystroke yang sering saya pakai</a></li>
-<li><a href="#orgheadline9">9. Emacs Good Reads</a></li>
+<li><a href="#orgheadline8">8. Syntax highlighting di latex org-mode</a></li>
+<li><a href="#orgheadline9">9. Kombinasi keystroke yang sering saya pakai</a></li>
+<li><a href="#orgheadline10">10. Emacs Good Reads</a></li>
 </ul>
 </div>
 </div>
@@ -509,8 +510,38 @@ Teks ini rata tengah.
 </div>
 </div>
 <div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> <a id="orgtarget8"></a>Kombinasi keystroke yang sering saya pakai</h2>
+<h2 id="orgheadline8"><span class="section-number-2">8</span> <a id="orgtarget8"></a>Syntax highlighting di latex org-mode</h2>
 <div class="outline-text-2" id="text-8">
+<p>
+Tambahkan konfigurasi berikut di <code>~/.emacs</code> Anda:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-emacs-lisp"><span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Include the latex-exporter</span>
+(<span style="color: #00ffff;">require</span> '<span style="color: #8470ff; font-weight: bold;">ox-latex</span>)
+<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Add minted to the defaults packages to include when exporting.</span>
+(add-to-list 'org-latex-packages-alist '(<span style="color: #ffc1c1;">""</span> <span style="color: #ffc1c1;">"minted"</span>))
+<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Tell the latex export to use the minted package for source</span>
+<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">code coloration.</span>
+(setq org-latex-listings 'minted)
+<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Let the exporter use the -shell-escape option to let latex</span>
+<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">execute external programs.</span>
+<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">This obviously and can be dangerous to activate!</span>
+(setq org-latex-pdf-process '(<span style="color: #ffc1c1;">"pdflatex -shell-escape</span>
+<span style="color: #ffc1c1;">      -interaction nonstopmode -output-directory %o %f"</span>))
+</pre>
+</div>
+
+<p>
+Note: Di tutorial asli<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>, <i>command</i> yang digunakan adalah <code>xelatex</code>,
+saya sendiri menggunakan <code>pdflatex</code>, so jika Anda punya <i>command</i>
+lain, silakan disesuaikan.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-2">
+<h2 id="orgheadline9"><span class="section-number-2">9</span> <a id="orgtarget9"></a>Kombinasi keystroke yang sering saya pakai</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 Selain <i>keystroke</i> navigasi, ada beberapa kombinasi <i>keystroke</i> yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
@@ -545,9 +576,9 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 </div>
 </div>
 
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">9</span> <a id="orgtarget9"></a>Emacs Good Reads</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">10</span> <a id="orgtarget10"></a>Emacs Good Reads</h2>
+<div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li><a href="http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a></li>
 </ul>
@@ -565,13 +596,17 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 <a href="https://latex-project.org/intro.html">https://latex-project.org/intro.html</a>
 </p></div></div>
 
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+<a href="http://joat-programmer.blogspot.co.id/2013/07/org-mode-version-8-and-pdf-export-with.html">http://joat-programmer.blogspot.co.id/2013/07/org-mode-version-8-and-pdf-export-with.html</a>
+</p></div></div>
+
 
 </div>
 </div></div>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-10 Sat 02:52</p>
+<p class="date">Created: 2015-10-10 Sat 07:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
