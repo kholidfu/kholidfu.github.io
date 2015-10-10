@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-10 Sat 07:56 -->
+<!-- 2015-10-10 Sat 08:08 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -525,6 +525,16 @@ Tambahkan konfigurasi berikut di <code>~/.emacs</code> Anda:
 <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Tell the latex export to use the minted package for source</span>
 <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">code coloration.</span>
 (setq org-latex-listings 'minted)
+<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">set minted options</span>
+(setq org-latex-minted-options
+     '((<span style="color: #ffc1c1;">"frame"</span> <span style="color: #ffc1c1;">"lines"</span>) 
+       (<span style="color: #ffc1c1;">"linenos=true"</span>)
+       (<span style="color: #ffc1c1;">"mathescape"</span> <span style="color: #ffc1c1;">"true"</span>)
+       (<span style="color: #ffc1c1;">"numbersep"</span> <span style="color: #ffc1c1;">"5pt"</span>)
+       <span style="color: #fa8072; font-style: italic;">;</span><span style="color: #ff7f24; font-style: italic;">("gobble" "2")</span>
+       (<span style="color: #ffc1c1;">"framesep"</span> <span style="color: #ffc1c1;">"2mm"</span>)
+       )
+     )
 <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Let the exporter use the -shell-escape option to let latex</span>
 <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">execute external programs.</span>
 <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">This obviously and can be dangerous to activate!</span>
@@ -626,7 +636,7 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-10 Sat 07:56</p>
+<p class="date">Created: 2015-10-10 Sat 08:08</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

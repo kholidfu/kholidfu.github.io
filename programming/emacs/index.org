@@ -226,6 +226,16 @@ Tambahkan konfigurasi berikut di =~/.emacs= Anda:
 ;; Tell the latex export to use the minted package for source
 ;; code coloration.
 (setq org-latex-listings 'minted)
+;; set minted options
+(setq org-latex-minted-options
+     '(("frame" "lines") 
+	   ("linenos=true")
+	   ("mathescape" "true")
+	   ("numbersep" "5pt")
+       ;("gobble" "2")
+	   ("framesep" "2mm")
+	   )
+	 )
 ;; Let the exporter use the -shell-escape option to let latex
 ;; execute external programs.
 ;; This obviously and can be dangerous to activate!
