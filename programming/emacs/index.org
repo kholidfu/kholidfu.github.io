@@ -262,7 +262,7 @@ Berikut ini adalah contoh membuat gambar /centering/:
 
 Anda dapat mengganti =:float multicolumn= untuk membuat gambar di satu
 halaman khusus, tanpa ada teks lain. 
-* <<sec:onethousand>>Kombinasi keystroke yang sering saya pakai
+* <<sec:onethousand>>Kombinasi keystroke yang sering saya pakai di org-mode
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 
@@ -270,6 +270,9 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 |-------------+--------------------------------------------------------------|
 | C-u C-c C-l | Membuat internal link with autocompletion,                   |
 |             | berguna ketika membuat tautan ke berkas di sebuah direktori. |
+| C-c C-x f   | Membuat footnote baru.                                       |
+| C-c C-e h o | Export org to HTML and open it in browser                    |
+| C-c C-e l o | Export org to PDF and open it with PDF reader.               |
 
 * <<sec:twothousands>>Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
