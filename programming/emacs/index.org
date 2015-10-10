@@ -254,14 +254,19 @@ Tangkapan layar /output/:
 #+ATTR_HTML: :alt beautiful minted :title beautiful minted
 [[file:img/minted_beauty.png]]
 * <<sec:nine>>Membuat gambar centering di latex org-mode
-Berikut ini adalah contoh membuat gambar /centering/:
+Berikut ini adalah contoh membuat gambar /centering/ dan float here,
+kalau di =LaTeX= =[h!]=.
 #+BEGIN_SRC org
-#+ATTR_LATEX: :float figure :scale 1
+#+ATTR_LATEX: :float nil :width .6\textwidth
 [[file:img/emacs_customize_saved.png]]
 #+END_SRC
 
 Anda dapat mengganti =:float multicolumn= untuk membuat gambar di satu
-halaman khusus, tanpa ada teks lain. 
+halaman khusus, tanpa ada teks lain. Atau =sideways= untuk membuat
+gambar tercetak vertikal, dan banyak pilihan lainnya.
+
+=:width .6\textwidth= berarti ukuran gambar adalah =60%= dari lebar
+area teks. Info lebih lanjut silakan pelajari tautan [[http://orgmode.org/manual/LaTeX-specific-attributes.html][ini]].
 * <<sec:ten>>Membuat garis horisontal di latex org-mode
 Berikut ini kodenya:
 #+BEGIN_SRC org

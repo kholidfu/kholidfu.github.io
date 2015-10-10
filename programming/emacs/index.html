@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-10 Sat 19:25 -->
+<!-- 2015-10-10 Sat 21:34 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -567,18 +567,25 @@ Tangkapan layar <i>output</i>:
 <h2 id="orgheadline9"><span class="section-number-2">9</span> <a id="orgtarget9"></a>Membuat gambar centering di latex org-mode</h2>
 <div class="outline-text-2" id="text-9">
 <p>
-Berikut ini adalah contoh membuat gambar <i>centering</i>:
+Berikut ini adalah contoh membuat gambar <i>centering</i> dan float here,
+kalau di <code>LaTeX</code> <code>[h!]</code>.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-org"><span style="color: #ff7f24; font-style: italic;">#+ATTR_LATEX: :float figure :scale 1</span>
+<pre class="src src-org"><span style="color: #ff7f24; font-style: italic;">#+ATTR_LATEX: :float nil :width .6\textwidth</span>
 <span style="color: #00ffff; text-decoration: underline;"><a href="file:img/emacs_customize_saved.png">file:img/emacs_customize_saved.png</a></span>
 </pre>
 </div>
 
 <p>
 Anda dapat mengganti <code>:float multicolumn</code> untuk membuat gambar di satu
-halaman khusus, tanpa ada teks lain. 
+halaman khusus, tanpa ada teks lain. Atau <code>sideways</code> untuk membuat
+gambar tercetak vertikal, dan banyak pilihan lainnya.
+</p>
+
+<p>
+<code>:width .6\textwidth</code> berarti ukuran gambar adalah <code>60%</code> dari lebar
+area teks. Info lebih lanjut silakan pelajari tautan <a href="http://orgmode.org/manual/LaTeX-specific-attributes.html">ini</a>.
 </p>
 </div>
 </div>
@@ -682,7 +689,7 @@ Font <code>xelatex</code> berasa lebih pekat hitamnya dibanding <code>pdflatex</
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-10 Sat 19:25</p>
+<p class="date">Created: 2015-10-10 Sat 21:34</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
