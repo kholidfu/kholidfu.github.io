@@ -4,6 +4,16 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
 #+STARTUP: indent
 
+/Believe it or not!/, ada /quote/ menarik dari pengarang buku /Ruby on
+Rails Tutorial/ mengenai +rumitnya+ instalasi ruby dan rails.
+
+#+BEGIN_QUOTE
+Even for experienced Rails developers, installing Ruby, Rails, and all
+the associated supporting software can be an exercise in frustration.[fn:3]
+#+END_QUOTE
+
+Tapi, jangan khawatir, mari kita coba dulu...
+
 Seperti biasa jalankan dulu =sudo apt-get update= untuk memastikan
 bahwa paket yang terpasang di sistem kita sudah
 ter-update. 
@@ -111,6 +121,8 @@ createdb banteng
 - stackoverflow.com[fn:2]
 
 * Footnotes
+
+[fn:3] https://www.railstutorial.org/book/beginning#sec-up_and_running
 
 [fn:2] http://stackoverflow.com/questions/22167838/how-to-clone-and-run-another-users-rails-app
 
