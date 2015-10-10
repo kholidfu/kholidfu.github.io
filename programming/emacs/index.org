@@ -243,6 +243,8 @@ Tambahkan konfigurasi berikut di =~/.emacs= Anda:
 							  "pdflatex -shell-escape
 -interaction nonstopmode -output-directory %o %f"
 							  "pdflatex -shell-escape
+-interaction nonstopmode -output-directory %o %f"
+							  "pdflatex -shell-escape
 -interaction nonstopmode -output-directory %o %f"))
 #+END_SRC
 
