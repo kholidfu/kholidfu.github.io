@@ -262,6 +262,12 @@ Berikut ini adalah contoh membuat gambar /centering/:
 
 Anda dapat mengganti =:float multicolumn= untuk membuat gambar di satu
 halaman khusus, tanpa ada teks lain. 
+* <<sec:ten>>Membuat garis horisontal di latex org-mode
+Berikut ini kodenya:
+#+BEGIN_SRC org
+#+ATTR_LATEX: :width .6\textwidth :thickness 0.8pt
+-----
+#+END_SRC
 * <<sec:onethousand>>Kombinasi keystroke yang sering saya pakai di org-mode
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
