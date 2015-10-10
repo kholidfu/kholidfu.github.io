@@ -239,12 +239,12 @@ lain, silakan disesuaikan.
 * <<sec:nine>>Membuat gambar centering di latex org-mode
 Berikut ini adalah contoh membuat gambar /centering/:
 #+BEGIN_SRC org
-#+ATTR_LATEX: :float figure
+#+ATTR_LATEX: :float figure :scale 1
 [[file:img/emacs_customize_saved.png]]
 #+END_SRC
 
 Anda dapat mengganti =:float multicolumn= untuk membuat gambar di satu
-halaman khusus, tanpa ada teks lain.
+halaman khusus, tanpa ada teks lain. 
 * <<sec:onethousand>>Kombinasi keystroke yang sering saya pakai
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
