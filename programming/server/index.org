@@ -47,7 +47,7 @@ Cara untuk setting locale (ubuntu) adalah dengan menyunting berkas
 #+END_SRC
 
 Selanjutnya silakan re-login atau reboot, agar setting berlaku.
-* <<sec:four>>Membatasi output command tree
+* <<sec:four>>Mengatur depth level command tree
 Perintah berikut ini membatasi kedalaman /output/ perintah =tree=
 menjadi maksimal 2 level saja.
 #+BEGIN_SRC sh
