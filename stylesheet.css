@@ -139,6 +139,10 @@ pre.src-text:before {
 	content: 'text';
 }
 
+pre.src-org:before {
+	content: 'org-mode';
+}
+
 .verbatim pre {
     margin: 0;
 }
