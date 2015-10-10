@@ -65,7 +65,7 @@ butuh sedikit /tweak/ di =.emacs=.
 
 Tambahkan baris kode berikut di =.emacs= Anda:
 
-#+BEGIN_SRC lisp
+#+BEGIN_SRC emacs-lisp
 ;; F11 key to toggle full screen mode
 (defun toggle-fullscreen ()
   (interactive)
@@ -88,7 +88,7 @@ cara sih sebenarnya, pertama bisa melalui /menubar/, pilih
 
 Atau bisa dengan menambahkan baris berikut di =~/.emacs= Anda:
 
-#+BEGIN_SRC lisp
+#+BEGIN_SRC emacs-lisp
 (menu-bar-mode -1) ;; Disable menubar
 (tool-bar-mode -1) ;; Disable toolbar
 (scroll-bar-mode -1) ;; Disable scrollbar
