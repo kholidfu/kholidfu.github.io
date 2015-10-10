@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-10 Sat 08:17 -->
+<!-- 2015-10-10 Sat 09:40 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -538,15 +538,18 @@ Tambahkan konfigurasi berikut di <code>~/.emacs</code> Anda:
 <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Let the exporter use the -shell-escape option to let latex</span>
 <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">execute external programs.</span>
 <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">This obviously and can be dangerous to activate!</span>
-(setq org-latex-pdf-process '(<span style="color: #ffc1c1;">"pdflatex -shell-escape</span>
-<span style="color: #ffc1c1;">      -interaction nonstopmode -output-directory %o %f"</span>))
+(setq org-latex-pdf-process '(
+                              <span style="color: #ffc1c1;">"pdflatex -shell-escape</span>
+<span style="color: #ffc1c1;">-interaction nonstopmode -output-directory %o %f"</span>
+                              <span style="color: #ffc1c1;">"pdflatex -shell-escape</span>
+<span style="color: #ffc1c1;">-interaction nonstopmode -output-directory %o %f"</span>))
 </pre>
 </div>
 
 <p>
 Note: Di tutorial asli<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>, <i>command</i> yang digunakan adalah <code>xelatex</code>,
 saya sendiri menggunakan <code>pdflatex</code>, so jika Anda punya <i>command</i>
-lain, silakan disesuaikan.
+lain, silakan disesuaikan.<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
 </p>
 
 <p>
@@ -639,13 +642,17 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 <a href="http://joat-programmer.blogspot.co.id/2013/07/org-mode-version-8-and-pdf-export-with.html">http://joat-programmer.blogspot.co.id/2013/07/org-mode-version-8-and-pdf-export-with.html</a>
 </p></div></div>
 
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+Font <code>xelatex</code> berasa lebih pekat hitamnya dibanding <code>pdflatex</code>.
+</p></div></div>
+
 
 </div>
 </div></div>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-10 Sat 08:17</p>
+<p class="date">Created: 2015-10-10 Sat 09:40</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
