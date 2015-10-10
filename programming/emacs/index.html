@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-10 Sat 07:01 -->
+<!-- 2015-10-10 Sat 07:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -157,8 +157,9 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline6">6. Header org-mode untuk LaTeX export</a></li>
 <li><a href="#orgheadline7">7. Membuat teks rata tengah di org-mode</a></li>
 <li><a href="#orgheadline8">8. Syntax highlighting di latex org-mode</a></li>
-<li><a href="#orgheadline9">9. Kombinasi keystroke yang sering saya pakai</a></li>
-<li><a href="#orgheadline10">10. Emacs Good Reads</a></li>
+<li><a href="#orgheadline9">9. Membuat gambar centering di latex org-mode</a></li>
+<li><a href="#orgheadline10">10. Kombinasi keystroke yang sering saya pakai</a></li>
+<li><a href="#orgheadline11">11. Emacs Good Reads</a></li>
 </ul>
 </div>
 </div>
@@ -540,8 +541,27 @@ lain, silakan disesuaikan.
 </div>
 </div>
 <div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">9</span> <a id="orgtarget9"></a>Kombinasi keystroke yang sering saya pakai</h2>
+<h2 id="orgheadline9"><span class="section-number-2">9</span> <a id="orgtarget9"></a>Membuat gambar centering di latex org-mode</h2>
 <div class="outline-text-2" id="text-9">
+<p>
+Berikut ini adalah contoh membuat gambar <i>centering</i>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-org"><span style="color: #ff7f24; font-style: italic;">#+ATTR_LATEX: :float figure</span>
+<span style="color: #00ffff; text-decoration: underline;"><a href="file:img/emacs_customize_saved.png">file:img/emacs_customize_saved.png</a></span>
+</pre>
+</div>
+
+<p>
+Anda dapat mengganti <code>:float multicolumn</code> untuk membuat gambar di satu
+halaman khusus, tanpa ada teks lain.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline10" class="outline-2">
+<h2 id="orgheadline10"><span class="section-number-2">10</span> <a id="orgtarget10"></a>Kombinasi keystroke yang sering saya pakai</h2>
+<div class="outline-text-2" id="text-10">
 <p>
 Selain <i>keystroke</i> navigasi, ada beberapa kombinasi <i>keystroke</i> yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
@@ -576,9 +596,9 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">10</span> <a id="orgtarget10"></a>Emacs Good Reads</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-orgheadline11" class="outline-2">
+<h2 id="orgheadline11"><span class="section-number-2">11</span> <a id="orgtarget11"></a>Emacs Good Reads</h2>
+<div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li><a href="http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a></li>
 </ul>
@@ -606,7 +626,7 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-10 Sat 07:01</p>
+<p class="date">Created: 2015-10-10 Sat 07:32</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
