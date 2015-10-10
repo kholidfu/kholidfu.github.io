@@ -248,7 +248,7 @@ saya sendiri menggunakan =pdflatex=, so jika Anda punya /command/
 lain, silakan disesuaikan.
 
 Tangkapan layar /output/:
-#+ATTR_HTML: :alt beautiful minted:title beautiful minted
+#+ATTR_HTML: :alt beautiful minted :title beautiful minted
 [[file:img/minted_beauty.png]]
 * <<sec:nine>>Membuat gambar centering di latex org-mode
 Berikut ini adalah contoh membuat gambar /centering/:
