@@ -313,7 +313,7 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 
 * <<sec:1001>>Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
-
+- [[http://orgmode.org/orgguide.pdf][The compact Org-mode Guide]]
 * Footnotes
 
 [fn:5] https://www.reddit.com/r/emacs/comments/3nvmvr/why_orgmode/cvrna2i
