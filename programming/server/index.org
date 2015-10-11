@@ -4,7 +4,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
 #+STARTUP: indent
 
-* <<sec:one>>Mencegah SSH Timeout
+* <<sec:1>>Mencegah SSH Timeout
   Bagi Anda yang sering melakukan koneksi SSH ke server, tentu sangat
   mengganggu bukan? Solusinya mudah, tambahkan atau buat konfigurasi baru
   di berkas =~/.ssh/config=:
@@ -14,7 +14,7 @@
       ServerAliveInterval 10
   #+END_SRC
 
-* <<sec:two>>Membuat / Menambah swap di Ubuntu
+* <<sec:2>>Membuat / Menambah swap di Ubuntu
   Terkadang karena keterbatasan /memory/, kita tidak dapat melakukan
   instalasi paket atau /library/ tertentu di server. Hal ini pernah penulis
   alami ketika akan memasang /library/ =pandas=. Daripada harus upgrade 
@@ -32,7 +32,7 @@
     # add to /etc/fstab to auto load when reboot [optional]
     /swapfile swap swap defaults 0 0
   #+END_SRC
-* <<sec:three>>Set Locale di Ubuntu Server
+* <<sec:3>>Set Locale di Ubuntu Server
 Ini hal wajib yang perlu dilakukan ketika setup server, karena jika
 belum diset, biasanya ada beberapa masalah yang muncul, misal tidak
 mau login ke mongo console atau psql (postgresql).
@@ -47,7 +47,7 @@ Cara untuk setting locale (ubuntu) adalah dengan menyunting berkas
 #+END_SRC
 
 Selanjutnya silakan re-login atau reboot, agar setting berlaku.
-* <<sec:four>>Mengatur depth level command tree
+* <<sec:4>>Mengatur depth level command tree
 Perintah berikut ini membatasi kedalaman /output/ perintah =tree=
 menjadi maksimal 2 level saja.
 #+BEGIN_SRC sh
@@ -87,3 +87,67 @@ merah, seperti yang terlihat dalam tangkapan layar berikut:
 
 This may not applied to server which need to be as up-to-date as
 possible.
+* <<sec:6>>Setting git dan SSH key
+Capek kan kalo harus ngetik /username/ /password/ setiap kali =push=
+atau =pull=? Biar tidak ngetik terus, kita membuat SSH key
+saja. Caranya sebagai berikut:
+
+*Membuat SSH key*
+#+BEGIN_SRC sh
+ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+#+END_SRC
+
+Selanjutnya ikuti saja petunjuknya, kalau suka menyimpan key di
+=~/.ssh/id_rsa.pub=. Untuk /passphrase/, silakan diisi sesuai
+keinginan (kosong pun tidak masalah, tapi sebaiknya diisi).
+
+*Menambahkan SSH key ke git* 
+
+Untuk github, silakan menuju profile, kemudian Settings, klik SSH
+keys, kemudian Add SSH key.
+
+Title bebas mau dinamai apa saja, tapi sebaiknya berupa string yang
+terkait dengan mesin kita, misal =bantengpc=, untuk memudahkan
+identifikasi saja sih, bahwa ssh_key ini kepunyaan mesin =bantengpc=.
+
+Salin isi dari =~/.ssh/id_rsa.pub= kemudian /paste/ ke input
+"Key". Kemudian klik Add key.
+
+*Testing*
+
+Ketik perintah berikut:
+#+BEGIN_SRC sh
+ssh -T git@github.com
+#+END_SRC
+
+Untuk pertama kali, maka akan muncul pesan konfirmasi yang isinya
+kurang lebih sebagai berikut:
+#+BEGIN_SRC text
+The authenticity of host 'github.com (207.97.227.239)' can't be established.
+# RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+# Are you sure you want to continue connecting (yes/no)?
+#+END_SRC
+
+Jawab saja /yes/, kemudian jika berhasil akan muncul keterangan sebagai berikut:
+#+BEGIN_SRC text
+Hi kholidfu! You've successfully authenticated, but GitHub does not
+# provide shell access.
+#+END_SRC
+
+Selanjutnya yang tidak kalah penting adalah memastikan bahwa url
+remote, berbentuk seperti ini:
+#+BEGIN_SRC text
+[remote "origin"]
+	url = git@github.com:kholidfu/kholidfu.github.io.git
+#+END_SRC
+
+Ini berarti kita bisa menggunakan ssh key untuk login dan push. Tetapi
+jika format url masih seperti ini:
+
+#+BEGIN_SRC text
+[remote "origin"]
+    url = https://github.com/kholidfu/kholidfu.gitub.io.git
+#+END_SRC
+
+Silakan disesuaikan, karena format di atas melakukan autentikasi
+menggunakan format usermame/password.

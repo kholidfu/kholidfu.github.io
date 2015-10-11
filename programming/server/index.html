@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-11 Sun 23:29 -->
+<!-- 2015-10-12 Mon 03:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>server dan command line - labs127.io and me</title>
@@ -154,6 +154,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline3">3. Set Locale di Ubuntu Server</a></li>
 <li><a href="#orgheadline4">4. Mengatur depth level command tree</a></li>
 <li><a href="#orgheadline5">5. Lock Package Version di Linux Mint</a></li>
+<li><a href="#orgheadline6">6. Setting git dan SSH key</a></li>
 </ul>
 </div>
 </div>
@@ -302,11 +303,119 @@ possible.
 </p>
 </div>
 </div>
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">6</span> <a id="orgtarget6"></a>Setting git dan SSH key</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Capek kan kalo harus ngetik <i>username</i> <i>password</i> setiap kali <code>push</code>
+atau <code>pull</code>? Biar tidak ngetik terus, kita membuat SSH key
+saja. Caranya sebagai berikut:
+</p>
+
+<p>
+<b>Membuat SSH key</b>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">ssh-keygen -t rsa -b 4096 -C <span style="color: #ffc1c1;">"your_email@example.com"</span>
+</pre>
+</div>
+
+<p>
+Selanjutnya ikuti saja petunjuknya, kalau suka menyimpan key di
+<code>~/.ssh/id_rsa.pub</code>. Untuk <i>passphrase</i>, silakan diisi sesuai
+keinginan (kosong pun tidak masalah, tapi sebaiknya diisi).
+</p>
+
+<p>
+<b>Menambahkan SSH key ke git</b> 
+</p>
+
+<p>
+Untuk github, silakan menuju profile, kemudian Settings, klik SSH
+keys, kemudian Add SSH key.
+</p>
+
+<p>
+Title bebas mau dinamai apa saja, tapi sebaiknya berupa string yang
+terkait dengan mesin kita, misal <code>bantengpc</code>, untuk memudahkan
+identifikasi saja sih, bahwa ssh<sub>key</sub> ini kepunyaan mesin <code>bantengpc</code>.
+</p>
+
+<p>
+Salin isi dari <code>~/.ssh/id_rsa.pub</code> kemudian <i>paste</i> ke input
+"Key". Kemudian klik Add key.
+</p>
+
+<p>
+<b>Testing</b>
+</p>
+
+<p>
+Ketik perintah berikut:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">ssh -T git@github.com
+</pre>
+</div>
+
+<p>
+Untuk pertama kali, maka akan muncul pesan konfirmasi yang isinya
+kurang lebih sebagai berikut:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">The authenticity of host 'github.com (207.97.227.239)' can't be established.
+# RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.
+# Are you sure you want to continue connecting (yes/no)?
+</pre>
+</div>
+
+<p>
+Jawab saja <i>yes</i>, kemudian jika berhasil akan muncul keterangan sebagai berikut:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">Hi kholidfu! You've successfully authenticated, but GitHub does not
+# provide shell access.
+</pre>
+</div>
+
+<p>
+Selanjutnya yang tidak kalah penting adalah memastikan bahwa url
+remote, berbentuk seperti ini:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">[remote "origin"]
+    url = git@github.com:kholidfu/kholidfu.github.io.git
+</pre>
+</div>
+
+<p>
+Ini berarti kita bisa menggunakan ssh key untuk login dan push. Tetapi
+jika format url masih seperti ini:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-text">[remote "origin"]
+    url = https://github.com/kholidfu/kholidfu.gitub.io.git
+</pre>
+</div>
+
+<p>
+Silakan disesuaikan, karena format di atas melakukan autentikasi
+menggunakan format usermame/password.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-11 Sun 23:29</p>
+<p class="date">Created: 2015-10-12 Mon 03:32</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
