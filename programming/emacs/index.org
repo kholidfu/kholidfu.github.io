@@ -8,7 +8,7 @@ Tulisan/tips yang ada di laman ini merupakan kumpulan catatan saya
 selama bergumul dengan =emacs=. Syukur kalau masih /works/ dan berguna
 bagi pembaca sekalian.
 
-* <<sec:one>>Menjalankan emacs secara daemon
+* <<sec:1>>Menjalankan emacs secara daemon
 Emacs terasa lambat saat /startup/? Bahkan dengan processor *i7 4790
 RAM 8GB*, dengan jumlah /packages/ yang tidak terlalu banyak juga,
 kadang =emacs= terasa lambat ketika /startup/.
@@ -56,7 +56,7 @@ source ~/.bashrc
 
 Sumber[fn:1]
 
-* <<sec:two>>Mode Fullscreen di Emacs
+* <<sec:2>>Mode Fullscreen di Emacs
 Salah satu cara untuk mengurangi /distraction/ ketika sedang /coding/
 adalah dengan membuat layar /editor/ menjadi /fullscreen/. Kalau
 bekerja di =terminal=, kita dapat dengan mudah menekan =F11= untuk
@@ -80,7 +80,7 @@ Tambahkan baris kode berikut di =.emacs= Anda:
 /Reload/ konfigurasi dengan =M-x load-file= =~/.emacs=. Sekarang coba
 tekan =F11=, dan layar =emacs= akan berubah menjadi /fullscreen/!
 Tekan =F11= sekali lagi untuk kembali ke ukuran /window/ sebelumnya.
-* <<sec:three>>Fungsi customize-saved
+* <<sec:3>>Fungsi customize-saved
 Ingin menghilangkan /toolbar/, /menubar/, /scrollbar/? Ada beberapa
 cara sih sebenarnya, pertama bisa melalui /menubar/, pilih
 
@@ -107,7 +107,7 @@ kemudian ubah nilai, dan tekan =Apply and Save=.
 #+ATTR_HTML: :alt emacs customize-saved :title emacs customize-saved :style width:85%;
 [[file:img/emacs_customize_saved.png]]
 
-* <<sec:four>>Menambahkan keyboard shortcut untuk emacs
+* <<sec:4>>Menambahkan keyboard shortcut untuk emacs
 Pengguna ubuntu pasti familiar dengan /shortkey/ =Ctrl+Alt+t=, ya
 kombinasi tombol tersebut dapat membuka aplikasi /terminal/ tanpa
 harus bersentuhan dengan /mouse/.
@@ -120,33 +120,33 @@ menambahkan /custom shortcut/ disana.
 Saya pilih kombinasi =Ctrl+Alt+e=, e untuk emacs, biar mudah
 diingat. Dan satu hal lagi, /command/ yang saya jalankan bukan =emacs
 .=, melainkan =emacsclient -n -c .=, hal ini karena saya sudah
-menambahkan =emacs --daemon= (Baca artikel [[sec:one][emacs as daemon]]) setiap
+menambahkan =emacs --daemon= (Baca artikel [[sec:1][emacs as daemon]]) setiap
 kali komputer menyala.
 
 Yak, =Ctrl+Alt+e=, dan /ZAP/! emacs nongol dan siap diajak kerja!
-* <<sec:five>>Membuat tautan internal di emacs org-mode
+* <<sec:5>>Membuat tautan internal di emacs org-mode
 Ingin merujuk ke bagian tertentu di org-mode? Caranya mudah, gunakan
 /syntax/ tujuan seperti contoh berikut:
 
 #+BEGIN_SRC text
-<<sec:one>>This is target heading.
+<<sec:1>>This is target heading.
 #+END_SRC
 
 Setelah itu Anda dapat merujuk pada tautan tersebut dengan:
 #+BEGIN_SRC text
-[[sec:one][Lihat bagian ini]]
+[[sec:1][Lihat bagian ini]]
 #+END_SRC
 
-Secara otomatis, orgmode akan membuat tautan ke =<<sec:one>>= dengan
+Secara otomatis, orgmode akan membuat tautan ke =<<sec:1>>= dengan
 /anchor text/ =Lihat bagian ini=. Atau jika ingin /anchor text/ dibuat
 otomatis menggunakan /numbering/ (1, 2, 3, dst), dapat juga membuat
 tautan tujuan dengan /syntax/:
 #+BEGIN_SRC text
-[[sec:one]]
+[[sec:1]]
 #+END_SRC
 
 Selamat mencoba!
-* <<sec:six>>Header org-mode untuk LaTeX export
+* <<sec:6>>Header org-mode untuk LaTeX export
 Awal perkenalan saya dengan =LaTeX= dulu karena tidak menemukan
 program /word processor/ yang mumpuni di Linux. Dari jaman openoffice
 sampai libreoffice, masih saja ada kekurangpuasan, apalagi kalau
@@ -228,14 +228,14 @@ Once you got hangout with it, it will be one of your most powerful tools
 
 Selamat mencoba!
 
-* <<sec:seven>>Membuat teks rata tengah di org-mode
+* <<sec:7>>Membuat teks rata tengah di org-mode
 Gunakan blok berikut untuk membuat teks rata tengah:
 #+BEGIN_SRC org
 ,#+BEGIN_CENTER
 Teks ini rata tengah.
 ,#+END_CENTER
 #+END_SRC
-* <<sec:eight>>Syntax highlighting di latex org-mode
+* <<sec:8>>Syntax highlighting di latex org-mode
 Tambahkan konfigurasi berikut di =~/.emacs= Anda:
 #+BEGIN_SRC emacs-lisp
 ;; Include the latex-exporter
@@ -274,7 +274,7 @@ lain, silakan disesuaikan.[fn:4]
 Tangkapan layar /output/:
 #+ATTR_HTML: :alt beautiful minted :title beautiful minted :style width:55%; border: 1px solid #AEBDCC; padding: 5px; box-shadow: 3px 3px 3px #eee;
 [[file:img/minted_beauty.png]]
-* <<sec:nine>>Membuat gambar centering di latex org-mode
+* <<sec:9>>Membuat gambar centering di latex org-mode
 Berikut ini adalah contoh membuat gambar /centering/ dan float here,
 kalau di =LaTeX= =[h!]=.
 #+BEGIN_SRC org
@@ -288,7 +288,7 @@ gambar tercetak vertikal, dan banyak pilihan lainnya.
 
 =:width .6\textwidth= berarti ukuran gambar adalah =60%= dari lebar
 area teks. Info lebih lanjut silakan pelajari tautan [[http://orgmode.org/manual/LaTeX-specific-attributes.html][ini]].
-* <<sec:ten>>Membuat garis horisontal di latex org-mode
+* <<sec:10>>Membuat garis horisontal di latex org-mode
 Berikut ini kodenya:
 #+BEGIN_SRC org
 #+ATTR_LATEX: :width .6\textwidth :thickness 0.8pt
@@ -299,7 +299,7 @@ Berikut ini kodenya:
 Flexibility! with org-mode we can deal with text at a higher level
 than LaTeX, but drop to LaTeX when necessary.[fn:5]
 #+END_QUOTE
-* <<sec:onethousand>>Kombinasi keystroke yang sering saya pakai di org-mode
+* <<sec:1000>>Kombinasi keystroke yang sering saya pakai di org-mode
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 
@@ -311,7 +311,7 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 | C-c C-e h o | Export org to HTML and open it in browser                    |
 | C-c C-e l o | Export org to PDF and open it with PDF reader.               |
 
-* <<sec:twothousands>>Emacs Good Reads
+* <<sec:1001>>Emacs Good Reads
 - [[http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html][Emacs org-mode examples and cookbook]]
 
 * Footnotes
