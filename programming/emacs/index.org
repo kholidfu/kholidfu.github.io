@@ -191,15 +191,22 @@ pakai. Setting ini merubah link menjadi warna biru dan tanpa box merah
 yang menyeramkan itu.
 
 #+BEGIN_SRC org
-#+TITLE: Beginning RoR
+#+TITLE: Beginning Ruby on Rails
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2015-10-10 Sat>
 #+STARTUP: indent
 #+LATEX_CLASS: article
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
 #+LATEX_CLASS_OPTIONS: [a4paper]
 #+LATEX_HEADER: \usepackage{graphicx}
 #+LATEX_HEADER: \usepackage{hyperref}
-#+LATEX_HEADER: \hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=red}
+#+LATEX_HEADER: \hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=blue}
+#+LATEX_HEADER: \usepackage{minted}
+#+LATEX_HEADER: \usemintedstyle{emacs}
+#+LATEX_HEADER: \newminted{common-list}{font-size=\footnotesize}
+#+LATEX: \listoftables
+#+LATEX: \listoffigures
+#+LATEX: \pagebreak
 #+END_SRC
 
 Berikut ini tangkapan layarnya:
@@ -207,7 +214,19 @@ Berikut ini tangkapan layarnya:
 #+ATTR_HTML: :alt org-mode export to pdf :title org-mode export to pdf :style width:400px;
 [[file:img/nicer_org_export_pdf.png]]
 
-Lebih rapi dan lebih nyaman di mata (subjective detected)... Selamat mencoba!
+Lebih rapi dan lebih nyaman di mata (subjective detected)... 
+
+*Note:* 
+
+org-mode adalah satu mode yang kompleks di emacs, ini sepadan dengan
+fitur-fitur yang ditawarkan, jadi saran saya jangan pernah lelah
+mencoba dan eksplorasi.
+
+#+BEGIN_QUOTE
+Once you got hangout with it, it will be one of your most powerful tools
+#+END_QUOTE
+
+Selamat mencoba!
 
 * <<sec:seven>>Membuat teks rata tengah di org-mode
 Gunakan blok berikut untuk membuat teks rata tengah:
