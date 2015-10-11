@@ -289,7 +289,12 @@ gambar tercetak vertikal, dan banyak pilihan lainnya.
 =:width .6\textwidth= berarti ukuran gambar adalah =60%= dari lebar
 area teks. Info lebih lanjut silakan pelajari tautan [[http://orgmode.org/manual/LaTeX-specific-attributes.html][ini]].
 * <<sec:10>>Membuat garis horisontal di latex org-mode
-Berikut ini kodenya:
+Membuat garis horisontal semudah mengetikkan karakter =-= minimal
+sebanyak 5 kali. Meski begitu, kita dapat mengcustom lagi dengan
+menambahkan atribut tertentu di atas baris tersebut.
+
+Berikut ini contoh membuat baris dengan lebar 60% dan ketebalan .8pt
+dan setting ini berlaku ketika dokumen org di ekspor latex.
 #+BEGIN_SRC org
 #+ATTR_LATEX: :width .6\textwidth :thickness 0.8pt
 -----
