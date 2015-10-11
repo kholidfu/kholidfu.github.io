@@ -97,9 +97,10 @@ saja. Caranya sebagai berikut:
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
 #+END_SRC
 
-Selanjutnya ikuti saja petunjuknya, kalau suka menyimpan key di
-=~/.ssh/id_rsa.pub=. Untuk /passphrase/, silakan diisi sesuai
-keinginan (kosong pun tidak masalah, tapi sebaiknya diisi).
+Selanjutnya ikuti saja petunjuknya, kalau saya memilih menyimpan key
+di =~/.ssh/id_rsa.pub=, /which is default/. Untuk /passphrase/,
+silakan diisi sesuai keinginan (kosong pun tidak masalah, tapi
+sebaiknya diisi).
 
 *Menambahkan SSH key ke git* 
 
