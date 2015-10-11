@@ -53,3 +53,37 @@ menjadi maksimal 2 level saja.
 #+BEGIN_SRC sh
 tree -L 2 somedir/
 #+END_SRC
+* <<sec:5>>Lock Package Version di Linux Mint
+Salah satu kelebihan menggunakan Linux adalah mudahnya melakukan
+/update/ paket melalui /package manager/ yang biasanya sudah
+disediakan secara /default/ oleh tiap-tiap distro. Namun ini juga
+terkadang membawa masalah tersendiri, kenapa?
+
+Misalnya nih, saya baru saja membeli VGA Card merk ATI. Karena
+dukungan /driver/ yang tidak terlalu bagus (dibanding NVIDIA),
+terkadang ketika ada perubahan versi /kernel/, maka /driver/ yang
+sudah terpasang menjadi tidak berjalan secara sempurna.
+
+Untuk itu, setelah konfigurasi mapan, saya berpikir untuk me-lock
+versi dari kernel yang saya gunakan. Dan ternyata Linux menyediakan
+fitur untuk itu.
+
+Kalau Anda pengguna Ubuntu (atau Mint), Anda dapat melakukan langkah
+berikut:
+
+#+BEGIN_SRC text
+Go to System -> Administration -> Synaptic Package Manager.
+
+Highlight the package and choose menu Package -> Lock Version.
+#+END_SRC
+
+Jika sudah, maka paket tersebut akan ada simbol gembok dan berwarna
+merah, seperti yang terlihat dalam tangkapan layar berikut:
+
+#+ATTR_HTML: :title :alt :style width:85%;
+[[file:img/synaptic.png]]
+
+*Note:*
+
+This may not applied to server which need to be as up-to-date as
+possible.
