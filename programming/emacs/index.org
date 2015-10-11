@@ -296,8 +296,8 @@ Berikut ini kodenya:
 #+END_SRC
 * <<sec:11>>Why org-mode not just plain LaTeX?
 #+BEGIN_QUOTE
-Flexibility! with org-mode we can deal text at a higher level than
-LaTeX, but drop to LaTeX when necessary.[fn:5]
+Flexibility! with org-mode we can deal with text at a higher level
+than LaTeX, but drop to LaTeX when necessary.[fn:5]
 #+END_QUOTE
 * <<sec:onethousand>>Kombinasi keystroke yang sering saya pakai di org-mode
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
