@@ -41,22 +41,7 @@ coffee addict.
   - [[file:assets/pandas_intro.pdf][Intro into Pandas]]
   - [[file:./assets/python_nltk_docs.pdf][Intro into python NLTK]]
 
-*About this page*
-
-Akhirnya menemukan /platform/ yang nyaman buat menampung momen2
-/gotchas/ yang penulis alami selama terjun di dunia
-per-coding-an. Tidak ada yang spesial, hanya berkas ~.html~ biasa,
-dengan sedikit bumbu =stylesheet= yang juga didapat dari selancar di
-internet.
-
-Menggunakan =emacs= ~org-mode~, penulis dapat dengan nyaman membuat
-tulisan menggunakan ~.org~, kemudian meng-export berkas tersebut ke
-html dengan semudah menekan ~C-c C-e h h~, dan berkas =.org= berubah
-menjadi =.html= dalam sekejap.
-
-Selanjutnya tinggal seremonial =git=, dan artikel sudah /live!/
-
-Kategori tulisan yang tersedia di laman ini:
+*Kategori*
 - [[./programming/python/index.html][python]]
 - [[./programming/server/index.html][server dan command line]]
 - [[./programming/emacs/index.html][emacs]]
@@ -66,16 +51,17 @@ Kategori tulisan yang tersedia di laman ini:
 
 *Contact*
 
-Jika ada pertanyaan, silakan mention saya di twitter: [[https://twitter.com/sopier][@sopier]]. _Tidak
-ada jaminan solusi, namun diusahakan sesuai kemampuan._
+Jika ada pertanyaan, silakan mention saya di twitter:
+[[https://twitter.com/kholidfu][@kholidfu]]. _Tidak ada jaminan solusi, namun diusahakan sesuai
+kemampuan._
 
 *Disclaimer*
 
 Sebagian besar isi dari artikel-artikel yang dimuat di sini merupakan
 _pengalaman pribadi_ penulis ketika berinteraksi dengan dunia
-pemrograman, /so/, jangan kaget jika mungkin ada sebagian artikel yang
-isinya cuma =code=, tanpa disertai dengan keterangan yang
-memadai.
+pemrograman, dan biasanya ditulis secepat kilat, biar tidak keduluan
+lupa, /so/, jangan kaget jika mungkin ada sebagian artikel yang isinya
+cuma =code=, tanpa disertai dengan keterangan yang memadai.
 
 Penulis tidak bertanggungjawab jika ternyata sebagian atau
 seluruh bagian dari artikel ini tidak /works/ lagi, mungkin karena
@@ -89,3 +75,10 @@ lupa mantranya, _Google is your friend_.
 - [ [[https://www.facebook.com/kholid.fuadi][fb]] ]
 - [ [[https://id.linkedin.com/in/kholidfuadi][linkedin]] ]
 - [ [[https://plus.google.com/+kholidfu][g+]] ]
+
+*About this blog*
+#+BEGIN_QUOTE
+Blog ini ditulis menggunakan =emacs= + =org-mode=, kemudian di-export
+ke html dengan hanya menekan ~C-c C-e h h~, dan /zap!/ =.html= pun
+jadi. Selanjutnya tinggal seremonial =git=, dan artikel sudah /live!/
+#+END_QUOTE
