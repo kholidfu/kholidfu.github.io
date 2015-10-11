@@ -4,7 +4,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
 #+STARTUP: indent
 
-#+ATTR_HTML: :style width:600px;
+#+ATTR_HTML: alt: title: :style width:85%; border: 1px solid #AEBDCC; padding: 5px; box-shadow: 3px 3px 3px #eee;
 [[file:./images/ihsg.png]]
 
 Skrip[fn:5] ini pertama kali saya buat tahun 2013 yang lalu, dan baru saja

@@ -104,7 +104,7 @@ yang terakhir ini. Sebagai contoh, saya ingin menghilangkan
 Kemudian search /scroll bar/, cari =Scroll Bar Mode= tekan /Return/
 kemudian ubah nilai, dan tekan =Apply and Save=.
 
-#+ATTR_HTML: :alt emacs customize-saved :title emacs customize-saved :style width:600px;
+#+ATTR_HTML: :alt emacs customize-saved :title emacs customize-saved :style width:85%;
 [[file:img/emacs_customize_saved.png]]
 
 * <<sec:four>>Menambahkan keyboard shortcut untuk emacs
@@ -179,7 +179,7 @@ Producing high-quality PDF is as easy as typing in emacs + org-mode.
 diekspor ke =.pdf= (tentunya Anda sudah memasang =tex= di OS
 Anda). Berikut ini adalah tampilan standarnya:
 
-#+ATTR_HTML: :alt org-mode export to pdf :title org-mode export to pdf :style width:400px;
+#+ATTR_HTML: :alt org-mode export to pdf :title org-mode export to pdf :style width:55%; border: 1px solid #AEBDCC; padding: 5px; box-shadow: 3px 3px 3px #eee;
 [[file:img/ugly_org_export.png]]
 
 /A little bit scary, huh?/. Kurang suka dengan tampilan defaultnya?
@@ -211,7 +211,7 @@ yang menyeramkan itu.
 
 Berikut ini tangkapan layarnya:
 
-#+ATTR_HTML: :alt org-mode export to pdf :title org-mode export to pdf :style width:400px;
+#+ATTR_HTML: :alt org-mode export to pdf :title org-mode export to pdf :style width:65%; border: 1px solid #AEBDCC; padding: 5px; box-shadow: 3px 3px 3px #eee;
 [[file:img/nicer_org_export_pdf.png]]
 
 Lebih rapi dan lebih nyaman di mata (subjective detected)... 
@@ -272,7 +272,7 @@ saya sendiri menggunakan =pdflatex=, so jika Anda punya /command/
 lain, silakan disesuaikan.[fn:4]
 
 Tangkapan layar /output/:
-#+ATTR_HTML: :alt beautiful minted :title beautiful minted
+#+ATTR_HTML: :alt beautiful minted :title beautiful minted :style width:55%; border: 1px solid #AEBDCC; padding: 5px; box-shadow: 3px 3px 3px #eee;
 [[file:img/minted_beauty.png]]
 * <<sec:nine>>Membuat gambar centering di latex org-mode
 Berikut ini adalah contoh membuat gambar /centering/ dan float here,
