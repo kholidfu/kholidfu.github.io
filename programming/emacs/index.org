@@ -315,6 +315,8 @@ Tunggu sampai semua proses selesai. Bagaimana mengetahui proses
 selesai? Tekan =C-x C-b= untuk melihat /buffer/ dan /process/ yang
 aktif. Jika sudah tidak ada proses /upgrading/ berarti /upgrade/ sudah
 berhasil.
+
+Referensi[fn:6]
 * <<sec:1000>>Kombinasi keystroke yang sering saya pakai di org-mode
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
@@ -332,6 +334,8 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 - [[http://orgmode.org/orgguide.pdf][The compact Org-mode Guide {PDF}]]
 - [[http://orgmode.org/org.pdf][The Org Manual {PDF}]]
 * Footnotes
+
+[fn:6] http://oremacs.com/2015/03/20/managing-emacs-packages/
 
 [fn:5] https://www.reddit.com/r/emacs/comments/3nvmvr/why_orgmode/cvrna2i
 

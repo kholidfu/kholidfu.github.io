@@ -76,9 +76,9 @@ lupa mantranya, _Google is your friend_.
 - [ [[https://id.linkedin.com/in/kholidfuadi][linkedin]] ]
 - [ [[https://plus.google.com/+kholidfu][g+]] ]
 
-*About this blog*
+*About this site*
 #+BEGIN_QUOTE
-Blog ini ditulis menggunakan =emacs= + =org-mode=, kemudian di-export
-ke html dengan hanya menekan ~C-c C-e h h~, dan /zap!/ =.html= pun
+Situs ini dibuat menggunakan =emacs= + =org-mode=, kemudian di-export
+ke html dengan menekan ~C-c C-e h h~, dan /zap!/, =.html= pun
 jadi. Selanjutnya tinggal seremonial =git=, dan artikel sudah /live!/
 #+END_QUOTE
