@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-12 Mon 03:09 -->
+<!-- 2015-10-12 Mon 06:01 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -160,8 +160,9 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline9">9. Membuat gambar centering di latex org-mode</a></li>
 <li><a href="#orgheadline10">10. Membuat garis horisontal di latex org-mode</a></li>
 <li><a href="#orgheadline11">11. Why org-mode not just plain LaTeX?</a></li>
-<li><a href="#orgheadline12">12. Kombinasi keystroke yang sering saya pakai di org-mode</a></li>
-<li><a href="#orgheadline13">13. Emacs Good Reads</a></li>
+<li><a href="#orgheadline12">12. Memperbarui paket Emacs</a></li>
+<li><a href="#orgheadline13">13. Kombinasi keystroke yang sering saya pakai di org-mode</a></li>
+<li><a href="#orgheadline14">14. Emacs Good Reads</a></li>
 </ul>
 </div>
 </div>
@@ -652,8 +653,29 @@ than LaTeX, but drop to LaTeX when necessary.<sup><a id="fnr.5" class="footref" 
 </div>
 </div>
 <div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">12</span> <a id="orgtarget12"></a>Kombinasi keystroke yang sering saya pakai di org-mode</h2>
+<h2 id="orgheadline12"><span class="section-number-2">12</span> <a id="orgtarget12"></a>Memperbarui paket Emacs</h2>
 <div class="outline-text-2" id="text-12">
+<p>
+Cara memperbarui paket di emacs:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">M-x package-list-packages  ; tunggu sampai buffer repo muncul.
+M-x package-menu-mark-upgrades
+M-x package-menu-execute
+</pre>
+</div>
+<p>
+Tunggu sampai semua proses selesai. Bagaimana mengetahui proses
+selesai? Tekan <code>C-x C-b</code> untuk melihat <i>buffer</i> dan <i>process</i> yang
+aktif. Jika sudah tidak ada proses <i>upgrading</i> berarti <i>upgrade</i> sudah
+berhasil.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline13" class="outline-2">
+<h2 id="orgheadline13"><span class="section-number-2">13</span> <a id="orgtarget13"></a>Kombinasi keystroke yang sering saya pakai di org-mode</h2>
+<div class="outline-text-2" id="text-13">
 <p>
 Selain <i>keystroke</i> navigasi, ada beberapa kombinasi <i>keystroke</i> yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
@@ -703,9 +725,9 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 </div>
 </div>
 
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">13</span> <a id="orgtarget13"></a>Emacs Good Reads</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-orgheadline14" class="outline-2">
+<h2 id="orgheadline14"><span class="section-number-2">14</span> <a id="orgtarget14"></a>Emacs Good Reads</h2>
+<div class="outline-text-2" id="text-14">
 <ul class="org-ul">
 <li><a href="http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a></li>
 <li><a href="http://orgmode.org/orgguide.pdf">The compact Org-mode Guide {PDF}</a></li>
@@ -743,7 +765,7 @@ Font <code>xelatex</code> berasa lebih pekat hitamnya dibanding <code>pdflatex</
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-12 Mon 03:09</p>
+<p class="date">Created: 2015-10-12 Mon 06:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -304,6 +304,17 @@ dan setting ini berlaku ketika dokumen org di ekspor latex.
 Flexibility! with org-mode we can deal with text at a higher level
 than LaTeX, but drop to LaTeX when necessary.[fn:5]
 #+END_QUOTE
+* <<sec:12>>Memperbarui paket Emacs
+Cara memperbarui paket di emacs:
+#+BEGIN_SRC text
+M-x package-list-packages  ; tunggu sampai buffer repo muncul.
+M-x package-menu-mark-upgrades
+M-x package-menu-execute
+#+END_SRC
+Tunggu sampai semua proses selesai. Bagaimana mengetahui proses
+selesai? Tekan =C-x C-b= untuk melihat /buffer/ dan /process/ yang
+aktif. Jika sudah tidak ada proses /upgrading/ berarti /upgrade/ sudah
+berhasil.
 * <<sec:1000>>Kombinasi keystroke yang sering saya pakai di org-mode
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
