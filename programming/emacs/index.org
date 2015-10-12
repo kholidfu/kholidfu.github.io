@@ -318,13 +318,21 @@ berhasil.
 
 Referensi[fn:6]
 * <<sec:13>>Follow Mode
+Mode ini berguna ketika teks yang kita baca cukup panjang dan layar
+monitor tidak cukup memadai. Dengan mode ini, ibarat kita membaca
+koran, yang antara kolom satu dengan yang lain saling tersambung.
+
 Aktifkan /follow mode/ dengan menjalankan fungsi =M-x follow-mode=,
 kemudian =C-x 3= untuk split vertical window kita. Dapat dilihat
 sekarang, jika kita melakukan navigasi maju mundur, baik menggunakan
 mouse atau keyboard, maka window satunya akan merespon.
 * <<sec:14>>Remember
-To create quick and dirty notes. Press =M-x remember=. Kalau sudah
-tekan =C-c C-c= untuk kembali ke buffer sebelumnya.
+This mode useful to create quick and dirty notes, misal tiba-tiba
+teringat sesuatu dan Anda tidak ingin lupa dengan hal penting
+tersebut. Press =M-x remember=, tulis catatan penting tersebut, kalau
+sudah tekan =C-c C-c= untuk kembali ke buffer sebelumnya. Buffer by
+default akan tersimpan di =~/.notes=, yang tentu saja dapat Anda buka
+lagi dengan semudah =C-x C-f=.
 * <<sec:1000>>Kombinasi keystroke yang sering saya pakai di org-mode
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
