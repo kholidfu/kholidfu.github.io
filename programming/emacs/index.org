@@ -326,7 +326,7 @@ Aktifkan /follow mode/ dengan menjalankan fungsi =M-x follow-mode=,
 kemudian =C-x 3= untuk split vertical window kita. Dapat dilihat
 sekarang, jika kita melakukan navigasi maju mundur, baik menggunakan
 mouse atau keyboard, maka window satunya akan merespon.
-* <<sec:14>>Remember
+* <<sec:14>>Remember Mode
 This mode useful to create quick and dirty notes, misal tiba-tiba
 teringat sesuatu dan Anda tidak ingin lupa dengan hal penting
 tersebut. Press =M-x remember=, tulis catatan penting tersebut, kalau
