@@ -75,6 +75,7 @@ lupa mantranya, _Google is your friend_.
 - [ [[https://www.facebook.com/kholid.fuadi][fb]] ]
 - [ [[https://id.linkedin.com/in/kholidfuadi][linkedin]] ]
 - [ [[https://plus.google.com/+kholidfu][g+]] ]
+- [ [[https://www.livecoding.tv/kholidfu/][livecoding.tv]] ]
 
 *About this site*
 #+BEGIN_QUOTE
