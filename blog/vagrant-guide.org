@@ -28,7 +28,7 @@ Langkah-langkah:
   #+END_SRC
 - sunting berkas =Vagrantfile=, ubah baris berikut
   #+BEGIN_SRC text
-  config.vm.box = "base0"
+  config.vm.box = "base"
   #+END_SRC
   Sesuaikan dengan =box= yang Anda unduh, misal:
   #+BEGIN_SRC text
