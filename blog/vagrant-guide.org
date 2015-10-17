@@ -1,0 +1,59 @@
+#+TITLE: Up and Running with Vagrant
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-10-17 Sat>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+Langkah-langkah:
+- install virtualbox
+  #+BEGIN_SRC sh
+  sudo apt-get install virtualbox virtualbox-dkms
+  #+END_SRC
+- install virtualbox-qt (/optional/)
+  #+BEGIN_SRC sh
+  sudo apt-get install virtualbox-qt
+  #+END_SRC
+- install vagrant
+  #+BEGIN_SRC sh
+  sudo apt-get install vagrant
+  #+END_SRC
+- menambahkan box[fn:1]
+  #+BEGIN_SRC sh
+  vagrant box add ubuntu/wily64
+  #+END_SRC
+- membuat direktori project
+  #+BEGIN_SRC sh
+  mkdir vagrant_project && cd vagrant_project
+  vagrant init
+  #+END_SRC
+- sunting berkas =Vagrantfile=, ubah baris berikut
+  #+BEGIN_SRC text
+  config.vm.box = "ubuntu/wily64"
+  #+END_SRC
+- Jalankan environment
+  #+BEGIN_SRC sh
+  vagrant up
+  #+END_SRC
+
+\\
+*[Possible] Error* 
+
+Jika muncul =default: Warning: Connection timeout. Retrying.=, lakukan
+langkah berikut:
+
+- Tambahkan baris berikut di =VagrantFile=:
+#+BEGIN_SRC text
+config.ssh.username = 'vagrant'
+config.ssh.password = 'vagrant'
+config.ssh.insert_key = 'true'
+config.ssh.private_key_path = "~/.vagrant.d/insecure_private_key"
+#+END_SRC
+
+
+\\
+*References*:\\
+- [[http://www.olindata.com/blog/2014/07/installing-vagrant-and-virtual-box-ubuntu-1404-lts][olindata.com]]
+
+* Footnotes
+
+[fn:1] Daftar =box= bisa dilihat disini: https://atlas.hashicorp.com/boxes/search

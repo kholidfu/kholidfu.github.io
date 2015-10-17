@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-17 Sat 17:55 -->
+<!-- 2015-10-17 Sat 18:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>python - labs127.io and me</title>
@@ -561,56 +561,57 @@ Maka untuk menjalankan gunicorn:
 <div class="outline-text-2" id="text-7">
 <div class="org-src-container">
 
-<pre class="src src-text"># starting django project with cookiecutter
+<pre class="src src-sh"><span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">starting django project with cookiecutter</span>
 
 cookiecutter https://github.com/pydanny/cookiecutter-django.git
 
-* choose Y
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">choose Y</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">It will clone in ~/.cookiecutter</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Follow the wizard</span>
 
-It will clone in ~/.cookiecutter...
-
-* Follow the wizard
-
-cd into project_name
+<span style="color: #b0c4de;">cd</span> into project_name
 virtualenv .
 
-* edit requirements/base.txt, add/comment unwanted libs
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">edit requirements/base.txt, add/comment unwanted libs</span>
 pip install -r requirements/local.txt
 
-* install gunicorn
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">install gunicorn</span>
 pip install gunicorn
 
-* create database name 
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">create database name </span>
 sudo -u postgres -i
 createdb project_name
 
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">do migration</span>
 python manage.py migrate
 python manage.py runserver
 
-
-* creating project/apps
-* you can create app straightforward in project_name/ dir
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">creating project/apps</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">you can create app straightforward in project_name/ dir</span>
 python manage.py createapp myapp
 
-* or
-* startproject and createapp
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">or</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">startproject and createapp</span>
 python manage.py startproject myproject
-cd myproject
+<span style="color: #b0c4de;">cd</span> myproject
 python manage.py createapp myapp
 
-* I prefer the 1st one
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">I prefer the 1st one</span>
 
-* run server with gunicorn
-gunicorn --env DJANGO_SETTINGS_MODULE=config.settings.local config.wsgi --bind 127.0.0.1:8000
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">run server with gunicorn</span>
+gunicorn --env <span style="color: #7fffd4;">DJANGO_SETTINGS_MODULE</span>=config.settings.local config.wsgi --bind 127.0.0.1:8000
 </pre>
 </div>
+<p>
+Selanjutnya tinggal buat model di django seperti biasa.
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-17 Sat 17:55</p>
+<p class="date">Created: 2015-10-17 Sat 18:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

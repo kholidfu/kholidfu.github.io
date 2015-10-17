@@ -274,47 +274,46 @@ Maka untuk menjalankan gunicorn:
   gunicorn --env DJANGO_SETTINGS_MODULE=mslib.settings mslib.wsgi --bind 127.0.0.1:8000
 #+END_SRC
 * Up and Running with django-cookiecutter
-#+BEGIN_SRC text
+#+BEGIN_SRC sh
 # starting django project with cookiecutter
 
 cookiecutter https://github.com/pydanny/cookiecutter-django.git
 
-,* choose Y
-
-It will clone in ~/.cookiecutter...
-
-,* Follow the wizard
+# choose Y
+# It will clone in ~/.cookiecutter
+# Follow the wizard
 
 cd into project_name
 virtualenv .
 
-,* edit requirements/base.txt, add/comment unwanted libs
+# edit requirements/base.txt, add/comment unwanted libs
 pip install -r requirements/local.txt
 
-,* install gunicorn
+# install gunicorn
 pip install gunicorn
 
-,* create database name 
+# create database name 
 sudo -u postgres -i
 createdb project_name
 
+# do migration
 python manage.py migrate
 python manage.py runserver
 
-
-,* creating project/apps
-,* you can create app straightforward in project_name/ dir
+# creating project/apps
+# you can create app straightforward in project_name/ dir
 python manage.py createapp myapp
 
-,* or
-,* startproject and createapp
+# or
+# startproject and createapp
 python manage.py startproject myproject
 cd myproject
 python manage.py createapp myapp
 
-,* I prefer the 1st one
+# I prefer the 1st one
 
-,* run server with gunicorn
+# run server with gunicorn
 gunicorn --env DJANGO_SETTINGS_MODULE=config.settings.local config.wsgi --bind 127.0.0.1:8000
 
 #+END_SRC
+Selanjutnya tinggal buat model di django seperti biasa.
