@@ -1,4 +1,4 @@
-#+TITLE: Up and Running with Vagrant
+#+TITLE: Langkah-langkah Setup dan Konfigurasi Vagrant - labs127.io and me
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2015-10-17 Sat>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
@@ -9,7 +9,7 @@ Langkah-langkah:
   #+BEGIN_SRC sh
   sudo apt-get install virtualbox virtualbox-dkms
   #+END_SRC
-- install virtualbox-qt (/optional/)
+- install virtualbox-qt (/optional/ buat yang pengen vboxmanager versi GUI)
   #+BEGIN_SRC sh
   sudo apt-get install virtualbox-qt
   #+END_SRC
@@ -19,7 +19,7 @@ Langkah-langkah:
   #+END_SRC
 - menambahkan box[fn:1]
   #+BEGIN_SRC sh
-  vagrant box add ubuntu/wily64
+  vagrant box add ubuntu/trusty64
   #+END_SRC
 - membuat direktori project
   #+BEGIN_SRC sh
@@ -28,27 +28,28 @@ Langkah-langkah:
   #+END_SRC
 - sunting berkas =Vagrantfile=, ubah baris berikut
   #+BEGIN_SRC text
-  config.vm.box = "ubuntu/wily64"
+  config.vm.box = "base0"
+  #+END_SRC
+  Sesuaikan dengan =box= yang Anda unduh, misal:
+  #+BEGIN_SRC text
+  config.vm.box = "ubuntu/trusty64"
   #+END_SRC
 - Jalankan environment
   #+BEGIN_SRC sh
   vagrant up
   #+END_SRC
+- Login via ssh
+  #+BEGIN_SRC sh
+  ssh vagrant@127.0.0.1 -p 2222
+  #+END_SRC
 
-\\
-*[Possible] Error* 
-
-Jika muncul =default: Warning: Connection timeout. Retrying.=, lakukan
-langkah berikut:
-
-- Tambahkan baris berikut di =VagrantFile=:
+Biar lebih efektif, =ssh= /command/ ini bisa ditambahkan ke =~/.bashrc=, misal:
 #+BEGIN_SRC text
-config.ssh.username = 'vagrant'
-config.ssh.password = 'vagrant'
-config.ssh.insert_key = 'true'
-config.ssh.private_key_path = "~/.vagrant.d/insecure_private_key"
+alias vm="ssh vagrant@127.0.0.1 -p 2222"
 #+END_SRC
 
+Kemudian jalankan =source ~/.bashrc= di terminal. Lain kali tinggal
+jalankan =vm=, dan Anda sudah /logged-in/ ke /virtual machine/.
 
 \\
 *References*:\\

@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-17 Sat 20:04 -->
+<!-- 2015-10-17 Sat 23:26 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title>Up and Running with Vagrant</title>
+<title>Langkah-langkah Setup dan Konfigurasi Vagrant - labs127.io and me</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kholid Fuadi" />
 <style type="text/css">
@@ -144,7 +144,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Up and Running with Vagrant</h1>
+<h1 class="title">Langkah-langkah Setup dan Konfigurasi Vagrant - labs127.io and me</h1>
 <p>
 Langkah-langkah:
 </p>
@@ -158,7 +158,7 @@ install virtualbox
 </pre>
 </div></li>
 <li><p>
-install virtualbox-qt (<i>optional</i>)
+install virtualbox-qt (<i>optional</i> buat yang pengen vboxmanager versi GUI)
 </p>
 <div class="org-src-container">
 
@@ -178,7 +178,7 @@ menambahkan box<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">vagrant box add ubuntu/wily64
+<pre class="src src-sh">vagrant box add ubuntu/trusty64
 </pre>
 </div></li>
 <li><p>
@@ -195,7 +195,15 @@ sunting berkas <code>Vagrantfile</code>, ubah baris berikut
 </p>
 <div class="org-src-container">
 
-<pre class="src src-text">config.vm.box = "ubuntu/wily64"
+<pre class="src src-text">config.vm.box = "base0"
+</pre>
+</div>
+<p>
+Sesuaikan dengan <code>box</code> yang Anda unduh, misal:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">config.vm.box = "ubuntu/trusty64"
 </pre>
 </div></li>
 <li><p>
@@ -206,30 +214,29 @@ Jalankan environment
 <pre class="src src-sh">vagrant up
 </pre>
 </div></li>
-</ul>
-
-<p>
-<br  />
-<b>[Possible] Error</b> 
+<li><p>
+Login via ssh
 </p>
-
-<p>
-Jika muncul <code>default: Warning: Connection timeout. Retrying.</code>, lakukan
-langkah berikut:
-</p>
-
-<ul class="org-ul">
-<li>Tambahkan baris berikut di <code>VagrantFile</code>:</li>
-</ul>
 <div class="org-src-container">
 
-<pre class="src src-text">config.ssh.username = 'vagrant'
-config.ssh.password = 'vagrant'
-config.ssh.insert_key = 'true'
-config.ssh.private_key_path = "~/.vagrant.d/insecure_private_key"
+<pre class="src src-sh">ssh vagrant@127.0.0.1 -p 2222
+</pre>
+</div></li>
+</ul>
+
+<p>
+Biar lebih efektif, <code>ssh</code> <i>command</i> ini bisa ditambahkan ke <code>~/.bashrc</code>, misal:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">alias vm="ssh vagrant@127.0.0.1 -p 2222"
 </pre>
 </div>
 
+<p>
+Kemudian jalankan <code>source ~/.bashrc</code> di terminal. Lain kali tinggal
+jalankan <code>vm</code>, dan Anda sudah <i>logged-in</i> ke <i>virtual machine</i>.
+</p>
 
 <p>
 <br  />
@@ -252,7 +259,7 @@ Daftar <code>box</code> bisa dilihat disini: <a href="https://atlas.hashicorp.co
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-17</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-17 Sat 20:04</p>
+<p class="date">Created: 2015-10-17 Sat 23:26</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
