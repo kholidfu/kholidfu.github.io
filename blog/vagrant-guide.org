@@ -13,9 +13,12 @@ Langkah-langkah:
   #+BEGIN_SRC sh
   sudo apt-get install virtualbox-qt
   #+END_SRC
-- install vagrant
+- install vagrant Beberapa artikel dari internet menyarankan jangan
+  memasang /vagrant/ versi bawaan distro, karena biasanya ketinggalan
+  versi. Sebaiknya unduh langsung dari situs vagrantup[fn:2]. Kemudian
+  /install/ langsung.
   #+BEGIN_SRC sh
-  sudo apt-get install vagrant
+  sudo dpkg -i vagrant_1.x.x.ix86.deb
   #+END_SRC
 - menambahkan box[fn:1]
   #+BEGIN_SRC sh
@@ -56,5 +59,7 @@ jalankan =vm=, dan Anda sudah /logged-in/ ke /virtual machine/.
 - [[http://www.olindata.com/blog/2014/07/installing-vagrant-and-virtual-box-ubuntu-1404-lts][olindata.com]]
 
 * Footnotes
+
+[fn:2] https://www.vagrantup.com/downloads.html
 
 [fn:1] Daftar =box= bisa dilihat disini: https://atlas.hashicorp.com/boxes/search

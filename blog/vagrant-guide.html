@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-18 Sun 01:10 -->
+<!-- 2015-10-18 Sun 18:55 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Langkah-langkah Setup dan Konfigurasi Vagrant - labs127.io and me</title>
@@ -166,15 +166,18 @@ install virtualbox-qt (<i>optional</i> buat yang pengen vboxmanager versi GUI)
 </pre>
 </div></li>
 <li><p>
-install vagrant
+install vagrant Beberapa artikel dari internet menyarankan jangan
+memasang <i>vagrant</i> versi bawaan distro, karena biasanya ketinggalan
+versi. Sebaiknya unduh langsung dari situs vagrantup<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. Kemudian
+<i>install</i> langsung.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh">sudo apt-get install vagrant
+<pre class="src src-sh">sudo dpkg -i vagrant_1.x.x.ix86.deb
 </pre>
 </div></li>
 <li><p>
-menambahkan box<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+menambahkan box<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
 </p>
 <div class="org-src-container">
 
@@ -250,6 +253,10 @@ jalankan <code>vm</code>, dan Anda sudah <i>logged-in</i> ke <i>virtual machine<
 <div id="text-footnotes">
 
 <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a>
+</p></div></div>
+
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
 Daftar <code>box</code> bisa dilihat disini: <a href="https://atlas.hashicorp.com/boxes/search">https://atlas.hashicorp.com/boxes/search</a>
 </p></div></div>
 
@@ -259,7 +266,7 @@ Daftar <code>box</code> bisa dilihat disini: <a href="https://atlas.hashicorp.co
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-17</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-18 Sun 01:10</p>
+<p class="date">Created: 2015-10-18 Sun 18:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
