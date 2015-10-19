@@ -337,7 +337,7 @@ lagi dengan semudah =C-x C-f=.
 Tentu kita dapat menggunakan =tramp mode=, namun ada cara yang lebih
 simpel. Tambahkan baris berikut di =~/.bashrc=:
 #+BEGIN_SRC sh
-alias E="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
+alias E="SUDO_EDITOR=\"emacsclient -c -n -a emacs\" sudoedit"
 #+END_SRC
 Kemudian /reload/ konfigurasi =bash= Anda menggunakan perintah =source
 ~/.bashrc=.
@@ -347,7 +347,9 @@ perintah berikut di terminal:
 #+BEGIN_SRC sh
 E /etc/hosts
 #+END_SRC
-Trik ini hanya berlaku jika Anda menggunakan [[sec:1][emacsclient]].
+Trik ini hanya berlaku jika Anda menggunakan [[sec:1][emacsclient]]. Penjelasan
+dari parameter-parameter yang digunakan dapat dilihat menggunakan
+=emacsclient -h=.
 * <<sec:1000>>Kombinasi keystroke yang sering saya pakai di org-mode
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
