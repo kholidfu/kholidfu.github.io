@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-12 Mon 03:51 -->
+<!-- 2015-10-19 Mon 20:09 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>server dan command line - labs127.io and me</title>
@@ -155,9 +155,11 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline4">4. Mengatur depth level command tree</a></li>
 <li><a href="#orgheadline5">5. Lock Package Version di Linux Mint</a></li>
 <li><a href="#orgheadline6">6. Setting git dan SSH key</a></li>
+<li><a href="#orgheadline7">7. Custom domain di localhost</a></li>
 </ul>
 </div>
 </div>
+
 
 <div id="outline-container-orgheadline1" class="outline-2">
 <h2 id="orgheadline1"><span class="section-number-2">1</span> <a id="orgtarget1"></a>Mencegah SSH Timeout</h2>
@@ -402,7 +404,7 @@ jika format url masih seperti ini:
 <div class="org-src-container">
 
 <pre class="src src-text">[remote "origin"]
-    url = https://github.com/kholidfu/kholidfu.gitub.io.git
+    url = https://github.com/kholidfu/kholidfu.github.io.git
 </pre>
 </div>
 
@@ -412,11 +414,35 @@ menggunakan format usermame/password.
 </p>
 </div>
 </div>
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">7</span> <a id="orgtarget7"></a>Custom domain di localhost</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Seringnya Anda melihat menggunakan IP 127.0.0.1 atau localhost saja,
+bagaimana membuatnya menjadi seolah-olah punya nama, seperti misalnya
+<code>test.com</code> atau <code>banteng.app</code>?
+</p>
+
+<p>
+Tambahkan atau sunting berkas <code>/etc/hosts</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">127.0.0.1 localhost banteng.app test.com
+</pre>
+</div>
+
+<p>
+Sekarang localhost dapat Anda akses juga menggunakan <code>test.com</code> atau
+<code>banteng.app</code>.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-12 Mon 03:51</p>
+<p class="date">Created: 2015-10-19 Mon 20:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

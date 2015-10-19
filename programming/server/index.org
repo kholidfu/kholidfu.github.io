@@ -4,6 +4,7 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
 #+STARTUP: indent
 
+
 * <<sec:1>>Mencegah SSH Timeout
   Bagi Anda yang sering melakukan koneksi SSH ke server, tentu sangat
   mengganggu bukan? Solusinya mudah, tambahkan atau buat konfigurasi baru
@@ -147,8 +148,20 @@ jika format url masih seperti ini:
 
 #+BEGIN_SRC text
 [remote "origin"]
-    url = https://github.com/kholidfu/kholidfu.gitub.io.git
+    url = https://github.com/kholidfu/kholidfu.github.io.git
 #+END_SRC
 
 Silakan disesuaikan, karena format di atas melakukan autentikasi
 menggunakan format usermame/password.
+* <<sec:7>>Custom domain di localhost
+Seringnya Anda melihat menggunakan IP 127.0.0.1 atau localhost saja,
+bagaimana membuatnya menjadi seolah-olah punya nama, seperti misalnya
+=test.com= atau =banteng.app=?
+
+Tambahkan atau sunting berkas =/etc/hosts=:
+#+BEGIN_SRC text
+127.0.0.1 localhost banteng.app test.com
+#+END_SRC
+
+Sekarang localhost dapat Anda akses juga menggunakan =test.com= atau
+=banteng.app=.
