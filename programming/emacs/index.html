@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-13 Tue 22:40 -->
+<!-- 2015-10-19 Mon 19:28 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>emacs - labs127.io and me</title>
@@ -163,8 +163,9 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline12">12. Memperbarui paket Emacs</a></li>
 <li><a href="#orgheadline13">13. Follow Mode</a></li>
 <li><a href="#orgheadline14">14. Remember Mode</a></li>
-<li><a href="#orgheadline15">15. Kombinasi keystroke yang sering saya pakai di org-mode</a></li>
-<li><a href="#orgheadline16">16. Emacs Good Reads</a></li>
+<li><a href="#orgheadline15">15. Sunting Berkas sebagai sudo user</a></li>
+<li><a href="#orgheadline16">16. Kombinasi keystroke yang sering saya pakai di org-mode</a></li>
+<li><a href="#orgheadline17">17. Emacs Good Reads</a></li>
 </ul>
 </div>
 </div>
@@ -710,8 +711,39 @@ lagi dengan semudah <code>C-x C-f</code>.
 </div>
 </div>
 <div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">15</span> <a id="orgtarget15"></a>Kombinasi keystroke yang sering saya pakai di org-mode</h2>
+<h2 id="orgheadline15"><span class="section-number-2">15</span> <a id="orgtarget15"></a>Sunting Berkas sebagai sudo user</h2>
 <div class="outline-text-2" id="text-15">
+<p>
+Tentu kita dapat menggunakan <code>tramp mode</code>, namun ada cara yang lebih
+simpel. Tambahkan baris berikut di <code>~/.bashrc</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #b0c4de;">alias</span> <span style="color: #7fffd4;">E</span>=<span style="color: #ffc1c1;">"SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"</span>
+</pre>
+</div>
+<p>
+Kemudian <i>reload</i> konfigurasi <code>bash</code> Anda menggunakan perintah <code>source
+~/.bashrc</code>.
+</p>
+
+<p>
+Sekarang jika ingin menyunting berkas, misal <code>/etc/hosts</code>, jalankan
+perintah berikut di terminal:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">E /etc/hosts
+</pre>
+</div>
+<p>
+Trik ini hanya berlaku jika Anda menggunakan <a href="#orgtarget1">emacsclient</a>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">16</span> <a id="orgtarget16"></a>Kombinasi keystroke yang sering saya pakai di org-mode</h2>
+<div class="outline-text-2" id="text-16">
 <p>
 Selain <i>keystroke</i> navigasi, ada beberapa kombinasi <i>keystroke</i> yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
@@ -761,9 +793,9 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 </div>
 </div>
 
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">16</span> <a id="orgtarget16"></a>Emacs Good Reads</h2>
-<div class="outline-text-2" id="text-16">
+<div id="outline-container-orgheadline17" class="outline-2">
+<h2 id="orgheadline17"><span class="section-number-2">17</span> <a id="orgtarget17"></a>Emacs Good Reads</h2>
+<div class="outline-text-2" id="text-17">
 <ul class="org-ul">
 <li><a href="http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a></li>
 <li><a href="http://orgmode.org/orgguide.pdf">The compact Org-mode Guide {PDF}</a></li>
@@ -805,7 +837,7 @@ Font <code>xelatex</code> berasa lebih pekat hitamnya dibanding <code>pdflatex</
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-13 Tue 22:40</p>
+<p class="date">Created: 2015-10-19 Mon 19:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -333,6 +333,21 @@ tersebut. Press =M-x remember=, tulis catatan penting tersebut, kalau
 sudah tekan =C-c C-c= untuk kembali ke buffer sebelumnya. Buffer by
 default akan tersimpan di =~/.notes=, yang tentu saja dapat Anda buka
 lagi dengan semudah =C-x C-f=.
+* <<sec:15>>Sunting Berkas sebagai sudo user
+Tentu kita dapat menggunakan =tramp mode=, namun ada cara yang lebih
+simpel. Tambahkan baris berikut di =~/.bashrc=:
+#+BEGIN_SRC sh
+alias E="SUDO_EDITOR=\"emacsclient -c -a emacs\" sudoedit"
+#+END_SRC
+Kemudian /reload/ konfigurasi =bash= Anda menggunakan perintah =source
+~/.bashrc=.
+
+Sekarang jika ingin menyunting berkas, misal =/etc/hosts=, jalankan
+perintah berikut di terminal:
+#+BEGIN_SRC sh
+E /etc/hosts
+#+END_SRC
+Trik ini hanya berlaku jika Anda menggunakan [[sec:1][emacsclient]].
 * <<sec:1000>>Kombinasi keystroke yang sering saya pakai di org-mode
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
