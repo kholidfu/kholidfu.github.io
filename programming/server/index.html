@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-19 Mon 20:09 -->
+<!-- 2015-10-22 Thu 16:14 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>server dan command line - labs127.io and me</title>
@@ -156,6 +156,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline5">5. Lock Package Version di Linux Mint</a></li>
 <li><a href="#orgheadline6">6. Setting git dan SSH key</a></li>
 <li><a href="#orgheadline7">7. Custom domain di localhost</a></li>
+<li><a href="#orgheadline8">8. Melihat paket yang terpasang di Ubuntu/Mint</a></li>
 </ul>
 </div>
 </div>
@@ -438,11 +439,43 @@ Sekarang localhost dapat Anda akses juga menggunakan <code>test.com</code> atau
 </p>
 </div>
 </div>
+<div id="outline-container-orgheadline8" class="outline-2">
+<h2 id="orgheadline8"><span class="section-number-2">8</span> <a id="orgtarget8"></a>Melihat paket yang terpasang di Ubuntu/Mint</h2>
+<div class="outline-text-2" id="text-8">
+<p>
+Misal saya ingin mencari apakah paket <code>emacs</code> sudah terpasang di mesin
+belum, jalankan perintah berikut:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">dpkg -l | grep emacs
+</pre>
+</div>
+<p>
+Perintah <code>dpkg -l</code> berarti melihat semua daftar paket yang terpasang,
+kemudian kita lakukan filter dengan menggunakan perintah <code>grep</code>.
+</p>
+
+<p>
+Alternatif lainnya, kita juga bisa menggunakan perintah berikut:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">apt-cache search emacs
+</pre>
+</div>
+
+<p>
+Maka akan muncul semua paket yang <i>terkait</i> dengan paket yang kita
+inginkan, dalam hal ini <code>emacs</code>.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-19 Mon 20:09</p>
+<p class="date">Created: 2015-10-22 Thu 16:14</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

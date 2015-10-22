@@ -165,3 +165,19 @@ Tambahkan atau sunting berkas =/etc/hosts=:
 
 Sekarang localhost dapat Anda akses juga menggunakan =test.com= atau
 =banteng.app=.
+* <<sec:8>>Melihat paket yang terpasang di Ubuntu/Mint
+Misal saya ingin mencari apakah paket =emacs= sudah terpasang di mesin
+belum, jalankan perintah berikut:
+#+BEGIN_SRC sh
+dpkg -l | grep emacs
+#+END_SRC
+Perintah =dpkg -l= berarti melihat semua daftar paket yang terpasang,
+kemudian kita lakukan filter dengan menggunakan perintah =grep=.
+
+Alternatif lainnya, kita juga bisa menggunakan perintah berikut:
+#+BEGIN_SRC sh
+apt-cache search emacs
+#+END_SRC
+
+Maka akan muncul semua paket yang /terkait/ dengan paket yang kita
+inginkan, dalam hal ini =emacs=.
