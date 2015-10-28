@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-18 Sun 18:55 -->
+<!-- 2015-10-28 Wed 09:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Langkah-langkah Setup dan Konfigurasi Vagrant - labs127.io and me</title>
@@ -242,6 +242,27 @@ jalankan <code>vm</code>, dan Anda sudah <i>logged-in</i> ke <i>virtual machine<
 </p>
 
 <p>
+Mesin virtual ini dapat kita konfigurasi sesuai keinginan dengan
+membuat <i>file</i> bernama <code>Vagrantfile</code>. Berikut ini contoh isi dari
+berkas tersebut:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ruby"><span style="color: #63b8ff;">Vagrant</span>.configure(2) <span style="color: #00ffff;">do</span> |config|
+  config.vm.hostname = <span style="color: #ffc1c1;">"banteng-server"</span>
+  config.vm.box = <span style="color: #ffc1c1;">"ubuntu/trusty64"</span>
+  <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">port forwarding</span>
+  config.vm.network <span style="color: #8470ff; font-weight: bold;">:forwarded_port</span>, <span style="color: #8470ff; font-weight: bold;">guest</span>: 8000, <span style="color: #8470ff; font-weight: bold;">host</span>: 8000
+  config.vm.provision <span style="color: #8470ff; font-weight: bold;">:shell</span>, <span style="color: #8470ff; font-weight: bold;">:path</span> =&gt; <span style="color: #ffc1c1;">"provision/provision-ubuntu-14.04.sh"</span>
+  config.vm.synced_folder <span style="color: #ffc1c1;">"../../git"</span>, <span style="color: #ffc1c1;">"/vagrant_data"</span>
+  <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">fix stdin is not tty</span>
+  config.ssh.shell = <span style="color: #ffc1c1;">"bash -c 'BASH_ENV=/etc/profile exec bash'"</span>
+<span style="color: #00ffff;">end</span>
+</pre>
+</div>
+
+<p>
 <br  />
 <b>References</b>:<br  />
 </p>
@@ -266,7 +287,7 @@ Daftar <code>box</code> bisa dilihat disini: <a href="https://atlas.hashicorp.co
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-17</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-18 Sun 18:55</p>
+<p class="date">Created: 2015-10-28 Wed 09:27</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

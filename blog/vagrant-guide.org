@@ -54,6 +54,23 @@ alias vm="ssh vagrant@127.0.0.1 -p 2222"
 Kemudian jalankan =source ~/.bashrc= di terminal. Lain kali tinggal
 jalankan =vm=, dan Anda sudah /logged-in/ ke /virtual machine/.
 
+Mesin virtual ini dapat kita konfigurasi sesuai keinginan dengan
+membuat /file/ bernama =Vagrantfile=. Berikut ini contoh isi dari
+berkas tersebut:
+
+#+BEGIN_SRC ruby
+Vagrant.configure(2) do |config|
+  config.vm.hostname = "banteng-server"
+  config.vm.box = "ubuntu/trusty64"
+  # port forwarding
+  config.vm.network :forwarded_port, guest: 8000, host: 8000
+  config.vm.provision :shell, :path => "provision/provision-ubuntu-14.04.sh"
+  config.vm.synced_folder "../../git", "/vagrant_data"
+  # fix stdin is not tty
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+end
+#+END_SRC
+
 \\
 *References*:\\
 - [[http://www.olindata.com/blog/2014/07/installing-vagrant-and-virtual-box-ubuntu-1404-lts][olindata.com]]
