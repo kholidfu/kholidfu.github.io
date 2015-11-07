@@ -317,3 +317,48 @@ gunicorn --env DJANGO_SETTINGS_MODULE=config.settings.local config.wsgi --bind 1
 
 #+END_SRC
 Selanjutnya tinggal buat model di django seperti biasa.
+* Akses ebay SOAP API dengan Python
+This is how accessing soap api xml in python.
+
+#+BEGIN_SRC python
+import json
+import requests
+from ebaysdk.response import ResponseDataObject, Response
+
+def get_countries():
+    """Request SOAP API for Country.
+    """
+
+    headers = {
+        'X-EBAY-API-SITEID': 0,
+        'X-EBAY-API-DEV-NAME': 'your-api-dev',
+        'X-EBAY-API-CERT-NAME': 'your-api-cert',
+        'Content-Length': '1096',
+        'X-EBAY-API-APP-NAME': 'your-api-app',
+        'X-EBAY-API-COMPATIBILITY-LEVEL': '837',
+        'X-EBAY-SDK-REQUEST-ID': 'your-sdk-request',
+        'X-EBAY-API-CALL-NAME': u'GetEbayDetails',
+        'User-Agent': 'eBaySDK/2.1.2 Python/2.7.6 Linux/3.13.0-37-generic',
+        'Content-Type': 'text/xml'
+    }
+
+    body = """
+<?xml version="1.0" encoding="utf-8"?>
+<GeteBayDetailsRequest xmlns="urn:ebay:apis:eBLBaseComponents">
+  <RequesterCredentials>
+    <eBayAuthToken>your-token</eBayAuthToken>
+  </RequesterCredentials>
+  <DetailName>CountryDetails</DetailName>
+</GeteBayDetailsRequest>
+"""
+    resp = requests.post('https://api.ebay.com/ws/api.dll', data=body, headers=headers)
+    from ebaysdk.response import ResponseDataObject, Response
+    xml = resp.content
+
+    o = ResponseDataObject({'content': xml}, [])
+    r = Response(o, verb='findItemsByProduct', list_nodes=['searchResult.item'])
+
+    data = json.loads(r.json(), 'utf8')
+    countries = [(i['Country'], i['Description']) for i in data['GeteBayDetailsResponse']['CountryDetails']]
+    return countries
+#+END_SRC
