@@ -362,3 +362,38 @@ def get_countries():
     countries = [(i['Country'], i['Description']) for i in data['GeteBayDetailsResponse']['CountryDetails']]
     return countries
 #+END_SRC
+* Konfigurasi dan Implementasi PostgreSQL HStoreField di django
+Install postgresql-contrib-9.3:
+#+BEGIN_SRC sh
+sudo apt-get install postgresql-contrib-9.3
+#+END_SRC
+Kemudian jalankan postgre console
+#+BEGIN_SRC text
+sudo -u postgres -i
+psql
+\connect dbname
+create extension hstore;
+#+END_SRC
+Output:
+#+BEGIN_SRC text
+CREATE EXTENSION
+#+END_SRC
+
+Kemudian deskripsikan model di django:
+#+BEGIN_SRC python
+from django.contrib.postgres.fields import HStoreField
+
+class Item(models.Model):
+    itemId = models.CharField(max_length=50)
+    title = models.CharField(max_length=1000)
+    sellerInfo = HStoreField()
+
+    def __unicode__(self):
+        return self.title
+#+END_SRC
+
+Contoh query:
+#+BEGIN_SRC python
+i = Item(name='kholidfu', data={'skill': 'python'})
+i.save()
+#+END_SRC
