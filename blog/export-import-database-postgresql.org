@@ -1,0 +1,22 @@
+#+TITLE: export import database di postgresql - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2015-11-28 Sat>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+FYI, saya menggunakan Linux Mint based on Ubuntu 14.04, semua
+settingan di postgresql masih standar, ketika mau melakukan =export=
+=import= terjadi semacam error authentication, tricknya adalah dengan
+menambahkan =-h localhost= sebagai parameter perintah. Contoh:
+
+export menggunakan =pg_dump=:
+#+BEGIN_SRC sh
+pg_dump -U postgres kresna -f kresna.sql -h localhost
+#+END_SRC
+
+dan perintah untuk import:
+#+BEGIN_SRC sh
+psql -U postgres -d kresna2 -f kresna.sql -h localhost
+#+END_SRC
+
+O iya, disini saya menggunakan =pg_dump= yang sudah terpasang di Mint saya.
