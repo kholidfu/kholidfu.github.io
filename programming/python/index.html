@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-11-14 Sat 11:10 -->
+<!-- 2015-11-30 Mon 05:25 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>python - labs127.io and me</title>
@@ -170,6 +170,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline16">7. Up and Running with django-cookiecutter</a></li>
 <li><a href="#orgheadline17">8. Akses ebay SOAP API dengan Python</a></li>
 <li><a href="#orgheadline18">9. Konfigurasi dan Implementasi PostgreSQL HStoreField di django</a></li>
+<li><a href="#orgheadline19">10. Setting nginx + uwsgi + supervisor + django</a></li>
 </ul>
 </div>
 </div>
@@ -721,11 +722,68 @@ i.save()
 </div>
 </div>
 </div>
+<div id="outline-container-orgheadline19" class="outline-2">
+<h2 id="orgheadline19"><span class="section-number-2">10</span> Setting nginx + uwsgi + supervisor + django</h2>
+<div class="outline-text-2" id="text-10">
+<p>
+Berikut setting nginx:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">server {
+      listen        80;
+      server_name   www.example.com;
+      location / { try_files $uri @app; }
+      location @app {
+          include uwsgi_params;
+          uwsgi_pass unix:/tmp/uwsgi.sock;
+      }
+}
+</pre>
+</div>
+<p>
+Setting uwsgi di <code>supervisord.conf</code>:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-text">[supervisord]
+logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
+logfile_maxbytes=50MB ; (max main logfile bytes b4 rotation;default 50MB)
+logfile_backups=10 ; (num of main logfile rotation backups;default 10)
+loglevel=info ; (log level;default info; others: debug,warn,trace)
+pidfile=/tmp/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+nodaemon=false ; (start in foreground if true;default false)
+minfds=1024 ; (min. avail startup file descriptors;default 1024)
+minprocs=200
+
+[program:kresna]
+command=/home/sopier/kresna2/bin/uwsgi --socket /tmp/uwsgi.sock --module=config.wsgi:application --env DJANGO_SETTINGS_MODULE=config.settings.production --callable app -H /home/sopier/kresna2/ --chdir /home/sopier/kresna2/ --chmod-socket=666 --processes=5
+directory=/home/sopier/kresna2/
+autostart=true
+autorestart=true
+stdout_logfile=/tmp/kresna2.log
+redirect_stderr=true
+</pre>
+</div>
+
+<p>
+Yang harus Anda perhatikan disini adalah letak dari module <code>wsgi</code>,
+karena saya di sini menggunakan cookiecutter dari pydanny, maka secara
+default, file <code>wsgi.py</code> berada di direktori <code>config</code>. Kalau
+menggunakan versi default <code>startproject</code> dari django, file wsgi.py
+berada di direktori <code>myproject.wsgi</code>.
+</p>
+
+<p>
+Selamat mencoba!
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-11-14 Sat 11:10</p>
+<p class="date">Created: 2015-11-30 Mon 05:25</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

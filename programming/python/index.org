@@ -397,3 +397,44 @@ Contoh query:
 i = Item(name='kholidfu', data={'skill': 'python'})
 i.save()
 #+END_SRC
+* Setting nginx + uwsgi + supervisor + django
+Berikut setting nginx:
+#+BEGIN_SRC text
+server {
+      listen        80;
+      server_name   www.example.com;
+      location / { try_files $uri @app; }
+      location @app {
+          include uwsgi_params;
+          uwsgi_pass unix:/tmp/uwsgi.sock;
+      }
+}
+#+END_SRC
+Setting uwsgi di =supervisord.conf=:
+#+BEGIN_SRC text
+[supervisord]
+logfile=/tmp/supervisord.log ; (main log file;default $CWD/supervisord.log)
+logfile_maxbytes=50MB ; (max main logfile bytes b4 rotation;default 50MB)
+logfile_backups=10 ; (num of main logfile rotation backups;default 10)
+loglevel=info ; (log level;default info; others: debug,warn,trace)
+pidfile=/tmp/supervisord.pid ; (supervisord pidfile;default supervisord.pid)
+nodaemon=false ; (start in foreground if true;default false)
+minfds=1024 ; (min. avail startup file descriptors;default 1024)
+minprocs=200
+
+[program:kresna]
+command=/home/sopier/kresna2/bin/uwsgi --socket /tmp/uwsgi.sock --module=config.wsgi:application --env DJANGO_SETTINGS_MODULE=config.settings.production --callable app -H /home/sopier/kresna2/ --chdir /home/sopier/kresna2/ --chmod-socket=666 --processes=5
+directory=/home/sopier/kresna2/
+autostart=true
+autorestart=true
+stdout_logfile=/tmp/kresna2.log
+redirect_stderr=true
+#+END_SRC
+
+Yang harus Anda perhatikan disini adalah letak dari module =wsgi=,
+karena saya di sini menggunakan cookiecutter dari pydanny, maka secara
+default, file =wsgi.py= berada di direktori =config=. Kalau
+menggunakan versi default =startproject= dari django, file wsgi.py
+berada di direktori =myproject.wsgi=.
+
+Selamat mencoba!
