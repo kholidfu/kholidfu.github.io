@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-11-30 Mon 05:25 -->
+<!-- 2016-01-17 Sun 07:51 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>python - labs127.io and me</title>
@@ -366,8 +366,32 @@ Terakhir, jalankan <code>supervisor</code> dengan menjalankan perintah berikut:
 <pre class="src src-sh">  sudo apt-get install libxml2-dev libxslt-dev
 </pre>
 </div>
+<p>
+Jika server Anda terlalu kecil spec-nya (gagal di DO yang $5/month,
+bisa jadi terjadi error, ini terjadi karena proses <i>compile</i>
+membutuhkan <i>memory</i> besar. Untuk menambah memory, kita sementara
+dapat menambah <code>swap</code>.
+</p>
+
+<p>
+Caranya adalah sebagai berikut:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh"><span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">create new partition</span>
+dd <span style="color: #7fffd4;">if</span>=/dev/zero <span style="color: #7fffd4;">of</span>=/swapfile <span style="color: #7fffd4;">bs</span>=1M <span style="color: #7fffd4;">count</span>=1024
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">set as swap</span>
+mkswap /swapfile
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">activate the swap once</span>
+swapon /swapfile
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">run every machine reboot (optional)</span>
+/swapfile swap swap defaults 0 0 <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">add into /etc/fstab</span>
+</pre>
 </div>
 </div>
+</div>
+
 <div id="outline-container-orgheadline12" class="outline-2">
 <h2 id="orgheadline12"><span class="section-number-2">3</span> Catch search engine terms with python, flask and mongo</h2>
 <div class="outline-text-2" id="text-3">
@@ -783,7 +807,7 @@ Selamat mencoba!
 <div id="postamble" class="status">
 <p class="date">Date: 2015-10-01</p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-11-30 Mon 05:25</p>
+<p class="date">Created: 2016-01-17 Sun 07:51</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

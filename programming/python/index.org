@@ -122,6 +122,24 @@ Terakhir, jalankan =supervisor= dengan menjalankan perintah berikut:
 #+BEGIN_SRC sh
   sudo apt-get install libxml2-dev libxslt-dev
 #+END_SRC
+Jika server Anda terlalu kecil spec-nya (gagal di DO yang $5/month,
+bisa jadi terjadi error, ini terjadi karena proses /compile/
+membutuhkan /memory/ besar. Untuk menambah memory, kita sementara
+dapat menambah =swap=.
+
+Caranya adalah sebagai berikut:
+
+#+BEGIN_SRC sh
+# create new partition
+dd if=/dev/zero of=/swapfile bs=1M count=1024
+# set as swap
+mkswap /swapfile
+# activate the swap once
+swapon /swapfile
+# run every machine reboot (optional)
+/swapfile swap swap defaults 0 0 # add into /etc/fstab
+#+END_SRC
+
 * Catch search engine terms with python, flask and mongo
 #+BEGIN_SRC python
   # pip install referer_parser
