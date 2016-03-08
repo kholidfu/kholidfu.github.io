@@ -181,3 +181,11 @@ apt-cache search emacs
 
 Maka akan muncul semua paket yang /terkait/ dengan paket yang kita
 inginkan, dalam hal ini =emacs=.
+* <<sec:9>>Docker di Linux Mint 17.1
+Berikut ini cara install docker di Mint 17.1
+#+BEGIN_SRC sh
+sudo apt-get install docker.io
+sudo apt-get install apparmor lxc cgroup-lite
+sudo usermod -aG docker ${USER}
+sudo service docker start
+#+END_SRC
