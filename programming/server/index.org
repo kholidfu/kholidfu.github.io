@@ -189,3 +189,15 @@ sudo apt-get install apparmor lxc cgroup-lite
 sudo usermod -aG docker ${USER}
 sudo service docker start
 #+END_SRC
+* <<sec:10>>nginx gagal restart
+Pernah mengalami? ketika Anda menjalankan perintah =sudo service nginx
+restart= dan hasilnya /FAIL/? Apa yang terjadi? Bagaimana cara
+memeriksa penyebab terjadinya /error/?
+
+Jalankan perintah berikut:
+#+BEGIN_SRC sh
+  sudo tail -f /var/log/nginx/error.log
+#+END_SRC
+
+Amati log, dan coba /googling/... Happy coding...
+
