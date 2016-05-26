@@ -276,3 +276,26 @@ mengandung path ke direktori lama, ubahlah ke path yang baru.
   # path berikut akan kita ganti ke agcimg2.git
   url = git@bitbucket.org:kholidfu/agcimg.git
 #+END_SRC
+* <<sec:13>>Setup PostgreSQL di vagrant
+Perlu perlakuan khusus, karena secara default, username adalah
+vagrant. Berikut ini adalah langkah-langkahnya:
+
+#+BEGIN_SRC sh
+  sudo -u postgres -i
+#+END_SRC
+
+Anda akan masuk ke prompt postgre, selanjutnya ketikkan
+
+#+BEGIN_SRC sh
+  psql
+#+END_SRC
+
+Kemudian, tambahkan user vagrant, ada 3 cara:
+
+#+BEGIN_SRC sh
+  CREATE ROLE vagrant LOGIN;  # tanpa password
+  CREATE USER vagrant WITH PASSWORD 'password';  # dengan password cara 1
+  CREATE USER vagrant WITH LOGIN PASSWORD 'password';  # dgn passwd cara 2
+#+END_SRC
+
+Selesai!
