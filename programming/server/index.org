@@ -201,3 +201,48 @@ Jalankan perintah berikut:
 
 Amati log, dan coba /googling/... Happy coding...
 
+* <<sec:11>>Menambahkan ssh key di macosx
+Setup project selesai, sekarang waktunya membuat repo, push dan
+selesai...  Teorinya seperti itu, namun apa daya, ternyata ada
+permasalahan yang muncul. Mesin yang kita gunakan belum terdaftar di
+git server. Solusinya adalah mendaftarkan mesin kita. Ok, mari kita
+mulai.
+
+Asumsi mesin yang digunakan adalah macbookpro dengan os macosx el
+capitan (seharusnya tidak ada perbedaan, masih satu unix family dengan
+linux).
+
+Buka terminal Anda, tambahkan baris berikut di =~/.ssh/config=:
+
+#+BEGIN_SRC text
+  Host bitbucket.org
+      IdentityFile ~/.ssh/id_rsa
+#+END_SRC
+
+Kemudian jalankan perintah berikut:
+
+#+BEGIN_SRC sh
+  ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+#+END_SRC
+
+Kemudian muncul prompt menanyakan di mana kita akan menyimpan key,
+untuk kasus macosx, secara default akan berada di:
+
+=/Users/you/.ssh/id_rsa=
+
+Muncul lagi prompt menanyakan password, saya prefer untuk empty saja.
+
+Key sudah ter-generate, tahap selanjutnya adalah menambahkan key
+tersebut ke bitbucket atau github. Sebelumnya mari kita copy key yang
+kita punya, dengan cara:
+
+#+BEGIN_SRC sh
+  pbcopy < ~/.ssh/id_rsa.pub
+#+END_SRC
+
+Perintah di atas adalah menyalin key ke clipboard via commandline.
+
+Buka bitbucket atau github, cari halaman dimana kita bisa menambahkan
+SSH key. Setelah ketemu, paste key.. Dan mari kita push ulang.
+
+Happy git-ing... :)
