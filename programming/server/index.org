@@ -246,3 +246,33 @@ Buka bitbucket atau github, cari halaman dimana kita bisa menambahkan
 SSH key. Setelah ketemu, paste key.. Dan mari kita push ulang.
 
 Happy git-ing... :)
+* <<sec:12>>Mengubah direktori virtualenv
+Suatu ketika kita ingin mengubah nama direktori dari virtual
+environment yang sudah kita buat sebelumnya, bisakah? Bisa!
+
+Berikut ini caranya:
+
+Sunting berkas =bin/activate=, cari baris yang berhubungan dengan path
+lama kita, dan ubah ke yang baru.
+
+#+BEGIN_SRC sh
+  # path berikut akan kita ganti dengan /agcimg2
+  VIRTUAL_ENV="/vagrant_data/agcimg"
+#+END_SRC
+
+Sunting berkas =bin/pip=, pada baris paling atas, ubah path python
+interpreter ke path yang baru.
+
+#+BEGIN_SRC sh
+  # path berikut kita ganti ke /agcimg2/bin/python
+  #!/vagrant_data/agcimg/bin/python
+#+END_SRC
+
+Dan yang terakhir, jika Anda juga menggunakan git sebagai version
+control, sunting juga berkas =.git/config= dan cari baris yang
+mengandung path ke direktori lama, ubahlah ke path yang baru.
+
+#+BEGIN_SRC text
+  # path berikut akan kita ganti ke agcimg2.git
+  url = git@bitbucket.org:kholidfu/agcimg.git
+#+END_SRC
