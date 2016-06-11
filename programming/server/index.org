@@ -189,3 +189,28 @@ sudo apt-get install apparmor lxc cgroup-lite
 sudo usermod -aG docker ${USER}
 sudo service docker start
 #+END_SRC
+* <<sec:10>>Block IP di Ubuntu Server dengan ufw
+Ada IP yang ingin Anda blok dari server Anda? Anda dapat menggunakan
+iptables, tapi ada aplikasi yang lebih mudah (sebenarnya hanya
+interface dari iptables juga sih), yakni =ufw=.
+
+Berikut ini cara blok IP:
+#+BEGIN_SRC sh
+# install dulu kalau belum ada
+sudo apt-get install ufw
+# pastikan port 22 untuk ssh tetep dibuka
+sudo ufw allow ssh
+# block ip
+sudo ufw deny from {ip-address-here} to any
+# lihat status untuk memastikan blocking bekerja
+sudo ufw status
+# Berikut ini contoh outputnya:
+
+Status: active
+
+To                         Action      From
+--                         ------      ----
+Anywhere                   DENY        121.189.37.17
+22                         ALLOW       Anywhere
+22 (v6)                    ALLOW       Anywhere (v6)
+#+END_SRC
