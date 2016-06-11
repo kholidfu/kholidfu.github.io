@@ -214,3 +214,7 @@ Anywhere                   DENY        121.189.37.17
 22                         ALLOW       Anywhere
 22 (v6)                    ALLOW       Anywhere (v6)
 #+END_SRC
+
+Referensi:
+
+[[http://www.cyberciti.biz/faq/how-to-block-an-ip-address-with-ufw-on-ubuntu-linux-server/][cyberciti.biz]]
