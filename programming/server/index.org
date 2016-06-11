@@ -331,3 +331,10 @@ Kemudian, tambahkan user vagrant, ada 3 cara:
 
 Selesai!
 >>>>>>> 9fae1d5b3cf8bee673a38c9a5f1a5ed7277fe5a8
+* <<sec:14>>ufw
+#+BEGIN_SRC sh
+sudo apt-get install ufw
+sudo ufw allow ssh
+sudo ufw deny from xxx.xxx.xxx.xxx to any
+sudo ufw status
+#+END_SRC
