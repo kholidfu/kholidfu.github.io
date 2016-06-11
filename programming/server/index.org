@@ -189,6 +189,7 @@ sudo apt-get install apparmor lxc cgroup-lite
 sudo usermod -aG docker ${USER}
 sudo service docker start
 #+END_SRC
+<<<<<<< HEAD
 * <<sec:10>>Block IP di Ubuntu Server dengan ufw
 Ada IP yang ingin Anda blok dari server Anda? Anda dapat menggunakan
 iptables, tapi ada aplikasi yang lebih mudah (sebenarnya hanya
@@ -218,3 +219,115 @@ Anywhere                   DENY        121.189.37.17
 Referensi:
 
 [[http://www.cyberciti.biz/faq/how-to-block-an-ip-address-with-ufw-on-ubuntu-linux-server/][cyberciti.biz]]
+=======
+* <<sec:10>>nginx gagal restart
+Pernah mengalami? ketika Anda menjalankan perintah =sudo service nginx
+restart= dan hasilnya /FAIL/? Apa yang terjadi? Bagaimana cara
+memeriksa penyebab terjadinya /error/?
+
+Jalankan perintah berikut:
+#+BEGIN_SRC sh
+  sudo tail -f /var/log/nginx/error.log
+#+END_SRC
+
+Amati log, dan coba /googling/... Happy coding...
+
+* <<sec:11>>Menambahkan ssh key di macosx
+Setup project selesai, sekarang waktunya membuat repo, push dan
+selesai...  Teorinya seperti itu, namun apa daya, ternyata ada
+permasalahan yang muncul. Mesin yang kita gunakan belum terdaftar di
+git server. Solusinya adalah mendaftarkan mesin kita. Ok, mari kita
+mulai.
+
+Asumsi mesin yang digunakan adalah macbookpro dengan os macosx el
+capitan (seharusnya tidak ada perbedaan, masih satu unix family dengan
+linux).
+
+Buka terminal Anda, tambahkan baris berikut di =~/.ssh/config=:
+
+#+BEGIN_SRC text
+  Host bitbucket.org
+      IdentityFile ~/.ssh/id_rsa
+#+END_SRC
+
+Kemudian jalankan perintah berikut:
+
+#+BEGIN_SRC sh
+  ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+#+END_SRC
+
+Kemudian muncul prompt menanyakan di mana kita akan menyimpan key,
+untuk kasus macosx, secara default akan berada di:
+
+=/Users/you/.ssh/id_rsa=
+
+Muncul lagi prompt menanyakan password, saya prefer untuk empty saja.
+
+Key sudah ter-generate, tahap selanjutnya adalah menambahkan key
+tersebut ke bitbucket atau github. Sebelumnya mari kita copy key yang
+kita punya, dengan cara:
+
+#+BEGIN_SRC sh
+  pbcopy < ~/.ssh/id_rsa.pub
+#+END_SRC
+
+Perintah di atas adalah menyalin key ke clipboard via commandline.
+
+Buka bitbucket atau github, cari halaman dimana kita bisa menambahkan
+SSH key. Setelah ketemu, paste key.. Dan mari kita push ulang.
+
+Happy git-ing... :)
+* <<sec:12>>Mengubah direktori virtualenv
+Suatu ketika kita ingin mengubah nama direktori dari virtual
+environment yang sudah kita buat sebelumnya, bisakah? Bisa!
+
+Berikut ini caranya:
+
+Sunting berkas =bin/activate=, cari baris yang berhubungan dengan path
+lama kita, dan ubah ke yang baru.
+
+#+BEGIN_SRC sh
+  # path berikut akan kita ganti dengan /agcimg2
+  VIRTUAL_ENV="/vagrant_data/agcimg"
+#+END_SRC
+
+Sunting berkas =bin/pip=, pada baris paling atas, ubah path python
+interpreter ke path yang baru.
+
+#+BEGIN_SRC sh
+  # path berikut kita ganti ke /agcimg2/bin/python
+  #!/vagrant_data/agcimg/bin/python
+#+END_SRC
+
+Dan yang terakhir, jika Anda juga menggunakan git sebagai version
+control, sunting juga berkas =.git/config= dan cari baris yang
+mengandung path ke direktori lama, ubahlah ke path yang baru.
+
+#+BEGIN_SRC text
+  # path berikut akan kita ganti ke agcimg2.git
+  url = git@bitbucket.org:kholidfu/agcimg.git
+#+END_SRC
+* <<sec:13>>Setup PostgreSQL di vagrant
+Perlu perlakuan khusus, karena secara default, username adalah
+vagrant. Berikut ini adalah langkah-langkahnya:
+
+#+BEGIN_SRC sh
+  sudo -u postgres -i
+#+END_SRC
+
+Anda akan masuk ke prompt postgre, selanjutnya ketikkan
+
+#+BEGIN_SRC sh
+  psql
+#+END_SRC
+
+Kemudian, tambahkan user vagrant, ada 3 cara:
+
+#+BEGIN_SRC sh
+  CREATE ROLE vagrant LOGIN;  # tanpa password
+  CREATE USER vagrant WITH PASSWORD 'password';  # dengan password cara 1
+  CREATE USER vagrant WITH LOGIN PASSWORD 'password';  # dgn passwd cara 2
+#+END_SRC
+
+Selesai!
+>>>>>>> 9fae1d5b3cf8bee673a38c9a5f1a5ed7277fe5a8

@@ -456,3 +456,13 @@ menggunakan versi default =startproject= dari django, file wsgi.py
 berada di direktori =myproject.wsgi=.
 
 Selamat mencoba!
+* Port di django vagrant
+Jika menggunakan vagrant, setelah VagrantFile terkonfigurasi dengan
+baik dan benar, agar dapat diakses oleh OS Host, jalankan perintah
+berikut:
+
+#+BEGIN_SRC sh
+  ./manage.py runserver [::]:8000
+#+END_SRC
+
+Jangan lupa, sesuaikan port number dengan VagrantFile Anda!

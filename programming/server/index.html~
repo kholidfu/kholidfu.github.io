@@ -3,11 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-06-12 Sun 02:33 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>server dan command line - labs127.io and me</title>
-<!-- 2016-05-26 Thu 20:52 -->
+<!-- 2016-05-26 Thu 19:28 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kholid Fuadi" />
@@ -146,16 +143,6 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Mencegah SSH Timeout</a></li>
-<li><a href="#orgheadline2">2. Membuat / Menambah swap di Ubuntu</a></li>
-<li><a href="#orgheadline3">3. Set Locale di Ubuntu Server</a></li>
-<li><a href="#orgheadline4">4. Mengatur depth level command tree</a></li>
-<li><a href="#orgheadline5">5. Lock Package Version di Linux Mint</a></li>
-<li><a href="#orgheadline6">6. Setting git dan SSH key</a></li>
-<li><a href="#orgheadline7">7. Custom domain di localhost</a></li>
-<li><a href="#orgheadline8">8. Melihat paket yang terpasang di Ubuntu/Mint</a></li>
-<li><a href="#orgheadline9">9. Docker di Linux Mint 17.1</a></li>
-<li><a href="#orgheadline10">10. Block IP di Ubuntu Server dengan ufw</a></li>
 <li><a href="#sec-1">1. Mencegah SSH Timeout</a></li>
 <li><a href="#sec-2">2. Membuat / Menambah swap di Ubuntu</a></li>
 <li><a href="#sec-3">3. Set Locale di Ubuntu Server</a></li>
@@ -168,7 +155,6 @@ for the JavaScript code in this tag.
 <li><a href="#sec-10">10. nginx gagal restart</a></li>
 <li><a href="#sec-11">11. Menambahkan ssh key di macosx</a></li>
 <li><a href="#sec-12">12. Mengubah direktori virtualenv</a></li>
-<li><a href="#sec-13">13. Setup PostgreSQL di vagrant</a></li>
 </ul>
 </div>
 </div>
@@ -499,39 +485,6 @@ sudo service docker start
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">10</span> <a id="orgtarget10"></a>Block IP di Ubuntu Server dengan ufw</h2>
-<div class="outline-text-2" id="text-10">
-<p>
-Ada IP yang ingin Anda blok dari server Anda? Anda dapat menggunakan
-iptables, tapi ada aplikasi yang lebih mudah (sebenarnya hanya
-interface dari iptables juga sih), yakni <code>ufw</code>.
-</p>
-
-<p>
-Berikut ini cara blok IP:
-</p>
-<div class="org-src-container">
-
-<pre class="src src-sh"><span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">install dulu kalau belum ada</span>
-sudo apt-get install ufw
-<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">pastikan port 22 untuk ssh tetep dibuka</span>
-sudo ufw allow ssh
-<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">block ip</span>
-sudo ufw deny from {ip-address-here} to any
-<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">lihat status untuk memastikan blocking bekerja</span>
-sudo ufw status
-<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Berikut ini contoh outputnya:</span>
-
-Status: active
-
-To                         Action      From
---                         ------      ----
-Anywhere                   DENY        121.189.37.17
-22                         ALLOW       Anywhere
-<span style="color: #00fa9a; font-size: 110%; font-weight: bold;">22</span> (v6)                    ALLOW       Anywhere (v6)
-
 <div id="outline-container-sec-10" class="outline-2">
 <h2 id="sec-10"><span class="section-number-2">10</span> <a id="sec:10" name="sec:10"></a>nginx gagal restart</h2>
 <div class="outline-text-2" id="text-10">
@@ -683,60 +636,11 @@ url = git@bitbucket.org:kholidfu/agcimg.git
 </div>
 </div>
 </div>
-<div id="outline-container-sec-13" class="outline-2">
-<h2 id="sec-13"><span class="section-number-2">13</span> <a id="sec:13" name="sec:13"></a>Setup PostgreSQL di vagrant</h2>
-<div class="outline-text-2" id="text-13">
-<p>
-Perlu perlakuan khusus, karena secara default, username adalah
-vagrant. Berikut ini adalah langkah-langkahnya:
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-sh">sudo -u postgres -i
-</pre>
-</div>
-
-<p>
-<<<<<<< HEAD
-Referensi:
-</p>
-
-<p>
-<a href="http://www.cyberciti.biz/faq/how-to-block-an-ip-address-with-ufw-on-ubuntu-linux-server/">cyberciti.biz</a>
-
-Anda akan masuk ke prompt postgre, selanjutnya ketikkan
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-sh">psql
-</pre>
-</div>
-
-<p>
-Kemudian, tambahkan user vagrant, ada 3 cara:
-</p>
-
-<div class="org-src-container">
-
-<pre class="src src-sh">CREATE ROLE vagrant LOGIN;  # tanpa password
-CREATE USER vagrant WITH PASSWORD 'password';  # dengan password cara 1
-CREATE USER vagrant WITH LOGIN PASSWORD 'password';  # dgn passwd cara 2
-</pre>
-</div>
-
-<p>
-Selesai!
-</p>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-03-08 Tue&gt;</span></span></p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2016-06-12 Sun 02:33</p>
-<p class="date">Created: 2016-05-26 Thu 20:52</p>
+<p class="date">Created: 2016-05-26 Thu 19:28</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
