@@ -24,3 +24,5 @@
 
 Ingat, bahwa nama SSID dari 2 perangkat ini adalah sama, yakni
 menggunakan SSID dari AP.
+
+[[http://www.tp-link.co.id/faq-151.html][Reference from TP-Link]]
