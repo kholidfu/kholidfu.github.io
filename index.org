@@ -48,6 +48,7 @@ coffee addict.
 - [[file:programming/latex/index.html][latex]]
 - [[file:programming/java/index.html][java]]
 - [[file:blog/index.html][blog]]
+- [[file:programming/etc/index.html][etc]]
 
 *Contact*
 

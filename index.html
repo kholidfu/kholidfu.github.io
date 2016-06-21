@@ -3,30 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-15 Thu 06:19 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>labs127.io and me</title>
+<!-- 2016-06-21 Tue 13:54 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kholid Fuadi" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
+  .title  { text-align: center; }
   .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
+  .done   { color: green; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -65,14 +58,15 @@
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara { display: inline; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -150,7 +144,7 @@ for the JavaScript code in this tag.
 <body>
 <div id="content">
 <h1 class="title">labs127.io and me</h1>
-<div class="org-center">
+<div class="center">
 <p>
 <b>[ Kholid Fuadi ]</b>
 </p>
@@ -177,33 +171,54 @@ coffee addict.
 <ul class="org-ul">
 <li>Video
 <ul class="org-ul">
-<li><a href="https://www.youtube.com/watch?v=jtsOPVcFETM">Intro into Emacs {Video #1}</a></li>
-<li><a href="https://www.youtube.com/watch?v=KOZRyp8kuJg">Intro into Emacs {Video #2}</a></li>
-<li><a href="https://www.youtube.com/playlist?list=PL4feh7bQU2gY-6pmpSXzAelZgFjqZ7vAh">Vim Playlist {video}</a></li>
-<li><a href="https://www.youtube.com/playlist?list=PL4feh7bQU2gaFa9Vh0SHJqUQAq1d2dJ__">Emacs Playlist {video}</a></li>
-</ul></li>
+<li><a href="https://www.youtube.com/watch?v=jtsOPVcFETM">Intro into Emacs {Video #1}</a>
+</li>
+<li><a href="https://www.youtube.com/watch?v=KOZRyp8kuJg">Intro into Emacs {Video #2}</a>
+</li>
+<li><a href="https://www.youtube.com/playlist?list=PL4feh7bQU2gY-6pmpSXzAelZgFjqZ7vAh">Vim Playlist {video}</a>
+</li>
+<li><a href="https://www.youtube.com/playlist?list=PL4feh7bQU2gaFa9Vh0SHJqUQAq1d2dJ__">Emacs Playlist {video}</a>
+</li>
+</ul>
+</li>
 <li>PDF
 <ul class="org-ul">
-<li><a href="./assets/vim_docs.pdf">Tutorial VIM</a></li>
-<li><a href="./assets/emacs_docs.pdf">Tutorial Emacs</a></li>
-<li><a href="assets/tesis_latex.pdf">Latex for Thesis</a></li>
-<li><a href="./assets/cmdlist.pdf">General Latex Tips</a></li>
-<li><a href="./assets/matplotlib_docs.pdf">Intro into matplotlib</a></li>
-<li><a href="assets/pandas_intro.pdf">Intro into Pandas</a></li>
-<li><a href="./assets/python_nltk_docs.pdf">Intro into python NLTK</a></li>
-</ul></li>
+<li><a href="./assets/vim_docs.pdf">Tutorial VIM</a>
+</li>
+<li><a href="./assets/emacs_docs.pdf">Tutorial Emacs</a>
+</li>
+<li><a href="assets/tesis_latex.pdf">Latex for Thesis</a>
+</li>
+<li><a href="./assets/cmdlist.pdf">General Latex Tips</a>
+</li>
+<li><a href="./assets/matplotlib_docs.pdf">Intro into matplotlib</a>
+</li>
+<li><a href="assets/pandas_intro.pdf">Intro into Pandas</a>
+</li>
+<li><a href="./assets/python_nltk_docs.pdf">Intro into python NLTK</a>
+</li>
+</ul>
+</li>
 </ul>
 
 <p>
 <b>Kategori</b>
 </p>
 <ul class="org-ul">
-<li><a href="./programming/python/index.html">python</a></li>
-<li><a href="./programming/server/index.html">server dan command line</a></li>
-<li><a href="./programming/emacs/index.html">emacs</a></li>
-<li><a href="programming/latex/index.html">latex</a></li>
-<li><a href="programming/java/index.html">java</a></li>
-<li><a href="blog/index.html">blog</a></li>
+<li><a href="./programming/python/index.html">python</a>
+</li>
+<li><a href="./programming/server/index.html">server dan command line</a>
+</li>
+<li><a href="./programming/emacs/index.html">emacs</a>
+</li>
+<li><a href="programming/latex/index.html">latex</a>
+</li>
+<li><a href="programming/java/index.html">java</a>
+</li>
+<li><a href="blog/index.html">blog</a>
+</li>
+<li><a href="programming/etc/index.html">etc</a>
+</li>
 </ul>
 
 <p>
@@ -239,13 +254,20 @@ lupa mantranya, <span class="underline">Google is your friend</span>.
 <b>More about me</b>
 </p>
 <ul class="org-ul">
-<li>[ <a href="./assets/cv_7.pdf">my cv</a> ]</li>
-<li>[ <a href="https://www.youtube.com/c/kholidfu">youtube channels</a> ]</li>
-<li>[ <a href="https://github.com/kholidfu">github</a> ]</li>
-<li>[ <a href="https://www.facebook.com/kholid.fuadi">fb</a> ]</li>
-<li>[ <a href="https://id.linkedin.com/in/kholidfuadi">linkedin</a> ]</li>
-<li>[ <a href="https://plus.google.com/+kholidfu">g+</a> ]</li>
-<li>[ <a href="https://www.livecoding.tv/kholidfu/">livecoding.tv</a> ]</li>
+<li>[ <a href="./assets/cv_7.pdf">my cv</a> ]
+</li>
+<li>[ <a href="https://www.youtube.com/c/kholidfu">youtube channels</a> ]
+</li>
+<li>[ <a href="https://github.com/kholidfu">github</a> ]
+</li>
+<li>[ <a href="https://www.facebook.com/kholid.fuadi">fb</a> ]
+</li>
+<li>[ <a href="https://id.linkedin.com/in/kholidfuadi">linkedin</a> ]
+</li>
+<li>[ <a href="https://plus.google.com/+kholidfu">g+</a> ]
+</li>
+<li>[ <a href="https://www.livecoding.tv/kholidfu/">livecoding.tv</a> ]
+</li>
 </ul>
 
 <p>
@@ -260,9 +282,10 @@ jadi. Selanjutnya tinggal seremonial <code>git</code>, dan artikel sudah <i>live
 </blockquote>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2015-10-01</p>
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-01 Thu&gt;</span></span></p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-15 Thu 06:19</p>
+<p class="date">Created: 2016-06-21 Tue 13:54</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.5.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
