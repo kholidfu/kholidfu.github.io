@@ -1,0 +1,26 @@
+#+TITLE: Campur2 about Teknikal - labs127.io and me
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2016-05-26 Thu>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
+#+STARTUP: indent
+
+
+* <<sec:1>>Setting TP-Link TL-WA500G sebagai Repeater/Wifi Extender
+- Ubah IP Address dari default pabrik (192.168.1.254) ke yang lain,
+  misal 192.168.1.253, simpan, kemudian akses kembali menggunakan
+  alamat IP yang baru.
+- Arahkan ke menu Wireless->Wireless Mode dan pilih mode
+  Repeater. Kemudian gulung layar ke bawah, tekan tombol Survey,
+  tunggu sebentar, kemudian pilih AP yang ingin Anda perluas pancarannya.
+- Jika AP menggunakan security, maka pastikan bahwa TP-Link Anda
+  menggunakan password yang sama dengan setting yang ada di AP. Jadi
+  bahasa sederhananya, agar Extender dapat berkomunikasi dengan AP,
+  maka Extender harus memasukkan password dari AP. Pilih Configure
+  Wireless Security Settings, dan sesuaikan dengan setting dari
+  AP. Karena extender model ini hanya mendukung sistem security WEP,
+  maka pastikan AP juga menggunakan sistem sekuriti yang sama.
+- Lihat bagian Status, jika sudah muncul signal strength, maka
+  komunikasi antar 2 perangkat ini sudah berhasil.
+
+Ingat, bahwa nama SSID dari 2 perangkat ini adalah sama, yakni
+menggunakan SSID dari AP.
