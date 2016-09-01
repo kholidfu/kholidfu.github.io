@@ -1,0 +1,86 @@
+#+TITLE: Setup python django postgresql di macosx dengan brew
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2016-09-01 Thu>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+
+* Install Xcode dan Homebrew
+  #+BEGIN_SRC sh
+    xcode-select --install
+
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  #+END_SRC
+
+  Tambahkan baris berikut di =~.bash_profile=
+
+  #+BEGIN_SRC text
+    export PATH=/usr/local/bin:$PATH
+  #+END_SRC
+
+  Cari path ke python dengan mengetik:
+
+  #+BEGIN_SRC sh
+    which python
+  #+END_SRC
+
+  Output harusnya =/usr/bin/python= (path lawas).
+
+  Sekarang install python yang baru:
+
+  #+BEGIN_SRC sh
+    which python
+  #+END_SRC
+
+  Output yang baru: =/usr/local/bin/python=.
+
+  Tambahkan ke =~/.bash_profile=:
+
+  #+BEGIN_SRC text
+    export PATH=/usr/local/share/python:$PATH
+  #+END_SRC
+
+  Sekarang install =virtualenv=:
+
+  #+BEGIN_SRC sh
+    pip install virtualenv
+  #+END_SRC
+
+  Coba buat /virtual environment baru:
+
+  #+BEGIN_SRC sh
+    mkdir myvenv
+    cd myvenv
+    virtualenv .
+    . bin/activate
+  #+END_SRC
+
+  Done!
+
+* Install postgresql
+  Steps:
+  #+BEGIN_SRC sh
+    brew install postgresql
+  #+END_SRC
+
+  Start postgresql service
+  #+BEGIN_SRC sh
+    brew services start postgresql
+  #+END_SRC
+
+  Create postgres user
+  #+BEGIN_SRC sh
+    createuser --pwprompt postgres
+  #+END_SRC
+
+  Create dbase
+  #+BEGIN_SRC sh
+    createdb 'agcimg2'
+  #+END_SRC
+
+** Reference
+- [[http://www.marinamele.com/2014/05/install-python-virtualenv-virtualenvwrapper-mavericks.html][install brew python virtualenv]]
+- [[https://www.moncefbelyamani.com/how-to-install-postgresql-on-a-mac-with-homebrew-and-lunchy/][install postgres macosx 1]]
+- [[http://www.tunnelsup.com/setting-up-postgres-on-mac-osx][setting up postgres on macosx]]
+- [[http://exponential.io/blog/2015/02/21/install-postgresql-on-mac-os-x-via-brew/][install postgresql on macosx via brew]]
