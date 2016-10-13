@@ -1,8 +1,14 @@
 #+TITLE: Mengatasi Tombol Return yang Tidak Berfungsi di Mac
 #+AUTHOR: Kholid Fuadi
-#+DATE: <2016-05-23>
+#+DATE: <2016-10-14 Fri>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
 #+STARTUP: indent
 
 Caranya adalah dengan menginstall aplikasi karabiner. Lakukan setting
 disana, sesuaikan dengan kebiasan Anda.
+
+*[Update]*
+
+Aplikasi karabiner tidak jalan di macos sierra. Sebagai gantinya ada
+karabiner-elements, konfigurasi menggunakan berkas json. Namun ke depan
+si developer sudah berjanji akan terus menyempurnakan.
