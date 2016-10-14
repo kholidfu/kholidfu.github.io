@@ -1,0 +1,49 @@
+#+TITLE: Flask Click - @kholidfu
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2016-09-01 Thu>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+* Flask dan Flask-Click
+  Semenjak versi 0.11, Flask menyertakan fitur baru yakni ~click~
+  command line interface. ~click~ sendiri merupakan pustaka python
+  yang dikembangkan oleh pembuat Flask.
+
+  Dengan fitur ini, membuat /custom command/ di Flask menjadi sangat
+  mudah.
+
+  Berikut ini adalah cara penggunaannya:
+
+  #+BEGIN_SRC python
+  import click
+
+  @app.cli.command()
+  def initdb():
+      '''Init db.
+
+      '''
+      click.echo('Init the db')
+  #+END_SRC
+
+  Sebelumnya, pastikan /path/ menuju ke aplikasi Flask Anda sudah
+  terkonfigurasi. Saya /prefer/ dengan menambahkan ke berkas ~bin/activate~:
+
+  #+BEGIN_SRC text
+  export FLASK_APP=$VIRTUAL_ENV/app/__init__.py
+  export FLASK_DEBUG=1
+  #+END_SRC
+
+  Kemudian silakan restart terminal atau ketik perintah ~source
+  ~/.bash_profile~, dan jalankan perintah ~initdb~ diatas:
+
+  #+BEGIN_SRC sh
+  flask initdb
+  #+END_SRC
+
+  Secara default, Flask sudah menyertakan perintah ~flask run~ untuk
+  menjalankan localhost server. Tapi Anda dapat melihat daftar
+  parameter dengan menggunakan perintah
+
+  #+BEGIN_SRC sh
+  flask --help
+  #+END_SRC
