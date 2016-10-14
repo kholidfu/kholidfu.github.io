@@ -382,7 +382,7 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 
 | Keystroke   | Keterangan                                                   |
 |-------------+--------------------------------------------------------------|
-| C-u C-c C-l | Membuat internal link with autocompletion,                   |
+| C-c C-l     | Membuat internal link with autocompletion,                   |
 |             | berguna ketika membuat tautan ke berkas di sebuah direktori. |
 | C-c C-x f   | Membuat footnote baru.                                       |
 | C-c C-e h o | Export org to HTML and open it in browser                    |
