@@ -1,0 +1,78 @@
+#+TITLE: HTTP request with requests and TOR - @kholidfu
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2016-10-14 Fri>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+
+*Disclaimer:* OS yang digunakan dalam artikel ini adalah macos sierra
+
+
+* Install dan Setup TOR
+**  Install tor di macos menggunakan brew
+
+    #+BEGIN_SRC sh
+      brew install tor
+    #+END_SRC
+
+** tor config
+
+   #+BEGIN_SRC text
+     # copy on mac /usr/local/etc/tor/torrc.sample ke torrc
+     # on ubuntu, file ada di /etc/tor/torrc
+
+     # uncomment
+     ControlPort 9051
+     # and
+     CookieAuthentication 1
+     # change line above to
+     CookieAuthentication 0
+   #+END_SRC
+
+* python setup and code example
+
+  Buat /virtual environment/, kemudian install ~requests[socks]~ dan ~stem~:
+
+  #+BEGIN_SRC python
+    pip install requests[socks]
+    pip install stem
+  #+END_SRC
+
+  #+BEGIN_SRC python
+    # code example :: app.py
+    import requests
+    import time
+
+    proxies = {
+        'http': 'socks5://localhost:9050',
+        'https': 'socks5://localhost:9050'
+    }
+    url = 'http://httpbin.org/ip'
+
+
+    # refresh IP
+    from stem import Signal
+    from stem.control import Controller
+
+    # signal TOR for a new connection 
+    def renew_connection():
+        with Controller.from_port(port = 9051) as controller:
+            controller.authenticate()
+            controller.signal(Signal.NEWNYM)
+
+    for i in range(5):
+        print(requests.get(url, proxies=proxies).text)
+        renew_connection()
+        time.sleep(5)
+  #+END_SRC
+
+  Sekarang jalankan tor
+
+  #+BEGIN_SRC sh
+    tor
+  #+END_SRC
+
+* Reference
+
+  - [[http://stackoverflow.com/questions/30286293/make-requests-using-python-over-tor][stackoverflow]]
+  - [[https://www.wildcardcorp.com/blog/tor-torify-torsocks][wildcardcorp.com]]
