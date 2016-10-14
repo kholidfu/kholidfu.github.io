@@ -1,4 +1,4 @@
-#+TITLE: labs127.io and me
+#+TITLE: @kholidfu
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2015-10-01 Thu>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="./stylesheet.css" />
