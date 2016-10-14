@@ -3,30 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-19 Mon 20:02 -->
+<title>emacs - @kholidfu</title>
+<!-- 2016-10-14 Fri 08:33 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title>emacs - labs127.io and me</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kholid Fuadi" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
+  .title  { text-align: center; }
   .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
+  .done   { color: green; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -65,14 +58,15 @@
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara { display: inline; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -144,28 +138,29 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">emacs - labs127.io and me</h1>
+<h1 class="title">emacs - @kholidfu</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgheadline1">1. Menjalankan emacs secara daemon</a></li>
-<li><a href="#orgheadline2">2. Mode Fullscreen di Emacs</a></li>
-<li><a href="#orgheadline3">3. Fungsi customize-saved</a></li>
-<li><a href="#orgheadline4">4. Menambahkan keyboard shortcut untuk emacs</a></li>
-<li><a href="#orgheadline5">5. Membuat tautan internal di emacs org-mode</a></li>
-<li><a href="#orgheadline6">6. Header org-mode untuk LaTeX export</a></li>
-<li><a href="#orgheadline7">7. Membuat teks rata tengah di org-mode</a></li>
-<li><a href="#orgheadline8">8. Syntax highlighting di latex org-mode</a></li>
-<li><a href="#orgheadline9">9. Membuat gambar centering di latex org-mode</a></li>
-<li><a href="#orgheadline10">10. Membuat garis horisontal di latex org-mode</a></li>
-<li><a href="#orgheadline11">11. Why org-mode not just plain LaTeX?</a></li>
-<li><a href="#orgheadline12">12. Memperbarui paket Emacs</a></li>
-<li><a href="#orgheadline13">13. Follow Mode</a></li>
-<li><a href="#orgheadline14">14. Remember Mode</a></li>
-<li><a href="#orgheadline15">15. Sunting Berkas sebagai sudo user</a></li>
-<li><a href="#orgheadline16">16. Kombinasi keystroke yang sering saya pakai di org-mode</a></li>
-<li><a href="#orgheadline17">17. Emacs Good Reads</a></li>
+<li><a href="#sec-1">1. Menjalankan emacs secara daemon</a></li>
+<li><a href="#sec-2">2. Mode Fullscreen di Emacs</a></li>
+<li><a href="#sec-3">3. Fungsi customize-saved</a></li>
+<li><a href="#sec-4">4. Menambahkan keyboard shortcut untuk emacs</a></li>
+<li><a href="#sec-5">5. Membuat tautan internal di emacs org-mode</a></li>
+<li><a href="#sec-6">6. Header org-mode untuk LaTeX export</a></li>
+<li><a href="#sec-7">7. Membuat teks rata tengah di org-mode</a></li>
+<li><a href="#sec-8">8. Syntax highlighting di latex org-mode</a></li>
+<li><a href="#sec-9">9. Membuat gambar centering di latex org-mode</a></li>
+<li><a href="#sec-10">10. Membuat garis horisontal di latex org-mode</a></li>
+<li><a href="#sec-11">11. Why org-mode not just plain LaTeX?</a></li>
+<li><a href="#sec-12">12. Memperbarui paket Emacs</a></li>
+<li><a href="#sec-13">13. Follow Mode</a></li>
+<li><a href="#sec-14">14. Remember Mode</a></li>
+<li><a href="#sec-15">15. Sunting Berkas sebagai sudo user</a></li>
+<li><a href="#sec-16">16. Inserting internal link (to a file)</a></li>
+<li><a href="#sec-17">17. Kombinasi keystroke yang sering saya pakai di org-mode</a></li>
+<li><a href="#sec-18">18. Emacs Good Reads</a></li>
 </ul>
 </div>
 </div>
@@ -175,8 +170,8 @@ selama bergumul dengan <code>emacs</code>. Syukur kalau masih <i>works</i> dan b
 bagi pembaca sekalian.
 </p>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> <a id="orgtarget1"></a>Menjalankan emacs secara daemon</h2>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> <a id="sec:1" name="sec:1"></a>Menjalankan emacs secara daemon</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Emacs terasa lambat saat <i>startup</i>? Bahkan dengan processor <b>i7 4790
@@ -206,9 +201,9 @@ menjalankan <i>client</i> <code>emacs</code>, jalankan perintah berikut:
 
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">jalankan emacs window mode</span>
+<pre class="src src-sh"># jalankan emacs window mode
 emacsclient -c -n /path/to/your/dir/or/file
-<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">jalankan emacs no-window mode</span>
+# jalankan emacs no-window mode
 emacsclient /path/to/your/dir/or/file
 </pre>
 </div>
@@ -243,18 +238,18 @@ export ALTERNATE_EDITOR=""
 
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #b0c4de;">source</span> ~/.bashrc
+<pre class="src src-sh">source ~/.bashrc
 </pre>
 </div>
 
 <p>
-Sumber<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+Sumber<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> <a id="orgtarget2"></a>Mode Fullscreen di Emacs</h2>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> <a id="sec:2" name="sec:2"></a>Mode Fullscreen di Emacs</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Salah satu cara untuk mengurangi <i>distraction</i> ketika sedang <i>coding</i>
@@ -270,13 +265,13 @@ Tambahkan baris kode berikut di <code>.emacs</code> Anda:
 
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp"><span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">F11 key to toggle full screen mode</span>
-(<span style="color: #00ffff;">defun</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">toggle-fullscreen</span> ()
+<pre class="src src-emacs-lisp">;; F11 key to toggle full screen mode
+(defun toggle-fullscreen ()
   (interactive)
   (set-frame-parameter nil 'fullscreen 
-               (<span style="color: #00ffff;">if</span> (frame-parameter nil 'fullscreen)
-               nil
-             'fullboth)))
+		       (if (frame-parameter nil 'fullscreen)
+			   nil
+			 'fullboth)))
 
 (global-set-key [f11] 'toggle-fullscreen)
 </pre>
@@ -289,8 +284,8 @@ Tekan <code>F11</code> sekali lagi untuk kembali ke ukuran <i>window</i> sebelum
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> <a id="orgtarget3"></a>Fungsi customize-saved</h2>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> <a id="sec:3" name="sec:3"></a>Fungsi customize-saved</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 Ingin menghilangkan <i>toolbar</i>, <i>menubar</i>, <i>scrollbar</i>? Ada beberapa
@@ -307,10 +302,10 @@ Atau bisa dengan menambahkan baris berikut di <code>~/.emacs</code> Anda:
 
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">(menu-bar-mode -1) <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Disable menubar</span>
-(tool-bar-mode -1) <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Disable toolbar</span>
-(scroll-bar-mode -1) <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Disable scrollbar</span>
-(tooltip-mode -1)) <span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Disable tooltip</span>
+<pre class="src src-emacs-lisp">(menu-bar-mode -1) ;; Disable menubar
+(tool-bar-mode -1) ;; Disable toolbar
+(scroll-bar-mode -1) ;; Disable scrollbar
+(tooltip-mode -1)) ;; Disable tooltip
 </pre>
 </div>
 
@@ -337,8 +332,8 @@ kemudian ubah nilai, dan tekan <code>Apply and Save</code>.
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> <a id="orgtarget4"></a>Menambahkan keyboard shortcut untuk emacs</h2>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> <a id="sec:4" name="sec:4"></a>Menambahkan keyboard shortcut untuk emacs</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Pengguna ubuntu pasti familiar dengan <i>shortkey</i> <code>Ctrl+Alt+t</code>, ya
@@ -357,7 +352,7 @@ menambahkan <i>custom shortcut</i> disana.
 Saya pilih kombinasi <code>Ctrl+Alt+e</code>, e untuk emacs, biar mudah
 diingat. Dan satu hal lagi, <i>command</i> yang saya jalankan bukan <code>emacs
 .</code>, melainkan <code>emacsclient -n -c .</code>, hal ini karena saya sudah
-menambahkan <code>emacs --daemon</code> (Baca artikel <a href="#orgtarget1">emacs as daemon</a>) setiap
+menambahkan <code>emacs --daemon</code> (Baca artikel <a href="#sec:1">emacs as daemon</a>) setiap
 kali komputer menyala.
 </p>
 
@@ -366,8 +361,8 @@ Yak, <code>Ctrl+Alt+e</code>, dan <i>ZAP</i>! emacs nongol dan siap diajak kerja
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> <a id="orgtarget5"></a>Membuat tautan internal di emacs org-mode</h2>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> <a id="sec:5" name="sec:5"></a>Membuat tautan internal di emacs org-mode</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Ingin merujuk ke bagian tertentu di org-mode? Caranya mudah, gunakan
@@ -406,8 +401,8 @@ Selamat mencoba!
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> <a id="orgtarget6"></a>Header org-mode untuk LaTeX export</h2>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> <a id="sec:6" name="sec:6"></a>Header org-mode untuk LaTeX export</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 Awal perkenalan saya dengan <code>LaTeX</code> dulu karena tidak menemukan
@@ -425,7 +420,7 @@ adalah dengan membuat berkas dengan tipe PDF.
 
 <p>
 Salah satu aplikasi yang bagus untuk <i>generate</i> dokumen PDF katanya
-adalah <code>LaTeX</code><sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>, maka dicobalah si Latex. Untuk hasil, jangan tanya,
+adalah =LaTeX=<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>, maka dicobalah si Latex. Untuk hasil, jangan tanya,
 PDF keluaran Latex kualitasnya masih paling bagus dibanding misalnya
 dengan menggunakan libreoffice. Namun, <i>learning curve</i> nya itu yang
 mungkin tidak setiap orang mampu melewatinya.
@@ -473,22 +468,22 @@ yang menyeramkan itu.
 
 <div class="org-src-container">
 
-<pre class="src src-org"><span style="color: #b3b3b3;">#+TITLE:</span> <span style="color: #afeeee; font-weight: bold;">Beginning Ruby on Rails</span>
-<span style="color: #b3b3b3;">#+AUTHOR:</span> <span style="color: #afeeee;">Kholid Fuadi</span>
-<span style="color: #b3b3b3;">#+DATE:</span> <span style="color: #afeeee;">&lt;2015-10-10 Sat&gt;</span>
-<span style="color: #ff7f24; font-style: italic;">#+STARTUP: indent</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX_CLASS: article</span>
-<span style="color: #ff7f24; font-style: italic;">#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t &lt;:t</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX_CLASS_OPTIONS: [a4paper]</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX_HEADER: \usepackage{graphicx}</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX_HEADER: \usepackage{hyperref}</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX_HEADER: \hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=blue}</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX_HEADER: \usepackage{minted}</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX_HEADER: \usemintedstyle{emacs}</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX_HEADER: \newminted{common-list}{font-size=\footnotesize}</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX: \listoftables</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX: \listoffigures</span>
-<span style="color: #ff7f24; font-style: italic;">#+LATEX: \pagebreak</span>
+<pre class="src src-org">#+TITLE: Beginning Ruby on Rails
+#+AUTHOR: Kholid Fuadi
+#+DATE: &lt;2015-10-10 Sat&gt;
+#+STARTUP: indent
+#+LATEX_CLASS: article
+#+OPTIONS:   H:3 num:t toc:t \n:nil @:t ::t |:t ^:t -:t f:t *:t &lt;:t
+#+LATEX_CLASS_OPTIONS: [a4paper]
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \usepackage{hyperref}
+#+LATEX_HEADER: \hypersetup{colorlinks,citecolor=blue,filecolor=blue,linkcolor=blue,urlcolor=blue}
+#+LATEX_HEADER: \usepackage{minted}
+#+LATEX_HEADER: \usemintedstyle{emacs}
+#+LATEX_HEADER: \newminted{common-list}{font-size=\footnotesize}
+#+LATEX: \listoftables
+#+LATEX: \listoffigures
+#+LATEX: \pagebreak
 </pre>
 </div>
 
@@ -528,63 +523,63 @@ Selamat mencoba!
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> <a id="orgtarget7"></a>Membuat teks rata tengah di org-mode</h2>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> <a id="sec:7" name="sec:7"></a>Membuat teks rata tengah di org-mode</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Gunakan blok berikut untuk membuat teks rata tengah:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-org"><span style="color: #ff7f24; font-style: italic;">#+BEGIN_CENTER</span>
+<pre class="src src-org">#+BEGIN_CENTER
 Teks ini rata tengah.
-<span style="color: #ff7f24; font-style: italic;">#+END_CENTER</span>
+#+END_CENTER
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">8</span> <a id="orgtarget8"></a>Syntax highlighting di latex org-mode</h2>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> <a id="sec:8" name="sec:8"></a>Syntax highlighting di latex org-mode</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Tambahkan konfigurasi berikut di <code>~/.emacs</code> Anda:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp"><span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Include the latex-exporter</span>
-(<span style="color: #00ffff;">require</span> '<span style="color: #8470ff; font-weight: bold;">ox-latex</span>)
-<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Add minted to the defaults packages to include when exporting.</span>
-(add-to-list 'org-latex-packages-alist '(<span style="color: #ffc1c1;">""</span> <span style="color: #ffc1c1;">"minted"</span>))
-<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Tell the latex export to use the minted package for source</span>
-<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">code coloration.</span>
+<pre class="src src-emacs-lisp">;; Include the latex-exporter
+(require 'ox-latex)
+;; Add minted to the defaults packages to include when exporting.
+(add-to-list 'org-latex-packages-alist '("" "minted"))
+;; Tell the latex export to use the minted package for source
+;; code coloration.
 (setq org-latex-listings 'minted)
-<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">set minted options</span>
+;; set minted options
 (setq org-latex-minted-options
-     '((<span style="color: #ffc1c1;">"frame"</span> <span style="color: #ffc1c1;">"lines"</span>) 
-       (<span style="color: #ffc1c1;">"linenos=true"</span>)
-       (<span style="color: #ffc1c1;">"mathescape"</span> <span style="color: #ffc1c1;">"true"</span>)
-       (<span style="color: #ffc1c1;">"numbersep"</span> <span style="color: #ffc1c1;">"5pt"</span>)
-       <span style="color: #fa8072; font-style: italic;">;</span><span style="color: #ff7f24; font-style: italic;">("gobble" "2")</span>
-       (<span style="color: #ffc1c1;">"framesep"</span> <span style="color: #ffc1c1;">"2mm"</span>)
-       )
-     )
-<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">Let the exporter use the -shell-escape option to let latex</span>
-<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">execute external programs.</span>
-<span style="color: #fa8072; font-style: italic;">;; </span><span style="color: #ff7f24; font-style: italic;">This obviously and can be dangerous to activate!</span>
+     '(("frame" "lines") 
+	   ("linenos=true")
+	   ("mathescape" "true")
+	   ("numbersep" "5pt")
+       ;("gobble" "2")
+	   ("framesep" "2mm")
+	   )
+	 )
+;; Let the exporter use the -shell-escape option to let latex
+;; execute external programs.
+;; This obviously and can be dangerous to activate!
 (setq org-latex-pdf-process '(
-                              <span style="color: #ffc1c1;">"pdflatex -shell-escape</span>
-<span style="color: #ffc1c1;">-interaction nonstopmode -output-directory %o %f"</span>
-                              <span style="color: #ffc1c1;">"pdflatex -shell-escape</span>
-<span style="color: #ffc1c1;">-interaction nonstopmode -output-directory %o %f"</span>
-                              <span style="color: #ffc1c1;">"pdflatex -shell-escape</span>
-<span style="color: #ffc1c1;">-interaction nonstopmode -output-directory %o %f"</span>))
+							  "pdflatex -shell-escape
+-interaction nonstopmode -output-directory %o %f"
+							  "pdflatex -shell-escape
+-interaction nonstopmode -output-directory %o %f"
+							  "pdflatex -shell-escape
+-interaction nonstopmode -output-directory %o %f"))
 </pre>
 </div>
 
 <p>
-Note: Di tutorial asli<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>, <i>command</i> yang digunakan adalah <code>xelatex</code>,
+Note: Di tutorial asli<sup><a id="fnr.3" name="fnr.3" class="footref" href="#fn.3">3</a></sup>, <i>command</i> yang digunakan adalah <code>xelatex</code>,
 saya sendiri menggunakan <code>pdflatex</code>, so jika Anda punya <i>command</i>
-lain, silakan disesuaikan.<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
+lain, silakan disesuaikan.<sup><a id="fnr.4" name="fnr.4" class="footref" href="#fn.4">4</a></sup>
 </p>
 
 <p>
@@ -597,8 +592,8 @@ Tangkapan layar <i>output</i>:
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">9</span> <a id="orgtarget9"></a>Membuat gambar centering di latex org-mode</h2>
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> <a id="sec:9" name="sec:9"></a>Membuat gambar centering di latex org-mode</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 Berikut ini adalah contoh membuat gambar <i>centering</i> dan float here,
@@ -606,8 +601,8 @@ kalau di <code>LaTeX</code> <code>[h!]</code>.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-org"><span style="color: #ff7f24; font-style: italic;">#+ATTR_LATEX: :float nil :width .6\textwidth</span>
-<span style="color: #00ffff; text-decoration: underline;"><a href="file:img/emacs_customize_saved.png">file:img/emacs_customize_saved.png</a></span>
+<pre class="src src-org">#+ATTR_LATEX: :float nil :width .6\textwidth
+[[file:img/emacs_customize_saved.png]]
 </pre>
 </div>
 
@@ -623,8 +618,8 @@ area teks. Info lebih lanjut silakan pelajari tautan <a href="http://orgmode.org
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">10</span> <a id="orgtarget10"></a>Membuat garis horisontal di latex org-mode</h2>
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10"><span class="section-number-2">10</span> <a id="sec:10" name="sec:10"></a>Membuat garis horisontal di latex org-mode</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 Membuat garis horisontal semudah mengetikkan karakter <code>-</code> minimal
@@ -638,25 +633,25 @@ dan setting ini berlaku ketika dokumen org di ekspor latex.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-org"><span style="color: #ff7f24; font-style: italic;">#+ATTR_LATEX: :width .6\textwidth :thickness 0.8pt</span>
+<pre class="src src-org">#+ATTR_LATEX: :width .6\textwidth :thickness 0.8pt
 -----
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline11" class="outline-2">
-<h2 id="orgheadline11"><span class="section-number-2">11</span> <a id="orgtarget11"></a>Why org-mode not just plain LaTeX?</h2>
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11"><span class="section-number-2">11</span> <a id="sec:11" name="sec:11"></a>Why org-mode not just plain LaTeX?</h2>
 <div class="outline-text-2" id="text-11">
 <blockquote>
 <p>
 Flexibility! with org-mode we can deal with text at a higher level
-than LaTeX, but drop to LaTeX when necessary.<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>
+than LaTeX, but drop to LaTeX when necessary.<sup><a id="fnr.5" name="fnr.5" class="footref" href="#fn.5">5</a></sup>
 </p>
 </blockquote>
 </div>
 </div>
-<div id="outline-container-orgheadline12" class="outline-2">
-<h2 id="orgheadline12"><span class="section-number-2">12</span> <a id="orgtarget12"></a>Memperbarui paket Emacs</h2>
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12"><span class="section-number-2">12</span> <a id="sec:12" name="sec:12"></a>Memperbarui paket Emacs</h2>
 <div class="outline-text-2" id="text-12">
 <p>
 Cara memperbarui paket di emacs:
@@ -676,12 +671,12 @@ berhasil.
 </p>
 
 <p>
-Referensi<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>
+Referensi<sup><a id="fnr.6" name="fnr.6" class="footref" href="#fn.6">6</a></sup>
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-2">
-<h2 id="orgheadline13"><span class="section-number-2">13</span> <a id="orgtarget13"></a>Follow Mode</h2>
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13"><span class="section-number-2">13</span> <a id="sec:13" name="sec:13"></a>Follow Mode</h2>
 <div class="outline-text-2" id="text-13">
 <p>
 Mode ini berguna ketika teks yang kita baca cukup panjang dan layar
@@ -697,8 +692,8 @@ mouse atau keyboard, maka window satunya akan merespon.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline14" class="outline-2">
-<h2 id="orgheadline14"><span class="section-number-2">14</span> <a id="orgtarget14"></a>Remember Mode</h2>
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14"><span class="section-number-2">14</span> <a id="sec:14" name="sec:14"></a>Remember Mode</h2>
 <div class="outline-text-2" id="text-14">
 <p>
 This mode useful to create quick and dirty notes, misal tiba-tiba
@@ -710,8 +705,8 @@ lagi dengan semudah <code>C-x C-f</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline15" class="outline-2">
-<h2 id="orgheadline15"><span class="section-number-2">15</span> <a id="orgtarget15"></a>Sunting Berkas sebagai sudo user</h2>
+<div id="outline-container-sec-15" class="outline-2">
+<h2 id="sec-15"><span class="section-number-2">15</span> <a id="sec:15" name="sec:15"></a>Sunting Berkas sebagai sudo user</h2>
 <div class="outline-text-2" id="text-15">
 <p>
 Tentu kita dapat menggunakan <code>tramp mode</code>, namun ada cara yang lebih
@@ -719,7 +714,7 @@ simpel. Tambahkan baris berikut di <code>~/.bashrc</code>:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-sh"><span style="color: #b0c4de;">alias</span> <span style="color: #7fffd4;">E</span>=<span style="color: #ffc1c1;">"SUDO_EDITOR=\"emacsclient -c -n -a emacs\" sudoedit"</span>
+<pre class="src src-sh">alias E="SUDO_EDITOR=\"emacsclient -c -n -a emacs\" sudoedit"
 </pre>
 </div>
 <p>
@@ -737,15 +732,51 @@ perintah berikut di terminal:
 </pre>
 </div>
 <p>
-Trik ini hanya berlaku jika Anda menggunakan <a href="#orgtarget1">emacsclient</a>. Penjelasan
+Trik ini hanya berlaku jika Anda menggunakan <a href="#sec:1">emacsclient</a>. Penjelasan
 dari parameter-parameter yang digunakan dapat dilihat menggunakan
 <code>emacsclient -h</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline16" class="outline-2">
-<h2 id="orgheadline16"><span class="section-number-2">16</span> <a id="orgtarget16"></a>Kombinasi keystroke yang sering saya pakai di org-mode</h2>
+<div id="outline-container-sec-16" class="outline-2">
+<h2 id="sec-16"><span class="section-number-2">16</span> <a id="sec:16" name="sec:16"></a>Inserting internal link (to a file)</h2>
 <div class="outline-text-2" id="text-16">
+<p>
+<i>By default</i>, emacs mengasumsikan link atau tautan yang kita masukkan
+adalah tautan ke luar (web), bagaimana jika kita ingin memasukkan
+tautan ke sebuah berkas, misalnya HTML?
+</p>
+
+<p>
+Urutannya hampir sama, cuma kita secara eksplisit menyebutkan jenis
+tautan yang ingin kita sisipkan.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-text">;; insert new link
+
+C-c C-l
+
+;; tekan tab, nanti muncul pilihan jenis2 tautan yang ingin kita masukkan,
+;; pilih file:
+
+file:
+Ret
+
+;; di mini buffer, akan muncul file browser, pilih berkas yang ingin kita masukkan
+
+Ret
+
+;; isikan deskripsi dari link tersebut, (a html tag)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-17" class="outline-2">
+<h2 id="sec-17"><span class="section-number-2">17</span> <a id="sec:1000" name="sec:1000"></a>Kombinasi keystroke yang sering saya pakai di org-mode</h2>
+<div class="outline-text-2" id="text-17">
 <p>
 Selain <i>keystroke</i> navigasi, ada beberapa kombinasi <i>keystroke</i> yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:
@@ -755,53 +786,56 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Keystroke</th>
-<th scope="col" class="org-left">Keterangan</th>
+<th scope="col" class="left">Keystroke</th>
+<th scope="col" class="left">Keterangan</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">C-u C-c C-l</td>
-<td class="org-left">Membuat internal link with autocompletion,</td>
+<td class="left">C-u C-c C-l</td>
+<td class="left">Membuat internal link with autocompletion,</td>
 </tr>
 
 <tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">berguna ketika membuat tautan ke berkas di sebuah direktori.</td>
+<td class="left">&#xa0;</td>
+<td class="left">berguna ketika membuat tautan ke berkas di sebuah direktori.</td>
 </tr>
 
 <tr>
-<td class="org-left">C-c C-x f</td>
-<td class="org-left">Membuat footnote baru.</td>
+<td class="left">C-c C-x f</td>
+<td class="left">Membuat footnote baru.</td>
 </tr>
 
 <tr>
-<td class="org-left">C-c C-e h o</td>
-<td class="org-left">Export org to HTML and open it in browser</td>
+<td class="left">C-c C-e h o</td>
+<td class="left">Export org to HTML and open it in browser</td>
 </tr>
 
 <tr>
-<td class="org-left">C-c C-e l o</td>
-<td class="org-left">Export org to PDF and open it with PDF reader.</td>
+<td class="left">C-c C-e l o</td>
+<td class="left">Export org to PDF and open it with PDF reader.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-orgheadline17" class="outline-2">
-<h2 id="orgheadline17"><span class="section-number-2">17</span> <a id="orgtarget17"></a>Emacs Good Reads</h2>
-<div class="outline-text-2" id="text-17">
+<div id="outline-container-sec-18" class="outline-2">
+<h2 id="sec-18"><span class="section-number-2">18</span> <a id="sec:1001" name="sec:1001"></a>Emacs Good Reads</h2>
+<div class="outline-text-2" id="text-18">
 <ul class="org-ul">
-<li><a href="http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a></li>
-<li><a href="http://orgmode.org/orgguide.pdf">The compact Org-mode Guide {PDF}</a></li>
-<li><a href="http://orgmode.org/org.pdf">The Org Manual {PDF}</a></li>
+<li><a href="http://home.fnal.gov/~neilsen/notebook/orgExamples/org-examples.html">Emacs org-mode examples and cookbook</a>
+</li>
+<li><a href="http://orgmode.org/orgguide.pdf">The compact Org-mode Guide {PDF}</a>
+</li>
+<li><a href="http://orgmode.org/org.pdf">The Org Manual {PDF}</a>
+</li>
 </ul>
 </div>
 </div>
@@ -809,37 +843,38 @@ sering saya pakai di emacs. Berikut ini beberapa di antaranya:
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
 <a href="http://emacs-fu.blogspot.co.id/2009/02/emacs-daemon.html">http://emacs-fu.blogspot.co.id/2009/02/emacs-daemon.html</a>
-</p></div></div>
+</p></div>
 
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
 <a href="https://latex-project.org/intro.html">https://latex-project.org/intro.html</a>
-</p></div></div>
+</p></div>
 
-<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.3" name="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
 <a href="http://joat-programmer.blogspot.co.id/2013/07/org-mode-version-8-and-pdf-export-with.html">http://joat-programmer.blogspot.co.id/2013/07/org-mode-version-8-and-pdf-export-with.html</a>
-</p></div></div>
+</p></div>
 
-<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.4" name="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara">
 Font <code>xelatex</code> berasa lebih pekat hitamnya dibanding <code>pdflatex</code>.
-</p></div></div>
+</p></div>
 
-<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.5" name="fn.5" class="footnum" href="#fnr.5">5</a></sup> <p class="footpara">
 <a href="https://www.reddit.com/r/emacs/comments/3nvmvr/why_orgmode/cvrna2i">https://www.reddit.com/r/emacs/comments/3nvmvr/why_orgmode/cvrna2i</a>
-</p></div></div>
+</p></div>
 
-<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.6" name="fn.6" class="footnum" href="#fnr.6">6</a></sup> <p class="footpara">
 <a href="http://oremacs.com/2015/03/20/managing-emacs-packages/">http://oremacs.com/2015/03/20/managing-emacs-packages/</a>
-</p></div></div>
+</p></div>
 
 
 </div>
 </div></div>
 <div id="postamble" class="status">
-<p class="date">Date: 2015-10-01</p>
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-01 Thu&gt;</span></span></p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-19 Mon 20:02</p>
+<p class="date">Created: 2016-10-14 Fri 08:33</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

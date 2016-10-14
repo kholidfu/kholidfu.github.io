@@ -1,4 +1,4 @@
-#+TITLE: emacs - labs127.io and me
+#+TITLE: emacs - @kholidfu
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2015-10-01 Thu>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
@@ -350,6 +350,32 @@ E /etc/hosts
 Trik ini hanya berlaku jika Anda menggunakan [[sec:1][emacsclient]]. Penjelasan
 dari parameter-parameter yang digunakan dapat dilihat menggunakan
 =emacsclient -h=.
+* <<sec:16>>Inserting internal link (to a file)
+/By default/, emacs mengasumsikan link atau tautan yang kita masukkan
+adalah tautan ke luar (web), bagaimana jika kita ingin memasukkan
+tautan ke sebuah berkas, misalnya HTML?
+
+Urutannya hampir sama, cuma kita secara eksplisit menyebutkan jenis
+tautan yang ingin kita sisipkan.
+
+#+BEGIN_SRC text
+  ;; insert new link
+
+  C-c C-l
+
+  ;; tekan tab, nanti muncul pilihan jenis2 tautan yang ingin kita masukkan,
+  ;; pilih file:
+
+  file:
+  Ret
+
+  ;; di mini buffer, akan muncul file browser, pilih berkas yang ingin kita masukkan
+
+  Ret
+
+  ;; isikan deskripsi dari link tersebut, (a html tag)
+#+END_SRC
+
 * <<sec:1000>>Kombinasi keystroke yang sering saya pakai di org-mode
 Selain /keystroke/ navigasi, ada beberapa kombinasi /keystroke/ yang
 sering saya pakai di emacs. Berikut ini beberapa di antaranya:

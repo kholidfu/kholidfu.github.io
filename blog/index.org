@@ -15,3 +15,5 @@ List of posts:
 - <2015-11-28 Sat> [[file:export-import-database-postgresql.html][Export Import Database di Postgresql]]
 - <2016-05-23 Mon> [[file:tombol_enter_error_mac.html][Mengatasi Tombol Return Yang Tidak Berfungsi di Macbook]]
 - <2016-09-01 Thu> [[file:python_setup_macosx.html][Install brew python postgres django di macosx]]
+- <2016-10-14 Fri> [[file:setup-tor-python-requests.html][HTTP request with requests and TOR]]
+
