@@ -1,4 +1,4 @@
-#+TITLE: latex - labs127.io and me
+#+TITLE: latex - @kholidfu
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2015-10-01 Thu>
 #+LANGUAGE:  en

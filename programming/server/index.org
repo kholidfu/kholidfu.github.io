@@ -1,4 +1,4 @@
-#+TITLE: server dan command line - labs127.io and me
+#+TITLE: server dan command line - @kholidfu
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2016-03-08 Tue>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />

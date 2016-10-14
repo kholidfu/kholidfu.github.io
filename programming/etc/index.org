@@ -1,4 +1,4 @@
-#+TITLE: Campur2 about Teknikal - labs127.io and me
+#+TITLE: Campur2 about Teknikal - @kholidfu
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2016-05-26 Thu>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../../stylesheet.css" />
