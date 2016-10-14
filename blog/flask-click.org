@@ -26,15 +26,15 @@
   #+END_SRC
 
   Sebelumnya, pastikan /path/ menuju ke aplikasi Flask Anda sudah
-  terkonfigurasi. Saya /prefer/ dengan menambahkan ke berkas ~bin/activate~:
+  terkonfigurasi. Saya /prefer/ dengan menambahkan kedua baris berikut
+  ke berkas ~bin/activate~:
 
   #+BEGIN_SRC text
   export FLASK_APP=$VIRTUAL_ENV/app/__init__.py
   export FLASK_DEBUG=1
   #+END_SRC
 
-  Kemudian silakan restart terminal atau ketik perintah ~source
-  ~/.bash_profile~, dan jalankan perintah ~initdb~ diatas:
+  Jalankan perintah ~initdb~ diatas:
 
   #+BEGIN_SRC sh
   flask initdb
