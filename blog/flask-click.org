@@ -4,46 +4,88 @@
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
 #+STARTUP: indent
 
-* Flask dan Flask-Click
-  Semenjak versi 0.11, Flask menyertakan fitur baru yakni ~click~
-  command line interface. ~click~ sendiri merupakan pustaka python
-  yang dikembangkan oleh pembuat Flask.
+* What
+Semenjak versi 0.11, Flask diintegrasikan dengan fitur baru yakni
+~click~ command line interface.[fn:4] ~click~ sendiri merupakan pustaka
+python yang dikembangkan oleh pembuat Flask sendiri[fn:3].
 
-  Dengan fitur ini, membuat /custom command/ di Flask menjadi sangat
-  mudah.
+* How
+Mari kita coba:
 
-  Berikut ini adalah cara penggunaannya:
+#+BEGIN_SRC sh
+  # go to app dir
+  cd myapp
+  # aktifkan virtual environment
+  source bin/activate
+  # jalankan flask --help untuk melihat daftar parameter default
+  flask --help
+#+END_SRC
+
+By default, ada 3 parameter yang bisa kita gunakan:
+
+#+BEGIN_SRC sh
+run
+shell
+--help
+#+END_SRC
+
+Parameter 1, untuk menjalankan server lokal di development mode,
+parameter kedua untuk menjalankan python interpreter sesuai dengan
+virtual environment aplikasi kita. Dan yang ketiga untuk menampilkan
+bantuan terkait dengan Flask-click itu sendiri.[fn:1]
+
+Selain parameter bawaan, dengan fitur ini, membuat /custom command/ di
+Flask menjadi sangat mudah. Berikut ini adalah contoh penggunaannya:
+
+Kita membuat custom command untuk menghapus dan membuat DB baru.
 
   #+BEGIN_SRC python
-  import click
+    import click
+    from flask import Flask
+    from flask_sqlalchemy import SQLAlchemy
 
-  @app.cli.command()
-  def initdb():
-      '''Init db.
 
-      '''
-      click.echo('Init the db')
+    app = Flask(__name__)
+
+    db = SQLAlchemy(app)
+
+    @app.cli.command()
+    def initdb():
+        '''Init db.
+
+        '''
+        db.drop_all()
+        db.create_all()
+        click.echo('DB Created')
   #+END_SRC
 
-  Sebelumnya, pastikan /path/ menuju ke aplikasi Flask Anda sudah
-  terkonfigurasi. Saya /prefer/ dengan menambahkan kedua baris berikut
-  ke berkas ~bin/activate~:
+Sebelumnya, pastikan /path/ menuju ke aplikasi Flask Anda sudah
+terkonfigurasi. Saya /prefer/ dengan menambahkan kedua baris berikut
+ke berkas ~bin/activate~:[fn:2]
 
   #+BEGIN_SRC text
   export FLASK_APP=$VIRTUAL_ENV/app/__init__.py
   export FLASK_DEBUG=1
   #+END_SRC
 
-  Jalankan perintah ~initdb~ diatas:
+Jalankan perintah ~initdb~ diatas:
 
   #+BEGIN_SRC sh
   flask initdb
   #+END_SRC
 
-  Secara default, Flask sudah menyertakan perintah ~flask run~ untuk
-  menjalankan localhost server. Tapi Anda dapat melihat daftar
-  parameter dengan menggunakan perintah
 
-  #+BEGIN_SRC sh
-  flask --help
-  #+END_SRC
+* Footnotes
+
+[fn:1] Kalau Anda terbiasa dengan framework django, mungkin ini setara
+dengan ~django-admin custom command~.
+
+[fn:2] Atau jika tidak ingin permanen, cukup jalankan kedua perintah
+di /terminal emulator/ favorit Anda.
+
+[fn:3] http://flask.pocoo.org/docs/0.11/cli/
+
+[fn:4] Sebenarnya ada juga /3rd party extension/ yang berfungsi sama,
+yakni Flask-script, namun karena Flask-click adalah extension bawaan,
+saya lebih prefer menggunakan yang bawaan saja.
+
