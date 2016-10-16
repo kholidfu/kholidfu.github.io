@@ -1,0 +1,32 @@
+#+TITLE: Uji Beban Aplikasi Web dengan loadtest - @kholidfu
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2016-09-01 Thu>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+* What
+  Ada seorang teman mengeluhkan aplikasi web yang dibuat oleh temannya
+  tidak efisien SQL query ke database nya. Lalu saya bertanya, dulu
+  ketika proses development apa tidak diuji dulu kinerjanya? Kenapa
+  harus nunggu visitor datang dulu? Ternyata teman saya ini belum tau
+  kalau kita bisa mensimulasikan uji beban ke sebuah aplikasi tanpa
+  harus menunggu real visitor datang.
+
+  Salah satu tool yang sering dipakai adalah ~loadtest~, sebuah paket
+  dari nodejs yang bisa mensimulasikan jumlah request dengan
+  concurrency tertentu.[fn:1]
+
+* How
+  Berikut ini contoh penggunaannya:
+
+  #+BEGIN_SRC sh
+    loadtest -c 10 --rps http://localhost:5000
+  #+END_SRC
+
+  Detail bisa dilihat di tautan yang ada di catatan kaki tulisan ini.
+
+* Footnotes
+
+[fn:1] Petunjuk instalasi dan penggunaan bisa dibaca di tautan berikut
+https://www.npmjs.com/package/loadtest#installation
+ 
