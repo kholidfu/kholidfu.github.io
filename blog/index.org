@@ -18,3 +18,5 @@ List of posts:
 - <2016-10-14 Fri> [[file:setup-tor-python-requests.html][HTTP request with requests and TOR]]
 - <2016-10-14 Fri> [[file:flask-click.html][Flask Click]]
 - <2016-10-16 Sun> [[file:loadtest-stress-test.html][Uji Beban Aplikasi Web dengan loadtest]]
+- <2016-11-02 Wed> [[file:localhost-flask-uwsgi-nginx-macos.html][Setup nginx uwsgi Flask di localhost macos]]
+

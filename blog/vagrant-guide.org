@@ -1,4 +1,4 @@
-#+TITLE: Langkah-langkah Setup dan Konfigurasi Vagrant - labs127.io and me
+#+TITLE: Langkah-langkah Setup dan Konfigurasi Vagrant - @kholidfu
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2015-10-17 Sat>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />

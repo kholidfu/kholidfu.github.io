@@ -3,30 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2015-10-28 Wed 09:27 -->
+<title>Langkah-langkah Setup dan Konfigurasi Vagrant - @kholidfu</title>
+<!-- 2016-11-02 Wed 06:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
-<title>Langkah-langkah Setup dan Konfigurasi Vagrant - labs127.io and me</title>
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kholid Fuadi" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
+  .title  { text-align: center; }
   .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
+  .done   { color: green; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -65,14 +58,15 @@
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara { display: inline; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
@@ -144,58 +138,51 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Langkah-langkah Setup dan Konfigurasi Vagrant - labs127.io and me</h1>
+<h1 class="title">Langkah-langkah Setup dan Konfigurasi Vagrant - @kholidfu</h1>
 <p>
 Langkah-langkah:
 </p>
 <ul class="org-ul">
-<li><p>
-install virtualbox
-</p>
+<li>install virtualbox
 <div class="org-src-container">
 
 <pre class="src src-sh">sudo apt-get install virtualbox virtualbox-dkms
 </pre>
-</div></li>
-<li><p>
-install virtualbox-qt (<i>optional</i> buat yang pengen vboxmanager versi GUI)
-</p>
+</div>
+</li>
+<li>install virtualbox-qt (<i>optional</i> buat yang pengen vboxmanager versi GUI)
 <div class="org-src-container">
 
 <pre class="src src-sh">sudo apt-get install virtualbox-qt
 </pre>
-</div></li>
-<li><p>
-install vagrant Beberapa artikel dari internet menyarankan jangan
+</div>
+</li>
+<li>install vagrant Beberapa artikel dari internet menyarankan jangan
 memasang <i>vagrant</i> versi bawaan distro, karena biasanya ketinggalan
-versi. Sebaiknya unduh langsung dari situs vagrantup<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>. Kemudian
+versi. Sebaiknya unduh langsung dari situs vagrantup<sup><a id="fnr.1" name="fnr.1" class="footref" href="#fn.1">1</a></sup>. Kemudian
 <i>install</i> langsung.
-</p>
 <div class="org-src-container">
 
 <pre class="src src-sh">sudo dpkg -i vagrant_1.x.x.ix86.deb
 </pre>
-</div></li>
-<li><p>
-menambahkan box<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
-</p>
+</div>
+</li>
+<li>menambahkan box<sup><a id="fnr.2" name="fnr.2" class="footref" href="#fn.2">2</a></sup>
 <div class="org-src-container">
 
 <pre class="src src-sh">vagrant box add ubuntu/trusty64
 </pre>
-</div></li>
-<li><p>
-membuat direktori project
-</p>
+</div>
+</li>
+<li>membuat direktori project
 <div class="org-src-container">
 
-<pre class="src src-sh">mkdir vagrant_project &amp;&amp; <span style="color: #b0c4de;">cd</span> vagrant_project
+<pre class="src src-sh">mkdir vagrant_project &amp;&amp; cd vagrant_project
 vagrant init
 </pre>
-</div></li>
-<li><p>
-sunting berkas <code>Vagrantfile</code>, ubah baris berikut
-</p>
+</div>
+</li>
+<li>sunting berkas <code>Vagrantfile</code>, ubah baris berikut
 <div class="org-src-container">
 
 <pre class="src src-text">config.vm.box = "base"
@@ -208,23 +195,22 @@ Sesuaikan dengan <code>box</code> yang Anda unduh, misal:
 
 <pre class="src src-text">config.vm.box = "ubuntu/trusty64"
 </pre>
-</div></li>
-<li><p>
-Jalankan environment
-</p>
+</div>
+</li>
+<li>Jalankan environment
 <div class="org-src-container">
 
 <pre class="src src-sh">vagrant up
 </pre>
-</div></li>
-<li><p>
-Login via ssh
-</p>
+</div>
+</li>
+<li>Login via ssh
 <div class="org-src-container">
 
 <pre class="src src-sh">ssh vagrant@127.0.0.1 -p 2222
 </pre>
-</div></li>
+</div>
+</li>
 </ul>
 
 <p>
@@ -249,45 +235,47 @@ berkas tersebut:
 
 <div class="org-src-container">
 
-<pre class="src src-ruby"><span style="color: #63b8ff;">Vagrant</span>.configure(2) <span style="color: #00ffff;">do</span> |config|
-  config.vm.hostname = <span style="color: #ffc1c1;">"banteng-server"</span>
-  config.vm.box = <span style="color: #ffc1c1;">"ubuntu/trusty64"</span>
-  <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">port forwarding</span>
-  config.vm.network <span style="color: #8470ff; font-weight: bold;">:forwarded_port</span>, <span style="color: #8470ff; font-weight: bold;">guest</span>: 8000, <span style="color: #8470ff; font-weight: bold;">host</span>: 8000
-  config.vm.provision <span style="color: #8470ff; font-weight: bold;">:shell</span>, <span style="color: #8470ff; font-weight: bold;">:path</span> =&gt; <span style="color: #ffc1c1;">"provision/provision-ubuntu-14.04.sh"</span>
-  config.vm.synced_folder <span style="color: #ffc1c1;">"../../git"</span>, <span style="color: #ffc1c1;">"/vagrant_data"</span>
-  <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">fix stdin is not tty</span>
-  config.ssh.shell = <span style="color: #ffc1c1;">"bash -c 'BASH_ENV=/etc/profile exec bash'"</span>
-<span style="color: #00ffff;">end</span>
+<pre class="src src-ruby">Vagrant.configure(2) do |config|
+  config.vm.hostname = "banteng-server"
+  config.vm.box = "ubuntu/trusty64"
+  # port forwarding
+  config.vm.network :forwarded_port, guest: 8000, host: 8000
+  config.vm.provision :shell, :path =&gt; "provision/provision-ubuntu-14.04.sh"
+  config.vm.synced_folder "../../git", "/vagrant_data"
+  # fix stdin is not tty
+  config.ssh.shell = "bash -c 'BASH_ENV=/etc/profile exec bash'"
+end
 </pre>
 </div>
 
 <p>
-<br  />
+\\
 <b>References</b>:<br  />
 </p>
 <ul class="org-ul">
-<li><a href="http://www.olindata.com/blog/2014/07/installing-vagrant-and-virtual-box-ubuntu-1404-lts">olindata.com</a></li>
+<li><a href="http://www.olindata.com/blog/2014/07/installing-vagrant-and-virtual-box-ubuntu-1404-lts">olindata.com</a>
+</li>
 </ul>
 <div id="footnotes">
 <h2 class="footnotes">Footnotes: </h2>
 <div id="text-footnotes">
 
-<div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.1" name="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara">
 <a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a>
-</p></div></div>
+</p></div>
 
-<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara">
+<div class="footdef"><sup><a id="fn.2" name="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
 Daftar <code>box</code> bisa dilihat disini: <a href="https://atlas.hashicorp.com/boxes/search">https://atlas.hashicorp.com/boxes/search</a>
-</p></div></div>
+</p></div>
 
 
 </div>
 </div></div>
 <div id="postamble" class="status">
-<p class="date">Date: 2015-10-17</p>
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-10-17 Sat&gt;</span></span></p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2015-10-28 Wed 09:27</p>
+<p class="date">Created: 2016-11-02 Wed 06:41</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

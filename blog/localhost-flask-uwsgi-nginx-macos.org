@@ -1,0 +1,160 @@
+#+TITLE: flask, uwsgi, nginx, macos Localhost setup - @kholidfu
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2016-11-02 Wed>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+
+Terbiasa melakukan setup di lingkungan Linux, mencoba setup di
+lingkungan macos merupakan satu tantangan tersendiri. Semoga bermanfaat!
+
+* Flask design
+Berikut ini struktur file aplikasi Flask yang saya buat.
+#+BEGIN_SRC text
+  ~/git/blooms$ tree -L 2
+  .
+  |-- README.md
+  |-- app
+  |   |-- GeoLite2-Country.mmdb
+  |   |-- __init__.py
+  |   |-- assets
+  |   |-- command.py
+  |   |-- config.py
+  |   |-- forms.py
+  |   |-- models.py
+  |   |-- static
+  |   |-- templates
+  |   |-- utils.py
+  |   `-- views.py
+  |-- blooms.db
+  |-- requirements.txt
+  `-- wsgi.py
+#+END_SRC
+* Install
+** nginx
+   Install nginx menggunakan brew
+   #+BEGIN_SRC sh
+     brew install nginx
+   #+END_SRC
+
+** uwsgi
+   Install uwsgi
+   #+BEGIN_SRC sh
+     pip install uwsgi
+   #+END_SRC
+
+* Setup
+
+** nginx
+   Buat direktori untuk log
+   #+BEGIN_SRC sh
+     sudo mkdir /Library/Logs/nginx
+   #+END_SRC
+   Buat berkas access.log
+   #+BEGIN_SRC sh
+     sudo touch /Library/Logs/nginx/access.log
+   #+END_SRC
+   Tes konfigurasi
+   #+BEGIN_SRC sh
+     sudo nginx -t
+   #+END_SRC
+   View access log
+   #+BEGIN_SRC sh
+     sudo tail -f /Library/Logs/nginx/access.log
+   #+END_SRC
+
+** nginx.conf
+   Sunting ~nginx.conf~ yang terletak di ~/usr/local/etc/nginx/nginx.conf~
+- Uncomment baris berikut:
+   #+BEGIN_SRC text
+     log_format main '$remote_addr - ...
+   #+END_SRC
+- Uncomment access.log
+  #+BEGIN_SRC text
+    access_log /Library/Logs/nginx/access.log main;
+  #+END_SRC
+- Tambahkan include
+  #+BEGIN_SRC text
+    include /usr/local/etc/nginx/sites-enabled/*;
+  #+END_SRC
+
+** /usr/local/etc/nginx/sites-*
+   Karena direktori ini by default belum ada, mari kita bikin dulu.
+
+   #+BEGIN_SRC sh
+     mkdir -p /usr/local/etc/nginx/sites-{enabled,available}
+     touch -p /usr/local/etc/nginx/sites-available/default
+     cd ../sites-enabled
+     ln -s ../sites-available/default
+     emacs /usr/local/etc/nginx/sites-available/default
+   #+END_SRC
+
+   Isi berkas default dengan baris berikut:
+
+   #+BEGIN_SRC text
+     server {
+         listen 80;
+         listen [::]:80;
+         server_name localhost;
+         location / { try_files $uri @app; }
+         location @app {
+             include uwsgi_params;
+             uwsgi_pass unix:/tmp/uwsgi.sock;
+         }   
+     }
+   #+END_SRC
+
+* Start nginx
+  Jalankan nginx menggunakan brew services:
+
+  #+BEGIN_SRC sh
+    brew services list
+    brew services start nginx
+  #+END_SRC
+
+  Kalau kedua cara di atas gagal, coba
+
+  #+BEGIN_SRC sh
+    brew services stop nginx
+    pkill nginx
+    # check config sudah benar belum
+    sudo nginx -t
+    # if no error
+    sudo nginx
+  #+END_SRC
+
+* Setup uwsgi
+
+  #+BEGIN_SRC sh
+    . bin/activate
+    pip install uwsgi
+  #+END_SRC
+
+** Buat berkas wsgi.py in Flask app root dir, which contain:
+
+  #+BEGIN_SRC python
+    from app import app
+
+    if __name__ == "__main__":
+        # sesuaikan port dengan konfig nginx
+        # (default di macos port 8080, bisa dilihat di nginx.conf)
+        app.run(debug=True, port=8080)
+  #+END_SRC
+
+* Jalankan uwsgi
+
+  Jalankan uwsgi dengan perintah berikut:
+  
+  #+BEGIN_SRC sh
+    uwsgi --socket /tmp/uwsgi.sock --module wsgi --cale app --virtualenv ~/git/blooms/ --chdir ~/git/blooms --chmod-socket=666
+  #+END_SRC
+
+* Coba jalankan aplikasi Flask di browser
+
+  #+BEGIN_SRC text
+    http://127.0.0.1
+  #+END_SRC
+
+* Referensi
+
+  [[https://gist.github.com/jimothyGator/5436538][someone gist]]
