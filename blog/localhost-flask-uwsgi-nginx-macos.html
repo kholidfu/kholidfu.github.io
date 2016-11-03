@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>flask, uwsgi, nginx, macos Localhost setup - @kholidfu</title>
-<!-- 2016-11-02 Wed 07:16 -->
+<!-- 2016-11-03 Thu 15:16 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kholid Fuadi" />
@@ -154,7 +154,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#sec-3-1">3.1. nginx</a></li>
 <li><a href="#sec-3-2">3.2. nginx.conf</a></li>
-<li><a href="#sec-3-3">3.3. /usr/local/etc/nginx/sites-*</a></li>
+<li><a href="#sec-3-3">3.3. Setting berkas konfigurasi default /usr/local/etc/nginx/sites-*</a></li>
 </ul>
 </li>
 <li><a href="#sec-4">4. Start nginx</a></li>
@@ -310,7 +310,7 @@ Sunting <code>nginx.conf</code> yang terletak di <code>/usr/local/etc/nginx/ngin
 </div>
 
 <div id="outline-container-sec-3-3" class="outline-3">
-<h3 id="sec-3-3"><span class="section-number-3">3.3</span> /usr/local/etc/nginx/sites-*</h3>
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Setting berkas konfigurasi default /usr/local/etc/nginx/sites-*</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Karena direktori ini by default belum ada, mari kita bikin dulu.
@@ -336,11 +336,44 @@ Isi berkas default dengan baris berikut:
     listen 80;
     listen [::]:80;
     server_name localhost;
-    location / { try_files $uri @app; }
+
+    location / {
+	try_files $uri @app;
+	proxy_pass http://127.0.0.1:8080;
+    }
+
     location @app {
 	include uwsgi_params;
 	uwsgi_pass unix:/tmp/uwsgi.sock;
-    }   
+    }
+
+    # serve static files with nginx
+    location /assets {
+	root /Users/macbookpro/git/blooms/app;
+    }
+
+    client_body_buffer_size 10K;
+    client_header_buffer_size 1k;
+    client_max_body_size 8m;
+    large_client_header_buffers 2 1k;
+
+    client_body_timeout 12;
+    client_header_timeout 12;
+    keepalive_timeout 15;
+    send_timeout 10;
+
+    gzip             on;
+    gzip_comp_level  2;
+    gzip_min_length  1000;
+    gzip_proxied     expired no-cache no-store private auth;
+    gzip_types       text/plain application/x-javascript text/xml text/css application/xml;
+
+    location ~* .(jpg|jpeg|png|gif|ico|css|js)$ {
+	expires 365d;
+    }
+
+    access_log off;
+
 }
 </pre>
 </div>
@@ -445,7 +478,7 @@ Jalankan uwsgi dengan perintah berikut:
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-02 Wed&gt;</span></span></p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2016-11-02 Wed 07:16</p>
+<p class="date">Created: 2016-11-03 Thu 15:16</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

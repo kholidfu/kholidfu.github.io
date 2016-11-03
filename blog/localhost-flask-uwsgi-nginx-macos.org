@@ -44,7 +44,6 @@ Berikut ini struktur file aplikasi Flask yang saya buat.
    #+END_SRC
 
 * Setup
-
 ** nginx
    Buat direktori untuk log
    #+BEGIN_SRC sh
@@ -78,7 +77,7 @@ Berikut ini struktur file aplikasi Flask yang saya buat.
     include /usr/local/etc/nginx/sites-enabled/*;
   #+END_SRC
 
-** /usr/local/etc/nginx/sites-*
+** Setting berkas konfigurasi default /usr/local/etc/nginx/sites-*
    Karena direktori ini by default belum ada, mari kita bikin dulu.
 
    #+BEGIN_SRC sh
@@ -96,11 +95,44 @@ Berikut ini struktur file aplikasi Flask yang saya buat.
          listen 80;
          listen [::]:80;
          server_name localhost;
-         location / { try_files $uri @app; }
+
+         location / {
+             try_files $uri @app;
+             proxy_pass http://127.0.0.1:8080;
+         }
+
          location @app {
              include uwsgi_params;
              uwsgi_pass unix:/tmp/uwsgi.sock;
-         }   
+         }
+         
+         # serve static files with nginx
+         location /assets {
+             root /Users/macbookpro/git/blooms/app;
+         }
+
+         client_body_buffer_size 10K;
+         client_header_buffer_size 1k;
+         client_max_body_size 8m;
+         large_client_header_buffers 2 1k;
+
+         client_body_timeout 12;
+         client_header_timeout 12;
+         keepalive_timeout 15;
+         send_timeout 10;
+
+         gzip             on;
+         gzip_comp_level  2;
+         gzip_min_length  1000;
+         gzip_proxied     expired no-cache no-store private auth;
+         gzip_types       text/plain application/x-javascript text/xml text/css application/xml;
+
+         location ~* .(jpg|jpeg|png|gif|ico|css|js)$ {
+             expires 365d;
+         }
+
+         access_log off;
+
      }
    #+END_SRC
 
