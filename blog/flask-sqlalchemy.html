@@ -3,8 +3,8 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>export import database di postgresql - @kholidfu</title>
-<!-- 2016-11-12 Sat 20:54 -->
+<title>Semua Tentang Flask dan Flask-SQLAclhemy</title>
+<!-- 2016-11-12 Sat 21:41 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kholid Fuadi" />
@@ -138,40 +138,135 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">export import database di postgresql - @kholidfu</h1>
+<h1 class="title">Semua Tentang Flask dan Flask-SQLAclhemy</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Relationship</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Many-to-many</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Relationship</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Many-to-many</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-FYI, saya menggunakan Linux Mint based on Ubuntu 14.04, semua
-settingan di postgresql masih standar, ketika mau melakukan <code>export</code>
-<code>import</code> terjadi semacam error authentication, tricknya adalah dengan
-menambahkan <code>-h localhost</code> sebagai parameter perintah. Contoh:
+Sebagai ilustrasi, kita memiliki 2 tabel, <code>post</code> dan <code>tag</code>. Tiap
+post memiliki banyak tags, dan tiap tag memiliki banyak
+post. Berikut isi dari berkas <code>app.py</code>:
 </p>
 
-<p>
-export menggunakan <code>pg_dump</code>:
-</p>
 <div class="org-src-container">
 
-<pre class="src src-sh">pg_dump -U postgres kresna -f kresna.sql -h localhost
+<pre class="src src-python">from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+# create flask app
+app = Flask(__name__)
+
+# flask-sqlalchemy settings
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbasefile.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
+# init flask-sqlalchemy
+db = SQLAlchemy(app)
+
+
+class Post(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String)
+    content = db.Column(db.Text)
+    # tags many-to-many relationship
+    tags = db.relationship('Tag', secondary=post_tag, backref='tags')
+
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+
+
+post_tag = db.Table('post_tag',
+		    db.Column('post_id', db.Integer, db.ForeignKey('tag.id')),
+		    db.Column('tag_id', db.Integer, db.ForeignKey('post.id')))
 </pre>
 </div>
 
 <p>
-dan perintah untuk import:
+Untuk dapat membuat many-to-many relationship, kita membutuhkan satu
+tabel association, yang pada kasus ini kita namakan dengan tabel <code>post_tag</code>.
+Tabel ini berisi asosiasi antara <code>post.id</code> dengan <code>tag.id</code>.
 </p>
+
+<p>
+Mari kita masuk ke python interpreter dan memasukkan perintah untuk
+membuat tabel.
+</p>
+
 <div class="org-src-container">
 
-<pre class="src src-sh">psql -U postgres -d kresna2 -f kresna.sql -h localhost
+<pre class="src src-text">&gt;&gt;&gt; from app import db
+&gt;&gt;&gt; from app import Post, Tag
+&gt;&gt;&gt; db.create_all()
 </pre>
 </div>
 
 <p>
-O iya, disini saya menggunakan <code>pg_dump</code> yang sudah terpasang di Mint saya.
+Selanjutnya mari kita coba memasukkan <i>dummy</i> data:
 </p>
+
+<div class="org-src-container">
+
+<pre class="src src-text">&gt;&gt;&gt; p = Post()
+&gt;&gt;&gt; p.title = 'title'
+&gt;&gt;&gt; p.content = 'content'
+&gt;&gt;&gt; db.session.add(p)
+&gt;&gt;&gt; db.session.commit()
+&gt;&gt;&gt; post = Post.query.first()
+&gt;&gt;&gt; t = Tag()
+&gt;&gt;&gt; t.name = 'tag'
+&gt;&gt;&gt; post.tags.append(t)
+&gt;&gt;&gt; db.session.add(post)
+&gt;&gt;&gt; db.session.commit()
+</pre>
+</div>
+
+<p>
+Contoh query data:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-text">&gt;&gt;&gt; tags = Post.query.first().tags
+</pre>
+</div>
+
+<p>
+Contoh delete data:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-text">&gt;&gt;&gt; Post.query.first().tags = []
+&gt;&gt;&gt; db.session.commit()
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2015-11-28 Sat&gt;</span></span></p>
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2016-11-12 Sat&gt;</span></span></p>
 <p class="author">Author: Kholid Fuadi</p>
-<p class="date">Created: 2016-11-12 Sat 20:54</p>
+<p class="date">Created: 2016-11-12 Sat 21:41</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.1.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

@@ -1,0 +1,87 @@
+#+TITLE: Semua Tentang Flask dan Flask-SQLAclhemy
+#+AUTHOR: Kholid Fuadi
+#+DATE: <2016-11-12 Sat>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
+#+STARTUP: indent
+
+
+* Relationship
+** Many-to-many
+Sebagai ilustrasi, kita memiliki 2 tabel, ~post~ dan ~tag~. Tiap
+post memiliki banyak tags, dan tiap tag memiliki banyak
+post. Berikut isi dari berkas ~app.py~:
+
+#+BEGIN_SRC python
+  from flask import Flask
+  from flask_sqlalchemy import SQLAlchemy
+
+  # create flask app
+  app = Flask(__name__)
+
+  # flask-sqlalchemy settings
+  app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbasefile.db'
+  app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
+
+  # init flask-sqlalchemy
+  db = SQLAlchemy(app)
+
+
+  class Post(db.Model):
+      id = db.Column(db.Integer, primary_key=True)
+      title = db.Column(db.String)
+      content = db.Column(db.Text)
+      # tags many-to-many relationship
+      tags = db.relationship('Tag', secondary=post_tag, backref='tags')
+
+
+  class Tag(db.Model):
+      id = db.Column(db.Integer, primary_key=True)
+      name = db.Column(db.String)
+
+
+  post_tag = db.Table('post_tag',
+                      db.Column('post_id', db.Integer, db.ForeignKey('tag.id')),
+                      db.Column('tag_id', db.Integer, db.ForeignKey('post.id')))
+#+END_SRC
+
+Untuk dapat membuat many-to-many relationship, kita membutuhkan satu
+tabel association, yang pada kasus ini kita namakan dengan tabel ~post_tag~.
+Tabel ini berisi asosiasi antara ~post.id~ dengan ~tag.id~.
+
+Mari kita masuk ke python interpreter dan memasukkan perintah untuk
+membuat tabel.
+
+#+BEGIN_SRC text
+  >>> from app import db
+  >>> from app import Post, Tag
+  >>> db.create_all()
+#+END_SRC
+
+Selanjutnya mari kita coba memasukkan /dummy/ data:
+
+#+BEGIN_SRC text
+  >>> p = Post()
+  >>> p.title = 'title'
+  >>> p.content = 'content'
+  >>> db.session.add(p)
+  >>> db.session.commit()
+  >>> post = Post.query.first()
+  >>> t = Tag()
+  >>> t.name = 'tag'
+  >>> post.tags.append(t)
+  >>> db.session.add(post)
+  >>> db.session.commit()
+#+END_SRC
+
+Contoh query data:
+
+#+BEGIN_SRC text
+  >>> tags = Post.query.first().tags
+#+END_SRC
+
+Contoh delete data:
+
+#+BEGIN_SRC text
+  >>> Post.query.first().tags = []
+  >>> db.session.commit()
+#+END_SRC
