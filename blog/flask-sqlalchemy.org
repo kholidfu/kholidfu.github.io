@@ -1,4 +1,4 @@
-#+TITLE: Semua Tentang Flask dan Flask-SQLAclhemy
+#+TITLE: Semua Tentang Flask dan Flask-SQLAclhemy - @kholidfu
 #+AUTHOR: Kholid Fuadi
 #+DATE: <2016-11-12 Sat>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="../stylesheet.css" />
