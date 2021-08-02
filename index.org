@@ -70,13 +70,11 @@ perbedaan =version= atau karena perbedaan =environment=. /So/, jangan
 lupa mantranya, _Google is your friend_.
 
 *More about me*
-- [ [[file:./assets/cv_7.pdf][my cv]] ]
+- [ [[https://twitter.com/kholidfu][twitter @kholidfu]] ]
 - [ [[https://www.youtube.com/c/kholidfu][youtube channels]] ]
 - [ [[https://github.com/kholidfu][github]] ]
-- [ [[https://www.facebook.com/kholid.fuadi][fb]] ]
+- [ [[https://www.facebook.com/kholid.fuadi][fb ]]]
 - [ [[https://id.linkedin.com/in/kholidfuadi][linkedin]] ]
-- [ [[https://plus.google.com/+kholidfu][g+]] ]
-- [ [[https://www.livecoding.tv/kholidfu/][livecoding.tv]] ]
 
 *About this site*
 #+BEGIN_QUOTE
